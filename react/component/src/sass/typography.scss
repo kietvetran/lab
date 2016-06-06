@@ -1,0 +1,199 @@
+/* Mobile typography */
+h1, .h1, {
+  color: $black;
+  font-size: 30px;
+  line-height: 38px;
+}
+
+h2, .h2, {
+  color: $black;
+  font-size: 26px;
+  line-height: 34px;
+}
+
+h3, .h3, {
+  color: $black;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+h4, .h4, {
+  color: $black;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+h5, .h5, {
+  color: $black;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+h1, h2, .h1, .h2 {
+  padding: 10px 0 20px 0;
+}
+
+h3, h4, .h3, .h4 {
+  padding: 5px 0 10px 0;
+}
+
+body {
+  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;  
+  background: $bg-color none repeat 0 0;
+}
+
+body, .body-text, textarea, input, h1, h2, h3, h4, h5{
+  font-family: arial, sans-serif;
+}
+
+body, .body-text, textarea, input, .action-btn, .primary-btn, label, legend, select, option{
+  font-size: 16px;
+  line-height: 22px;
+  color: $black;
+}
+
+.dialog {
+  font-size: 20px;
+  line-height: 28px;
+
+  .author {
+    font-size: 16px;
+  }
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+p, .body-paragraph {
+  padding-bottom: 15px;
+}
+
+.lead {
+  color: $black;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+} 
+
+span.ellipsis, a.ellipsis {
+  display: inline-block;
+}
+
+a {
+  text-decoration: underline;
+  cursor: pointer;
+  &, &:focus, &:hover, &:visited {
+    color: $black;
+  }
+
+  &:focus {
+    outline: #999 dotted 1px !important;
+    outline-offset: 2px;    
+  }
+
+
+  &.blue-link {
+    &, &:focus, &:hover, &:visited {
+      color: $blue-flat;
+    }
+  }
+}
+
+img {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 100%;
+  border: 0 none;
+}
+
+.relative {
+  position: relative;
+}
+
+.highligth {
+  color: red;
+}
+
+.hide {
+  display: none;
+  &.-active {
+    display: block;
+  }
+}
+
+.widget {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+tr, td, th {
+  padding: 0;
+}
+
+section, main, header, footer, article, nav, picture, figure, canvas, svg {
+  display: block;
+}
+
+@media screen and (max-width: $breakpoint-sm) { 
+  h1, .h1, {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  h2, .h2, {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  h3, .h3, {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  h4, .h4, {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  h5, .h5, {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  h1, h2, .h1, .h2 {
+    padding: 5px 0 15px 0;
+  }
+
+  h3, h4, .h3, .h4 {
+    padding: 0 0 5px 0;
+  }  
+
+  body, .body-text, textarea, input, .action-btn, .primary-btn, label, legend, select, option{
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .dialog {
+    font-size: 16px;
+    line-height: 24px;  
+     .author {
+      font-size: 14px;
+    }
+ }
+}

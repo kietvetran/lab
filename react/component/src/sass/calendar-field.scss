@@ -1,0 +1,39 @@
+.calendar-field {
+	min-width: 270px;
+	position: relative;
+	input {
+		width: 130px;
+		float: left;
+		margin-right: 10px;
+	}
+
+	.invisible {
+		color: transparent;
+		font-size: 1px;
+		text-indent: -500px;
+	}
+
+	.calendar-field-widget {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		z-index: 10;
+		background: #fff none repeat 0 0; 
+	}
+
+	table {
+		&, td, th {
+			border-collapse: collapse;
+			border: 1px solid $grey-dark;
+			padding: 0;
+			text-align: center;
+			vertical-align: middle;
+
+			a {
+				display: inline-block;
+				min-width: 40px;
+				background-color: red;
+			}
+		}
+	}
+}

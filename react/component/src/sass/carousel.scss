@@ -1,0 +1,255 @@
+.carousel-screen {
+  overflow: hidden;
+  margin: 0;
+  background: transparent none repeat scroll 0 0;
+  position: relative;
+  visibility: hidden;
+  border: 1px solid $grey-dark;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.25);
+
+  &.-initialized {
+    visibility: visible;
+  }
+
+  &.-carousel-moving {
+    &:before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 15;
+      background: transparent none repeat 0 0 !important;
+    }
+  }
+
+  &.-scroll {
+    box-shadow: none;
+    border: 0 none;
+    border-radius: 0;
+  }
+
+  .carousel-slider-holder {
+    overflow: hidden;
+    background: transparent none repeat 0 0;
+  }
+
+  .carousel-slider {
+    overflow: visible;
+    white-space: nowrap;
+    position: relative;
+    padding: 0;
+    left: 0; 
+    margin: 0;
+    list-style: none;
+    @include transition( all, .6s, ease);
+
+    &.scrolling {
+      text-align: center;
+      .carousel-item {
+        display: inline-block;
+        text-align: left;
+        white-space: normal;
+        margin: 0 0 0 15px;
+        padding: 0;        
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .carousel-item {
+    overflow: hidden;  
+    display: block;
+    position: relative;
+    z-index: 10;
+    &.-cloned {
+      visibility: hidden;
+      z-index: 5;
+    }
+
+    &.-inactive {
+      display: none;
+    }
+
+    .text {
+      padding: 0;
+      margin: 10px;
+      white-space: normal;
+    }
+
+    .image-text {
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+      background-color: #EEEEEE       
+    }
+  }
+
+  &.-included-arrows {
+    .image {
+      .text {
+        margin-left: 45px;
+        margin-right: 45px;        
+      }
+    }
+  }
+
+  .carousel-bullets {
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+    > li  {
+      display: inline-block;      
+    }
+
+    .bullet-item {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      border: 0 none;
+      position: relative;
+
+      &, &:hover, &:focus {
+        text-decoration: none;
+      }
+
+      &.-include-label {
+        width: auto;
+        height: auto;
+        margin: 0 5px;
+        &:after {
+          display: none;
+        }
+      }
+
+      &.-inactive {
+        display: none;
+      }
+
+      &:after {
+        content: " ";
+        position: absolute;
+        left: 7px;
+        right: 7px;
+        top: 7px;
+        bottom: 7px;
+        background: #CCCCCC none repeat 0 0;
+        border-radius: 100%;
+      }
+
+      &:hover {
+        color: $blue-royal-light; 
+        &:after {
+          background-color: $blue-royal-light;
+        }
+      }
+
+      &.-active {
+        cursor: default;
+        &, &:hover {
+          color: $blue-royal-light; 
+          &:after {
+            background-color: $blue-royal-light;
+          }
+        }
+      }
+    }
+  }
+
+  .carousel-arrow {
+    z-index: 30;
+    position: absolute;
+    bottom: 50%;
+    cursor: pointer;
+    margin: 0;
+    border: 0 none;
+
+    &.-inactive {
+      display: none;
+    }
+
+    &.-carousel-left {
+      left: 0;
+
+      &:after {
+        border-color: transparent #FFFFFF transparent transparent;
+      }
+
+      &:before {
+        border-left: 0;
+        border-bottom-right-radius: 4px;
+        border-top-right-radius: 4px;        
+      }
+
+      &:hover {
+        &:after {
+          border-color: transparent $blue-royal-light transparent transparent; 
+        }
+      }
+    }
+
+    &.-carousel-right {
+      right: 0;
+
+      &:after {
+        margin-left: 14px;
+        border-color: transparent transparent transparent #FFFFFF;
+      }
+
+      &:before {
+        border-right: 0;
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;        
+      }
+
+      &:hover {
+        &:after {
+          border-color: transparent transparent transparent $blue-royal-light;
+        }
+      }
+    }
+
+    &:before {
+      content: " ";
+      position: absolute;
+      top: -5px;
+      left: 0;
+      height: 30px;
+      width: 33px;
+      border: 1px solid #000000;
+      background: #333333 none repeat 0 0;
+      opacity: 0.5;
+      filter : alpha(opacity=50);
+    }
+
+    &:after {
+      content: " ";
+      border-width: 10px;
+      border-style: solid;
+      display: block;
+      position: relative;      
+    }
+
+    &:hover {
+      &:before {
+        background-color: #FFFFFF;
+        opacity: 1;
+        filter : alpha(opacity=100);
+      }
+    }
+  }
+}
+
+
+

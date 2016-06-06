@@ -1,0 +1,15 @@
+.icon-btn {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: transparent none no-repeat scroll center center;  
+  background-size: 30px auto;
+  font-size: 1px;
+  color: transparent !important;
+
+	&.-close {  
+	  background-image: url('../css/close.svg'); 
+	}
+}
+

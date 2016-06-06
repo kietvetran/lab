@@ -1,0 +1,22 @@
+.layout {
+  max-width: $app-width;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  list-style: none;
+}
+
+#header-content {
+	border-bottom: 1px solid $grey-light;
+}
+
+#main-content {
+}
+
+#footer-content {
+	border-top: 1px solid $grey-light;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}

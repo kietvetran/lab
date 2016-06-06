@@ -1,0 +1,44 @@
+/******************************************************************************
+  breadcrumb
+******************************************************************************/
+ul.breadcrumb {  
+  > li {
+    display: inline-block;
+    &:last-child {
+      a {
+        &:before, &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px 20px 5px 0;
+    font-weight: 700;
+    margin: 0 0 0 5px;
+
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+
+    &:before, &:after {
+      content: " ";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      border-style: solid;
+      border-width: 8px;
+      border-color: transparent transparent transparent $grey-dark;
+      margin: -7px -5px 0 0;
+    }
+
+    &:after {
+      border-left-color: #fff;      
+      margin-right: -4px;
+    }
+  }
+}
