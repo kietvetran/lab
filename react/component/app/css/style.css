@@ -1632,6 +1632,8 @@ ul.breadcrumb a {
 .calendar-field {
   min-width: 270px;
   position: relative; }
+  .calendar-field.-on-focus .calendar-field-widget, .calendar-field.-stay-open .calendar-field-widget {
+    display: block; }
   .calendar-field input {
     width: 130px;
     float: left;
@@ -1639,23 +1641,118 @@ ul.breadcrumb a {
   .calendar-field .invisible {
     color: transparent;
     font-size: 1px;
-    text-indent: -500px; }
+    text-indent: -500px;
+    position: absolute;
+    top: 0;
+    right: 100%; }
   .calendar-field .calendar-field-widget {
     position: absolute;
     left: 0;
     top: 100%;
     z-index: 10;
-    background: #fff none repeat 0 0; }
+    background: #fff none repeat 0 0;
+    overflow: hidden;
+    border: 1px solid #ADADAD;
+    border-radius: 4px;
+    margin: 5px 0 0 0;
+    display: none; }
+    .calendar-field .calendar-field-widget .calendar-field-view table {
+      margin: 10px; }
+    .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header {
+      padding: 20px 15px;
+      margin: 0 0 20px 0;
+      position: relative;
+      background: #D8D8D8 none repeat 0 0;
+      border-bottom: 1px solid #676767;
+      position: relative; }
+      .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-feild-name {
+        font-size: 22px; }
+      .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation {
+        width: 20px;
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin: -15px 15px 0 0; }
+        .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation:before, .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation:after {
+          content: " ";
+          position: absolute;
+          left: 0;
+          top: 0;
+          border-style: solid;
+          border-width: 15px 13px;
+          border-color: transparent transparent transparent #676767;
+          margin: 0 0 0 5px; }
+        .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation:after {
+          border-color: transparent transparent transparent #D8D8D8;
+          margin-left: 2px; }
+        .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation:hover:before, .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation:focus:before {
+          border-color: transparent transparent transparent #0075D2; }
+        .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation.-previous {
+          margin-right: 45px; }
+          .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation.-previous:before, .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation.-previous:after {
+            border-color: transparent #676767 transparent transparent;
+            left: auto;
+            right: 0;
+            margin: 0 5px 0 0; }
+          .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation.-previous:after {
+            border-color: transparent #D8D8D8 transparent transparent;
+            margin-right: 2px; }
+          .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation.-previous:hover:before, .calendar-field .calendar-field-widget .calendar-field-view .calendar-field-header .calendar-field-navigation.-previous:focus:before {
+            border-color: transparent #0075D2 transparent transparent; }
   .calendar-field table, .calendar-field table td, .calendar-field table th {
     border-collapse: collapse;
-    border: 1px solid #676767;
     padding: 0;
+    margin: 0;
     text-align: center;
-    vertical-align: middle; }
-    .calendar-field table a, .calendar-field table td a, .calendar-field table th a {
-      display: inline-block;
-      min-width: 40px;
-      background-color: red; }
+    vertical-align: middle;
+    position: relative; }
+    .calendar-field table.off:after, .calendar-field table td.off:after, .calendar-field table th.off:after {
+      content: " ";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+      background: transparent none repeat 0 0; }
+  .calendar-field table th {
+    font-weight: 700;
+    color: #676767; }
+  .calendar-field table .calendar-field-item {
+    display: inline-block;
+    min-width: 35px;
+    text-decoration: none;
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 2px;
+    font-weight: 500;
+    background: transparent none repeat 0 0;
+    position: relative; }
+    .calendar-field table .calendar-field-item.-is-today {
+      font-weight: 700; }
+      .calendar-field table .calendar-field-item.-is-today:after {
+        content: ' ';
+        position: absolute;
+        bottom: 4px;
+        left: 5px;
+        right: 5px;
+        border-bottom: 2px solid #676767; }
+    .calendar-field table .calendar-field-item:hover, .calendar-field table .calendar-field-item.-selected {
+      background-color: #0075D2;
+      color: #fff; }
+      .calendar-field table .calendar-field-item:hover:after, .calendar-field table .calendar-field-item.-selected:after {
+        border-bottom-color: #fff; }
+    .calendar-field table .calendar-field-item:focus {
+      border-color: #676767; }
+    .calendar-field table .calendar-field-item.-out-of-month, .calendar-field table .calendar-field-item.-out-of-month:hover, .calendar-field table .calendar-field-item.-disabled, .calendar-field table .calendar-field-item.-disabled:hover {
+      border: 0 none;
+      cursor: default;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+      background-color: inherit;
+      color: inherit; }
 
 .relative {
   position: relative; }
