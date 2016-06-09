@@ -51,9 +51,10 @@ var json = [
         'name' : 'language',
         'input': [
             {},
-            {'value':'nb','label':'Bokmål'},
-            {'value':'nn','label':'Nynorsk'},
-            {'value':'en','label':'English'}
+            {'value':'nb','label':'Bokmål NB'},
+            {'value':'nn','label':'Nynorsk NN'},
+            {'value':'en','label':'English EN'},
+            {'value':'ch','label':'Chinese CH'}
         ],
         'validation': {'required':true}
     },
@@ -65,18 +66,18 @@ var json = [
         'value': 'jan',
         'name' : 'month',
         'input': [
-            {'value':'jan','label':'Januar'},
-            {'value':'feb','label':'Februar'},
-            {'value':'mar','label':'Mars'},
-            {'value':'apr','label':'April'},
-            {'value':'mai','label':'Mai'},
-            {'value':'jun','label':'Juni'},
-            {'value':'jul','label':'Juli'},
-            {'value':'aug','label':'August'},
-            {'value':'sep','label':'September'},
-            {'value':'okt','label':'Oktober'},
-            {'value':'nov','label':'November'},
-            {'value':'des','label':'Desember'}
+            {'value':'jan','label':'Januar - første'},
+            {'value':'feb','label':'Februar - andre'},
+            {'value':'mar','label':'Mars - tredje'},
+            {'value':'apr','label':'April - fjerde'},
+            {'value':'mai','label':'Mai - femte'},
+            {'value':'jun','label':'Juni - sjette'},
+            {'value':'jul','label':'Juli - sjuende'},
+            {'value':'aug','label':'August - åttende'},
+            {'value':'sep','label':'September - niende'},
+            {'value':'okt','label':'Oktober - tiende'},
+            {'value':'nov','label':'November - elefte'},
+            {'value':'des','label':'Desember - tålte'}
         ],
         'validation': {'required':true}
     },

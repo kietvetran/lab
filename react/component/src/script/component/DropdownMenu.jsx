@@ -214,6 +214,19 @@ var DropdownMenu = React.createClass({
   			if ( ! option ) return;
 
   			var text = option.label, interval = [value.length,text.length];
+  			// Second text matche
+  			var beginning = self._createRegexp( value, 1, 1, 2 );
+  			if ( ! text.match(beginning) ) {
+  				var reg = self._createRegexp( value+'.*',1,1,1);
+  				var splited = text.split( reg );
+  				if ( splited[2] ) {
+  					splited.unshift( splited[2] );
+  					splited[3] = null;
+  					text = self._trim( splited.join(' ').replace( /\-/, ''), true);
+  					interval = [value.length,text.length];
+  				}	
+  			}
+
   			field.value = text;
   			self._selectText(interval[0],interval[1],field);  			
   			self.opt.searchTimer = setTimeout(function(){
@@ -319,7 +332,7 @@ var DropdownMenu = React.createClass({
   			return this.setState({'matched': null});
   		}
   	
-  		this.opt.reg = this._createRegexp( text, true, true, true );
+  		this.opt.reg = this._createRegexp( text, 1, 1, 1 );
   		var matched = [], list = this.state.list || [], length = list.length;
   		for ( var i=0; i<length; i++ ) {
   			if ( ! list[i].label.match(this.opt.reg) ) continue;
@@ -328,15 +341,13 @@ var DropdownMenu = React.createClass({
   		this.setState({'matched': matched});	
   	},
 
-  	_createRegexp : function( text, g, i, b, f, e, r ) {
+  	_createRegexp : function( text, g, i, b, f ) {
 		if ( text == '*' ) { return /.*/; }
-		text = e ? escapeText( text ) : text.replace( /\*/, '.*' );
-
-		var v = text.replace( /\+/g, '\\+' );
-		if ( r ) v = v.replace( r[0], r[1] );
-
+		var v = text.replace( /\*/, '.*' ).replace( /\+/g, '\\+' );
 		var m = (g && i) ? 'gi' : ( (g || i) ? (g ? 'g' : 'i') : '' );
-		return new RegExp((b ? '(^|\/|\\s+)' : '') +'('+v+')' + (f ? '($|\/|\\s+)': ''),m);
+		var s = b ? (b === 2 ? '^' : '(^|\/|\\s+)') : '';
+		var e = f ? (f === 2 ? '$' : '($|\/|\\s+)') : '';
+		return new RegExp( s+'('+v+')'+e, m );
   	},
 
   	_highLightText : function ( text, reg, all ) {
