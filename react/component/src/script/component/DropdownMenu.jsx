@@ -236,9 +236,16 @@ var DropdownMenu = React.createClass({
 
   	showList : function() {
   		var self = this, field = self.refs.field;
+  		if ( field && ! field.value ) {
+  			if ( self.state.selected.length === 1 ) {
+	  			field.value = self.state.selected[0].label;
+	  		}
+  		}
+
     	clearTimeout( self.opt.hideTimer );
     	if ( ! self.state.open ) {
-	    	self.setState({'open':true});
+    		self.opt.reg = null;
+	    	self.setState({'open':true,'matched': null});
 	    	setTimeout( function() { 
 	    		var value = field.value || '';
 	    		field.focus(); 
@@ -252,13 +259,13 @@ var DropdownMenu = React.createClass({
   		var length = list.length, i = 0, out = [];
 
 		for ( i; i<length; i++ ) {
-			var type  = 'item' + (list[i].selected ? ' -selected' : '');
-			var label = list[i].label; 
+			var label = list[i].label, type = 'item' + (list[i].selected ? ' -selected' : '') +
+				(self.state.matched && ! i ? ' -focus' : '');
 			if ( self.opt.reg ) label = self._highLightText(label, self.opt.reg);
 
 			out.push(
 				<li key={i}>
-					<a className={type} href="" data-index={i} onClick={self.clickOption}  dangerouslySetInnerHTML={{__html: label}}></a>
+					<a className={type} href="" data-index={list[i].index} onClick={self.clickOption}  dangerouslySetInnerHTML={{__html: label}}></a>
 				</li>
 			);
 		}

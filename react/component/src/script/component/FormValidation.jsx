@@ -3,7 +3,6 @@ var Addons = require('react-addons');
 var FormRow = require('./FormRow.jsx');
 
 var json = [
-    /*
 	{
 		'name' : 'personnumber',
 		'label': 'Personnummer',
@@ -81,8 +80,7 @@ var json = [
         ],
         'validation': {'required':true}
     },
-    */
-    {
+        {
         'label': 'Velg dag',
         'info' : 'dato',
         'text' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at efficitur odio',

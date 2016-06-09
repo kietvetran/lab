@@ -15,195 +15,171 @@
 
 </head> 
 <body>
-<ul class="layout" id="layout-wrapper">
+<div class="layout">
+	<header role="banner">
+		<h1>My React component</h1>
+	</header>
 	<!--
-	<li>
-		<h1>Color</h1>
-		<div class="content">
-			<span class="color-holder -blue-flat"></span>
-			<span class="color-holder -blue-royal"></span>
-			<span class="color-holder -blue-royal-light-wcag"></span>
-			<span class="color-holder -blue-royal-light"></span>
-			<span class="color-holder -blue-royal-light-50"></span>
-			<span class="color-holder -blue-focus"></span>
-		</div>
-		<div class="content">
-			<span class="color-holder -green"></span>
-			<span class="color-holder -green-dark"></span>
-			<span class="color-holder -green-light"></span>
-		</div>
-		<div class="content">
-			<span class="color-holder -grey"></span>
-			<span class="color-holder -grey-dark"></span>
-			<span class="color-holder -grey-light"></span>
-			<span class="color-holder -black"></span>
-			<span class="color-holder -black-dark"></span>
-		</div>
-		<div class="content">
-			<span class="color-holder -sand"></span>
-			<span class="color-holder -red"></span>
-			<span class="color-holder -purple"></span>
-			<span class="color-holder -purple-wcag"></span>
-			<span class="color-holder -orange"></span>
-		</div>
-	</li>
-	<li>
-		<h1>Typography</h1>
-		<div class="content">
-			<h1>H1 - headline1</h1>
-			<h2>H2 - headline2</h2>
-			<h3>H3 - headline3</h3>
-			<h4>H4 - headline4</h4>
-		</div>
-	</li>
-	<li>
-		<h1>Input</h1>
-		<div class="content">
-			<label for="name-field">Name</label>
-			<input type="text" name="firstname" class="input-field" id="name-field">
-		</div>
-		<div class="content">
-			<input type="checkbox" name="like" class="input-checkbox" id="like-checkbox" value="1">
-			<label for="like-checkbox">Yes, I like it</label>
-		</div>
-		<div class="content">
-			<fieldset>
-				<legend>Select an animal</legend>
-				<div>
-					<input type="radio" name="animal" value="dog" class="input-radio" id="dog-radio">
-					<label for="dog-radio">Dog</label>
-					<input type="radio" name="animal" value="cat" class="input-radio" id="cat-radio">
-					<label for="cat-radio">Cat</label>
+	<nav class="menu-wrapper" role="navigation">
+		<ul class="menu-list">
+			<li>
+				<a href="" onClick="return false;">Main menu1</a>
+			</li>
+		</ul>
+	</nav>
+	-->
+	<main>
+		<ul id="content-wrapper">
+			<li>
+				<h2>Color</h2>
+				<div class="content">
+					<span class="color-holder -bg-basic"></span>
+					<span class="color-holder -bg-color"></span>
 				</div>
-			</fieldset>
-		</div>
-		<div class="content">
-			<label for="month-selection">Select a month</label>
-			<div>
-				<select class="select-box" name="month-selection" id="month-selection">
-			    <option value="0">January</option>
-			    <option value="1">February</option>
-			    <option value="2">Mars</option>
-			    <option value="3">April</option>
-				</select>
-			</div>
-		</div>
-	</li>
-	<li>
-		<h1>Input-field</h1>
-		<div id="form-test">
-			<div style="position:relative;">
-				<input type="text" name="name" class="input-field" id="name-field">
-				<label class="input-field-description" for="name-field">
-					Navn
-				</label>
-			</div>
-		</div>
-	</li>
-	-->
-	<!--
-	<li>
-		<h1>Breadcrumb</h1>
-		<div class="content">        
-            <ul class="breadcrumb" aria-label="breadcrumb navigation" role="navigation">
-                <li><a href="">Home</a></li>
-                <li><a href="">News</a></li>
-                <li><a href="">Article</a></li>
-            </ul>
-		</div>
-	</li>
+				<div class="content">
+					<span class="color-holder -blue-flat"></span>
+					<span class="color-holder -blue-royal"></span>
+					<span class="color-holder -blue-royal-light-wcag"></span>
+					<span class="color-holder -blue-royal-light"></span>
+					<span class="color-holder -blue-royal-light-50"></span>
+					<span class="color-holder -blue-focus"></span>
+				</div>
+				<div class="content">
+					<span class="color-holder -green"></span>
+					<span class="color-holder -green-dark"></span>
+					<span class="color-holder -green-light"></span>
+				</div>
+				<div class="content">
+					<span class="color-holder -grey"></span>
+					<span class="color-holder -grey-dark"></span>
+					<span class="color-holder -grey-light"></span>
+					<span class="color-holder -black"></span>
+					<span class="color-holder -black-dark"></span>
+				</div>
+				<div class="content">
+					<span class="color-holder -sand"></span>
+					<span class="color-holder -red"></span>
+					<span class="color-holder -purple"></span>
+					<span class="color-holder -purple-wcag"></span>
+					<span class="color-holder -orange"></span>
+				</div>
+			</li>
+			<li>
+				<h2>Typography</h2>
+				<div class="content">
+					<h2>H1 - headline1</h2>
+					<h2>H2 - headline2</h2>
+					<h3>H3 - headline3</h3>
+					<h4>H4 - headline4</h4>
+				</div>
+			</li>
 
-	<li>
-		<h1>Numberlist</h1>
-		<div class="content">
-            <ol class="number-list -tab" role="tablist">
-                <li role="presentation">
-                    <a href="#" role="tab" aria-selected="false" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
-                        Tommy Nilsen
-                    </a>
-                </li>
-                <li class="active" role="presentation">
-                    <a href="#" role="tab" aria-selected="true" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
-                        Tine Sofie Mikkelsen
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" role="tab" aria-selected="false" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
-                        Christoffer Pettersen
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" role="tab" aria-selected="false" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
-                        Julie Johannesen
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" role="tab" aria-selected="false" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
-                        Sebastian Olsen
-                    </a>
-                </li>
-            </ol>
-        </div>
-		<div class="content">        
-            <ol class="number-list">
-                <li>One two three</li>
-                <li>Four five six</li>
-                <li>Seven eight nine ten</li>
-            </ol>
-		</div>
-	</li>
+			<li>
+				<h2>Breadcrumb</h2>
+				<div class="content">        
+		            <ul class="breadcrumb" aria-label="breadcrumb navigation" role="navigation">
+		                <li><a href="">Home</a></li>
+		                <li><a href="">News</a></li>
+		                <li><a href="">Article</a></li>
+		            </ul>
+				</div>
+			</li>
 
-	<li>
-		<h1>Slider</h1>
-		<div id="standard-slider">
-			
-		  <div role="application" class="slider-wrapper">
-		    <div id="sr1" class="slider-track">
-		      <a tabindex="0" aria-controls="sr1-text" aria-labelledby="volum-label"  aria-valuenow="0" aria-valuemax="100" aria-valuemin="0" role="slider" class="slider-btn">0</a>
-		      <span class="slider-tail"></span>
-		    </div>
-		  </div>
-		</div>
-	</li>
-	<li>
-		<h1>Ingredients</h1>
-		<div id="ingredients"></div>
-	</li>
-	-->
-	<li>
-		<h1>Form</h1>
-		<div id="form-test" class="_overflow-hidden">
-			<!--
-			<div class="form-row">
-				<div class="row-content -label-wrapper">
-					<div class="content-holder">
-						<a aria-controls="personnumber-information" href="" class="info-btn" role="button">
-							Informasjon om personnummer
-						</a>
-						<label for="personnumber" data-shortname="">
-							<span>Personnummer</span>
-							<span class="help-text">11 siffer</span>
-						</label>
-					</div>
-				</div>          
-				<div id="personnumber-information" class="row-content -info-wrapper" role="region" aria-expanded="false">
-					<div class="content-holder">
-						<div class="text-holder">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-						Pellentesque mattis sit amet nisi ac ullamcorper. Curabitur 
-						et tortor quis sem tempus accumsan eu vitae mi.
+			<li>
+				<h2>Numberlist</h2>
+				<div class="content">
+					<h3>Tab</h3>
+		            <ol class="number-list -tab" role="tablist">
+		                <li role="presentation">
+		                    <a href="#" role="tab" aria-selected="false" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
+		                        Tommy Nilsen
+		                    </a>
+		                </li>
+		                <li class="active" role="presentation">
+		                    <a href="#" role="tab" aria-selected="true" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
+		                        Tine Sofie Mikkelsen
+		                    </a>
+		                </li>
+		                <li role="presentation">
+		                    <a href="#" role="tab" aria-selected="false" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
+		                        Christoffer Pettersen
+		                    </a>
+		                </li>
+		                <li role="presentation">
+		                    <a href="#" role="tab" aria-selected="false" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
+		                        Julie Johannesen
+		                    </a>
+		                </li>
+		                <li role="presentation">
+		                    <a href="#" role="tab" aria-selected="false" aria-controls="number-list-panel-01" onClick="event.preventDefault();">
+		                        Sebastian Olsen
+		                    </a>
+		                </li>
+		            </ol>
+		        </div>
+				<div class="content">        
+					<h3>List</h3>
+		            <ol class="number-list">
+		                <li>One two three</li>
+		                <li>Four five six</li>
+		                <li>Seven eight nine ten</li>
+		            </ol>
+				</div>
+			</li>
+
+			<li>
+				<h2>Slider</h2>
+				<div id="standard-slider">
+					
+				  <div role="application" class="slider-wrapper">
+				    <div id="sr1" class="slider-track">
+				      <a tabindex="0" aria-controls="sr1-text" aria-labelledby="volum-label"  aria-valuenow="0" aria-valuemax="100" aria-valuemin="0" role="slider" class="slider-btn">0</a>
+				      <span class="slider-tail"></span>
+				    </div>
+				  </div>
+				</div>
+			</li>
+			<li>
+				<h2>Ingredients</h2>
+				<div id="ingredients"></div>
+			</li>
+			<!---->
+			<li>
+				<h2>Form</h2>
+				<div id="form-test" class="_overflow-hidden">
+					<!--
+					<div class="form-row">
+						<div class="row-content -label-wrapper">
+							<div class="content-holder">
+								<a aria-controls="personnumber-information" href="" class="info-btn" role="button">
+									Informasjon om personnummer
+								</a>
+								<label for="personnumber" data-shortname="">
+									<span>Personnummer</span>
+									<span class="help-text">11 siffer</span>
+								</label>
+							</div>
+						</div>          
+						<div id="personnumber-information" class="row-content -info-wrapper" role="region" aria-expanded="false">
+							<div class="content-holder">
+								<div class="text-holder">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Pellentesque mattis sit amet nisi ac ullamcorper. Curabitur 
+								et tortor quis sem tempus accumsan eu vitae mi.
+								</div>
+							</div>
+						</div>
+						<div class="row-content -input-wrapper">
+							<input id="personnumber" name="personnumber" type="tel" required="" spellcheck="false" autocomplete="off" data-rule="personnumber parent-target[.input-wrapper]" maxlength="12" aria-required="true" class="input-field">
 						</div>
 					</div>
+					-->
 				</div>
-				<div class="row-content -input-wrapper">
-					<input id="personnumber" name="personnumber" type="tel" required="" spellcheck="false" autocomplete="off" data-rule="personnumber parent-target[.input-wrapper]" maxlength="12" aria-required="true" class="input-field">
-				</div>
-			</div>
-			-->
-		</div>
-		<div>&nbsp;</div>
-	</li>
-</ul>
+				<div>&nbsp;</div>
+			</li>
+		</ul>
+	</main>
+</div>
 <script type="text/javascript" src="./js/example.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
 </body>

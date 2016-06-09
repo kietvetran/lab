@@ -11,23 +11,26 @@ body {
 }
 
 /*****************************************************************************/
-#layout-wrapper {
+#content-wrapper {
 	background: #fff none repeat 0 0;
+	/*
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	padding: 20px;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	*/
 }
 
-#layout-wrapper > li {
+#content-wrapper > li {
 	border-top: 1px solid #ccc;
 	padding: 20px 0;
 }
 
-#layout-wrapper > li:first-child {
+#content-wrapper > li:first-child {
 	border: 0 none;	
 }
+
 
 /*****************************************************************************/
 

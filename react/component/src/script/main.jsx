@@ -5,9 +5,9 @@ var List = require('./component/List.jsx');
 var FormValidation = require('./component/FormValidation.jsx');
 var Slider = require('./component/Slider.jsx');
 
-//ReactDOM.render(<List />, document.getElementById('ingredients'));
+ReactDOM.render(<List />, document.getElementById('ingredients'));
 ReactDOM.render(<FormValidation name="abc"/>, document.getElementById('form-test'));
-//ReactDOM.render(<Slider value="10"/>, document.getElementById('standard-slider'));
+ReactDOM.render(<Slider value="10"/>, document.getElementById('standard-slider'));
 
 /*
 var callback = {

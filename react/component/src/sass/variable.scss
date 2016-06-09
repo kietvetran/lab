@@ -24,10 +24,13 @@ $blue-royal-light: #008ED2; // Anchor, text on white buttons, active radio butto
 $blue-royal-light-50: #7FC6E8;
 $blue-focus: #44C0FF; // Focus on buttons and controls
 
-$bg-color: #fefefe;
-
 $purple-wcag: #A20076;
 $purple: #C94096;
+
+
+$bg-color: #ffffff;
+$bg-basic: #e2e2e2;
+
 
 // Thresholds
 $breakpoint-sm: 480px;
@@ -36,7 +39,9 @@ $breakpoint-lg: 1024px;
 
 /******* LAYOUT ********/
 $app-width: 1280px;
+$app-width-half: (1280px/2);
 $app-width-min: 320px;
+$app-width-min-half: (320px/2);
 
 
 .color-holder {
@@ -117,6 +122,12 @@ $app-width-min: 320px;
 	}
 	&.-orange {
 		background-color: $orange; &:after { content: '$orange / '+$orange; }
+	}
+	&.-bg-basic {
+		background-color: $bg-basic; &:after { content: '$bg-basic / '+$bg-basic; }
+	}
+	&.-bg-color {
+		background-color: $bg-color; &:after { content: '$bg-color / '+$bg-color; }
 	}
   @media (max-width: $breakpoint-md) {
   	width: 100%;
