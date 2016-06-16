@@ -2,79 +2,26 @@ var $ = require('jquery');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var List = require('./component/List.jsx');
+var ListArticle = require('./component/ListArticle.jsx');
 var FormValidation = require('./component/FormValidation.jsx');
 var Slider = require('./component/Slider.jsx');
 var Timeline = require('./component/Timeline.jsx');
 
-var timedata = [ 
-	{
-		'date': '1.6.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '1.5.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	},
-	{
-		'date': '3.6.2016',
-		'title': 'Lorem ipsum',
-		'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
-	}
-];
+var holder = document.getElementById('ingredients');
+if ( holder ) ReactDOM.render(<List />, holder );
 
-/*
-ReactDOM.render(<List />, document.getElementById('ingredients'));
-ReactDOM.render(<FormValidation name="abc"/>, document.getElementById('form-test'));
-ReactDOM.render(<Slider value="10"/>, document.getElementById('standard-slider'));
-*/
-ReactDOM.render(<Timeline list={timedata} />, document.getElementById('timeline-test')); //
+holder = document.getElementById('article-list-holder');
+if ( holder ) ReactDOM.render(<ListArticle />, holder);
+
+holder = document.getElementById('form-test');
+if ( holder ) ReactDOM.render(<FormValidation name="abc"/>, holder);
+
+holder = document.getElementById('standard-slider');
+if ( holder ) ReactDOM.render(<Slider value="10"/>, holder);
+
+
+//ReactDOM.render(<Timeline/>, holder); //
+	
 /*
 var callback = {
 	'blur': function() {

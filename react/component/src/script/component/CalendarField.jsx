@@ -65,7 +65,7 @@ var CalendarField = React.createClass({
 	},
 
 	render : function() {
-    	var cx = Addons.classSet, classes = cx({
+    var cx = Addons.classSet, classes = cx({
 			'calendar-field': true,
 			'-has-value' : this.state.value ? true : false,
 			'-has-error' : this.state.error ? true : false,
@@ -100,37 +100,37 @@ var CalendarField = React.createClass({
 		return input;
 	},
 
-  	componentDidMount : function() {
-  		var self = this, target = self.refs.input;
-  		if ( ! target ) return;
+	componentDidMount : function() {
+		var self = this, target = self.refs.input;
+		if ( ! target ) return;
 
-  		console.log( target );
+		console.log( target );
 
-  		/*
-  		if ( this.props.required ) {
-  			target.setAttribute('required','true');
-  			target.setAttribute('aria-required','true');
-  		}
+		/*
+		if ( this.props.required ) {
+			target.setAttribute('required','true');
+			target.setAttribute('aria-required','true');
+		}
 
-  		if ( this.props.minlength ) 
-  			target.setAttribute('minlength',this.props.minlength);
+		if ( this.props.minlength ) 
+			target.setAttribute('minlength',this.props.minlength);
 
-  		if ( this.props.disalbed ) 
-  			target.setAttribute('disabled','true');
+		if ( this.props.disalbed ) 
+			target.setAttribute('disabled','true');
 
-  		if ( this.state.error ) 
-  			target.setAttribute('aria-invalid','true');
+		if ( this.state.error ) 
+			target.setAttribute('aria-invalid','true');
 
-		target.addEventListener('change-state', function(e) {
+  	target.addEventListener('change-state', function(e) {
   			if ( e.detail ) self.setState( e.detail );
-		}, false );
+  	}, false );
 
-		target.addEventListener('get-state', function(e) {
-			if ( e.detail && typeof(e.detail.callback) == 'function' )
-				e.detail.callback( self.state );
-		}, false );
-		*/
-  	},
+  	target.addEventListener('get-state', function(e) {
+  		if ( e.detail && typeof(e.detail.callback) == 'function' )
+  			e.detail.callback( self.state );
+  	}, false );
+  	*/
+	},
 
 	/*************************************************************************
 	=== State Changes ===

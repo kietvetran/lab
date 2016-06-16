@@ -15,7 +15,7 @@
     .info-btn {
       &:before {
         border-radius: 100%;
-        box-shadow: 0 0 1px 1px $blue-royal-light-wcag;
+        box-shadow: 0 0 1px 1px $blue;
       }      
     }
   }
@@ -36,7 +36,6 @@
   input {
     position: relative;
     z-index: 2;
-    background-color: transparent;
   }
 
   input:not([type='submit']):not([type='checkbox']):not([type='radio']):not([type='reset']) {
@@ -138,7 +137,7 @@
     &:hover, &:focus, &-on-focus {
       &:before {
         border-radius: 100%;
-        box-shadow: 0 0 1px 1px $blue-royal-light-wcag;
+        box-shadow: 0 0 1px 1px $blue;
       }
     }
   }

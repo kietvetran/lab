@@ -149,18 +149,18 @@
       }
 
       &:hover {
-        color: $blue-royal-light; 
+        color: $blue-light; 
         &:after {
-          background-color: $blue-royal-light;
+          background-color: $blue-light;
         }
       }
 
       &.-active {
         cursor: default;
         &, &:hover {
-          color: $blue-royal-light; 
+          color: $blue-light; 
           &:after {
-            background-color: $blue-royal-light;
+            background-color: $blue-light;
           }
         }
       }
@@ -194,7 +194,7 @@
 
       &:hover {
         &:after {
-          border-color: transparent $blue-royal-light transparent transparent; 
+          border-color: transparent $blue-light transparent transparent; 
         }
       }
     }
@@ -215,7 +215,7 @@
 
       &:hover {
         &:after {
-          border-color: transparent transparent transparent $blue-royal-light;
+          border-color: transparent transparent transparent $blue-light;
         }
       }
     }

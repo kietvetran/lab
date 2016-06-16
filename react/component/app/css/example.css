@@ -1,5 +1,4 @@
 body {
-	background: #f2f2f2 none repeat 0 0;
 }
 
 .content {
@@ -17,8 +16,8 @@ body {
 
 /*****************************************************************************/
 #content-wrapper {
-	background: #fff none repeat 0 0;
 	/*
+	background: #fff none repeat 0 0;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	padding: 20px;

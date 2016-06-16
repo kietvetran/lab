@@ -77,7 +77,7 @@
 
 					&:hover, &:focus {
 						&:before {
-							border-color: transparent transparent transparent $blue-royal-light-wcag;
+							border-color: transparent transparent transparent $blue;
 						}
 					}
 
@@ -97,7 +97,7 @@
 
 						&:hover, &:focus {
 							&:before {
-								border-color: transparent $blue-royal-light-wcag transparent transparent;
+								border-color: transparent $blue transparent transparent;
 							}
 						}
 					}
@@ -158,7 +158,7 @@
 			}
 
 			&:hover, &.-selected {
-				background-color: $blue-royal-light-wcag;
+				background-color: $blue;
 				color: #fff;
 				&:after {
 					border-bottom-color: #fff;

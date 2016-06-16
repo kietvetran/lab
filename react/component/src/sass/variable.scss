@@ -18,24 +18,22 @@ $black: #323232; // Body text, and some other texts
 $black-dark: #212121; // Body text, and some other texts
 
 $blue: #0075D2;
-$blue-royal: #002776; // Titles, lead, overlays
-$blue-flat: #005AA4; // Primary buttons, emphasis on blue areas and product cards
-$blue-royal-light-wcag: #0075D2; // Secondary buttons
-$blue-royal-light: #008ED2; // Anchor, text on white buttons, active radio buttons
-$blue-royal-light-50: #7FC6E8;
-$blue-focus: #44C0FF; // Focus on buttons and controls
+$blue-dark: #002776; // Titles, lead, overlays
+$blue-light: #008ED2; // Anchor, text on white buttons, active radio buttons
 
-$purple-wcag: #A20076;
+$purple-dark: #A20076;
 $purple: #C94096;
 
+$yellow : #e6e600;
 
-$bg-color: #ffffff;
-$bg-basic: #e2e2e2;
+$bg-color: #323232;
+$bg-basic: #f3f3f3;
 
 
-// Thresholds
+//
 $breakpoint-sm: 480px;
-$breakpoint-md: 768px;
+$breakpoint-md-p: 768px;
+$breakpoint-md: 980px;
 $breakpoint-lg: 1024px;
 
 /******* LAYOUT ********/
@@ -67,23 +65,14 @@ $app-width-min-half: (320px/2);
 		padding: 0 10px;
 	}
 
-	&.-blue-flat {
-		background-color: $blue-flat; &:after { content: '$blue-flat / '+$blue-flat; }
+	&.-blue {
+		background-color: $blue; &:after { content: '$blue / '+$blue; }
 	}
-	&.-blue-royal {
-		background-color: $blue-royal; &:after { content: '$blue-royal / '+$blue-royal; }
+	&.-blue-dark {
+		background-color: $blue-dark; &:after { content: '$blue-dark / '+$blue-dark; }
 	}
-	&.-blue-royal-light-wcag {
-		background-color: $blue-royal-light-wcag; &:after { content: '$blue-royal-light-wcag / '+$blue-royal-light-wcag; }
-	}
-	&.-blue-royal-light {
-		background-color: $blue-royal-light; &:after { content: '$blue-royal-light / '+$blue-royal-light; }
-	}
-	&.-blue-royal-light-50 {
-		background-color: $blue-royal-light-50; &:after { content: '$blue-royal-light-50 / '+$blue-royal-light-50; }
-	}
-	&.-blue-focus {
-		background-color: $blue-focus; &:after { content: '$blue-focus / '+$blue-focus; }
+	&.-blue-light {
+		background-color: $blue-light; &:after { content: '$blue-light / '+$blue-light; }
 	}
 	&.-green {
 		background-color: $green; &:after { content: '$green / '+$green; }
@@ -118,11 +107,14 @@ $app-width-min-half: (320px/2);
 	&.-purple {
 		background-color: $purple; &:after { content: '$purple / '+$purple; }
 	}
-	&.-purple-wcag {
-		background-color: $purple-wcag; &:after { content: '$purple-wcag / '+$purple-wcag; }
+	&.-purple-dark {
+		background-color: $purple-dark; &:after { content: '$purple-dark / '+$purple-dark; }
 	}
 	&.-orange {
 		background-color: $orange; &:after { content: '$orange / '+$orange; }
+	}
+	&.-yellow {
+		background-color: $yellow; &:after { content: '$yellow / '+$yellow; }
 	}
 	&.-bg-basic {
 		background-color: $bg-basic; &:after { content: '$bg-basic / '+$bg-basic; }

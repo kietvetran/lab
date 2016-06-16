@@ -37,14 +37,6 @@ h3, h4, .h3, .h4 {
   padding: 5px 0 10px 0;
 }
 
-body {
-  overflow: scroll;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  width: 100%;  
-  background: $bg-color none repeat 0 0;
-}
-
 body, .body-text, textarea, input, h1, h2, h3, h4, h5{
   font-family: arial, sans-serif;
 }
@@ -105,7 +97,7 @@ a {
 
   &.blue-link {
     &, &:focus, &:hover, &:visited {
-      color: $blue-flat;
+      color: $blue;
     }
   }
 }

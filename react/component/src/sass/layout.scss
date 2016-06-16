@@ -1,3 +1,34 @@
+body {
+  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;  
+  background: $bg-color none repeat 0 0;
+  position: relative;
+}
+
+.layout {
+	position: relative;
+	.layout-inner {
+		padding: 0 10px;
+		margin: 0 auto;
+		max-width: $app-width;
+		clear: both;
+	}
+
+	main {
+		padding: 20px 0;
+	}
+
+	footer {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: 0;
+	}
+}
+
+/*
 html, body {
 	min-height: 100%;
 	height: 100%;
@@ -68,3 +99,4 @@ body:before, .layout {
 	left: 0;
 	right: 0;
 }
+*/

@@ -1,0 +1,174 @@
+ol.article-list {
+    counter-reset: li;
+	list-style: none;
+	width: 102%;
+	clear: both;	
+	float: left;
+
+	> li {
+		position: relative;
+		display: inline-block;
+		width: 25%;
+		padding: 0;
+		margin: 0;
+		float: left;
+
+		&:before {
+			content: counter(li);
+			counter-increment: li;
+			position: absolute;
+			left: 2px;
+			top: -2px;
+			text-align: center;
+			z-index: 3;
+			font-size: 10px;
+	    	opacity: 0.3; 
+	    	filter: alpha(opacity=30);	
+		}
+
+		.article {
+			display: block;
+			margin: 0 15px 15px 0;
+			border-radius: 2px;
+			text-decoration: none;
+			border: 1px solid $grey;
+			height: 210px;
+			overflow: hidden;
+			background: $white none repeat 0 0;
+
+			&:before, &:after {
+				content: ' ';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 20px;
+				background: $white none repeat 0 0;
+		    	opacity: 0.7; 
+		    	filter: alpha(opacity=70);	
+			}
+
+			&:before {
+				height: 25px;
+				z-index: 1;
+				display: none;
+			}
+
+			.article-title {
+				position: relative;
+				font-size: 20px;
+				line-height: 25px;
+				font-weight: 700;
+				height: 75px;
+				overflow: hidden;
+				&:after {
+					content: ' ';
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					height: 15px;
+					background: $white none repeat 0 0;
+				}
+			}
+
+			.article-summary {
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			.article-text {
+				display: none;
+			}
+		}
+
+	}
+
+	@media (max-width: $breakpoint-md) {
+		width: 101%;
+		> li {
+			width: 33.33%;
+			.article {
+				margin: 0 10px 10px 0;				
+			}
+		}
+	}
+	@media (max-width: $breakpoint-md-p) {
+		width: 101%;
+		> li {
+			width: 50%;
+		}
+	}
+	@media (max-width: $breakpoint-sm) {
+		width: 100%;
+		> li {
+			width: 100%;
+			.article {
+				margin: 0 0 10px 0;
+				height: 105px;
+				&:after {
+					height: 10px;
+			    	opacity: 1; 
+			    	filter: alpha(opacity=100);	
+				}
+				&:before {
+					display: block;
+				}
+
+				.article-title {
+					font-size: 14px;
+					height: 40px;
+					margin-bottom: -10px;
+				}
+
+				.article-summary {
+					font-size: inherit;
+					line-height: inherit;
+					position: relative;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+.article {
+	position: relative;
+	margin: 0;
+	padding: 30px 10px 10px 10px;
+	background: $white none repeat 0 0;
+
+	&.-trading .article-banner {
+		border-bottom-color: $purple;
+	}
+	&.-buying .article-banner {
+		border-bottom-color: $orange;
+	}
+	&.-gift .article-banner {
+		border-bottom-color: $green;
+	}
+	&.-saling .article-banner {
+		border-bottom-color: $yellow;
+	}
+
+	.article-banner {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 5px;
+		font-style: italic;
+		font-size: 14px;
+		padding: 0 10px 3px 10px;
+		border-bottom: 2px solid $grey-light;
+
+		* {
+			float: right;
+		}
+
+		.article-date {
+			float: left;
+		}
+	}
+}

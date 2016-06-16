@@ -1,6 +1,70 @@
 var React = require('react');
 var Addons = require('react-addons');
 
+var TIMELIST = [ 
+  {
+    'date': '1.6.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '1.5.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  },
+  {
+    'date': '3.6.2016',
+    'title': 'Lorem ipsum',
+    'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum vulputate risus. Integer eget ipsum accumsan, venenatis enim in, interdum leo.' 
+  }
+];
+
+
 var Timeline = React.createClass({
 	/*************************************************************************
 	=== Initialization ===
@@ -17,14 +81,14 @@ var Timeline = React.createClass({
 		//console.log('init..');
 	},
 
-	getDefaultProps : function() {
+	getDefaultProps : function() {    
 	},
 
-	getInitialState: function() {
-		return { 
-		};
-	},
-
+  getInitialState: function() {
+    return { 
+      'list': this.props.list || TIMELIST
+    };
+  },
 	componentWillMount  : function() {
     var self = this, verify = function( e ) {
       if ( ! self.opt.slider ) return;
@@ -48,7 +112,7 @@ var Timeline = React.createClass({
     document.addEventListener('touchend',  verify, false);
     document.addEventListener('touchmove', verify, false);
 
-    var list = this.props.list || [], length = list.length;
+    var list = this.state.list || [], length = list.length;
     for ( var i=0; i<length; i++ ) {
       var data = JSON.parse( JSON.stringify(list[i]) );
       data.time = typeof(data.date) === 'number' ? (new Date(data.date) ) :
@@ -112,7 +176,8 @@ var Timeline = React.createClass({
       }
     }
 
-    wrapper.style.height = (level*setting.pin[1])+(setting.pin[1]*2)+(h*level)+'px';
+    wrapper.style.height = (level*setting.pin[1]) + (setting.pin[1]*2) +
+      (h*level) + liner.clientHeight + 'px';
     this.opt.setting = setting;
   },
 
@@ -206,11 +271,13 @@ var Timeline = React.createClass({
 
       out.push(       
         <a key={key} href="" className="timeline-pin">
-          <div className="timeline-pin-date">{i} ==== {date}</div>
-          <div className="timeline-pin-title">{data.title}</div>
-          <div className="timeline-pin-text">{data.text}</div>
+          <div className="timeline-pin-cnt">
+            <div className="timeline-pin-date">{date}</div>
+            <div className="timeline-pin-title">{data.title}</div>
+            <div className="timeline-pin-text">{data.text}</div>
+          </div>
         </a>
-      );
+      ); //
     }
     return out;
   },
