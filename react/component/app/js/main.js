@@ -32902,6 +32902,7 @@ var DropdownMenu = React.createClass({
 	render: function () {
 		var cx = Addons.classSet,
 		    classes = cx({
+			'-stay-open': true,
 			'dropdown-menu': true,
 			'-has-value': this.state.value ? true : false,
 			'-has-error': this.state.error ? true : false,
@@ -33064,6 +33065,10 @@ var DropdownMenu = React.createClass({
 			return self.selectFocusOption();
 		}
 
+		if (code === 38 || code === 40) {
+			e.preventDefault();
+			self._changeItemFocus(code === 38);
+		}
 		if (self._isNoneCharacter(e) && value) {
 			return;
 		}
@@ -33099,8 +33104,9 @@ var DropdownMenu = React.createClass({
 			self.opt.reg = null;
 			self.setState({ 'open': true, 'matched': null });
 			setTimeout(function () {
-				var value = field.value || '';
+				var value = self.state.label || '';
 				field.focus();
+				field.value = value;
 				self._selectText(0, value.length, field);
 			}, 50);
 		}
@@ -33114,9 +33120,12 @@ var DropdownMenu = React.createClass({
 		    out = [];
 
 		for (i; i < length; i++) {
-			var label = list[i].label,
-			    type = 'item' + (list[i].selected ? ' -selected' : '') + (self.state.matched && !i ? ' -focus' : '');
-			if (self.opt.reg) label = self._highLightText(label, self.opt.reg);
+			var label = list[i].label;
+			var type = 'item' + (list[i].selected ? ' -selected' : '') + (self.state.matched && !i ? ' -focus' : '');
+
+			if (self.opt.reg) {
+				label = self._highLightText(label, self.opt.reg);
+			}
 
 			out.push(React.createElement(
 				'li',
@@ -33170,6 +33179,29 @@ var DropdownMenu = React.createClass({
 		}
 
 		self._addClass(item, mode);
+	},
+
+	_changeItemFocus: function (up) {
+		var self = this,
+		    children = self.refs.list.children || [];
+		var mode = '-focus',
+		    length = children.length,
+		    i = 0,
+		    index = -1;
+		for (i; i < length; i++) {
+			if (self._hasClass(children[i].children[0], mode)) {
+				index = i;
+				i = length;
+			}
+		}
+
+		index += up ? -1 : 1;
+		if (index < 0) {
+			index = length - 1;
+		} else if (index >= length) {
+			index = 0;
+		}
+		self._toggleFocus(children[index].children[0]);
 	},
 
 	_renderSearch: function (field, value) {
