@@ -79,5 +79,6 @@ gulp.task('watch', function () {
 });
  
 //gulp.task('default', ['connectDist','connectDev','html','sass','lint','watch']);
-gulp.task('default', ['connectDev','html','sass','lint','browserify','watch']);
+//gulp.task('default', ['connectDev','html','sass','lint','browserify','watch']);
 //gulp.task('default', ['connectDev','html','sass','lint','watch']);
+gulp.task('default', ['connectDev','html','lint','browserify','watch']);

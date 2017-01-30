@@ -1599,8 +1599,7 @@ header {
       margin-right: 10px; }
 
 main {
-  background: #f3f3f3 none repeat 0 0;
-  overflow: hidden; }
+  background: #f3f3f3 none repeat 0 0; }
   main:after {
     content: ' ';
     display: block;
@@ -2288,3 +2287,5 @@ a:focus, button:focus, h1:focus, h2:focus, h3:focus, h4:focus, h5:focus, select:
   z-index: 1000;
   font-size: 11px;
   line-height: 16px; }
+
+/*# sourceMappingURL=style.css.map */
