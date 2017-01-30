@@ -17,7 +17,7 @@ var ListItem = React.createClass({
 
 	render : function() {
 		return (
-			<li class="item" className={this.state.mode ? 'yes' : 'no'}>
+			<li className="item" className={this.state.mode ? 'yes' : 'no'}>
 				<a href="#" onClick={this.toggleItem}>{this.props.text}</a>
 			</li>
 		);

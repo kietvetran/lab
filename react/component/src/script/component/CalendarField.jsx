@@ -89,11 +89,11 @@ var CalendarField = React.createClass({
 		var table = this.getCalendar(), input = (
 			<div id={idWrapper} className={classes}>
 				<input name={this.props.name} type="text" defaultValue=""
-					onBlur={this.onBlur} onKeyUp={this.onKeyup} onFocus={this.onFocus} maxlength="10"
-					ref="inputA" id={idA} className={inputClass[0]} spellcheck="false" autocomplete="off"/>
+					onBlur={this.onBlur} onKeyUp={this.onKeyup} onFocus={this.onFocus} maxLength="10"
+					ref="inputA" id={idA} className={inputClass[0]} spellCheck="false" autoComplete="off"/>
 				<input name={this.props.name} type="text" defaultValue=""
-					onBlur={this.onBlur} onKeyUp={this.onKeyup} onFocus={this.onFocus} maxlength="10"
-					ref="inputB" id={idB} className={inputClass[1]} spellcheck="false" autocomplete="off"/> 
+					onBlur={this.onBlur} onKeyUp={this.onKeyup} onFocus={this.onFocus} maxLength="10"
+					ref="inputB" id={idB} className={inputClass[1]} spellCheck="false" autoComplete="off"/> 
 				<div className="calendar-field-widget" onClick={this.onClickCalendarWidget} tabIndex={this.state.tabindex} onBlur={this.onBlur} onFocus={this.onFocus}>{table}</div>
 			</div> //
 		);
@@ -364,7 +364,7 @@ var CalendarField = React.createClass({
 
 		return (
 		    <table className="calendar-table" aria-label="Kalender" role="application">
-		        <thead><tr class="calendar-table-header calendar-weak" role="presentation">{week}</tr></thead>
+		        <thead><tr className="calendar-table-header calendar-weak" role="presentation">{week}</tr></thead>
 		        <tbody>{out}</tbody>
 		    </table>//
 		);

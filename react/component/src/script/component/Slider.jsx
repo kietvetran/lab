@@ -40,7 +40,7 @@ var Slider = React.createClass({
 
 		return (
 			<div role="application" className={classes}>
-			    <div class="slider-input-wrapper">
+			    <div className="slider-input-wrapper">
 			    	<input type="tel" defaultValue={this.state.value} className="input-field first" ref="input" onKeyUp={this.onKeyup}/>
 			    </div>
 				<div id="sr1" className="slider-track">

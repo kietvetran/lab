@@ -38,7 +38,7 @@ var InputField = React.createClass({
 		var input = (
 			<input name={this.props.name} type={this.props.type} defaultValue={this.state.value}
 				onBlur={this.onBlur} onKeyUp={this.onKeyup} onFocus={this.onFocus}
-				ref="input" id={this.props.id} className={classes} spellcheck="false" autocomplete="off"/> 
+				ref="input" id={this.props.id} className={classes} spellCheck="false" autoComplete="off"/> 
 		);
 		return input;
 	},

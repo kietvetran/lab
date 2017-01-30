@@ -84,7 +84,7 @@ var DropdownMenu = React.createClass({
 	        	<div className="dropdown-menu-widget">
 	        		<div className="dropdown-menu-search">
 	                    <input type="text" className="input-field dropdown-menu-field" defaultValue={value} aria-owns={idList} role="combobox" aria-autocomplete="inline" 
-    		                id={idSearch} placeholder={placeholder} spellcheck="false" autocomplete="off" ref="field"
+    		                id={idSearch} placeholder={placeholder} spellCheck="false" autoComplete="off" ref="field"
     		                onFocus={this.onFocus} onBlur={this.onBlur} onKeyUp={this.onKeyUp} onKeyDown={this.onKeyDown}/>
     	            </div>
 	                <ul className="dropdown-menu-list" role="listbox" id={idList} aria-expanded={this.state.open} 
@@ -199,6 +199,7 @@ var DropdownMenu = React.createClass({
 		if ( e.keyCode === 13 ) { e.preventDefault(); }
   	},
 
+
   	onKeyUp: function( e ) {
   		var self = this, field = e.currentTarget;
   		var code = e.keyCode, value = field.value || '';
@@ -206,34 +207,10 @@ var DropdownMenu = React.createClass({
 
   		if ( self._isNoneCharacter(e) && value ) { return; }
 
-  		clearTimeout( self.opt.searchTimer );
-  		self.opt.searchTimer = setTimeout( function() {
-  			self._filterList( value );
-
-  			var option = (self.state.matched || [])[0];
-  			if ( ! option ) return;
-
-  			var text = option.label, interval = [value.length,text.length];
-  			// Second text matche
-  			var beginning = self._createRegexp( value, 1, 1, 2 );
-  			if ( ! text.match(beginning) ) {
-  				var reg = self._createRegexp( value+'.*',1,1,1);
-  				var splited = text.split( reg );
-  				if ( splited[2] ) {
-  					splited.unshift( splited[2] );
-  					splited[3] = null;
-  					text = self._trim( splited.join(' ').replace( /\-/, ''), true);
-  					interval = [value.length,text.length];
-  				}	
-  			}
-
-  			field.value = text;
-  			self._selectText(interval[0],interval[1],field);  			
-  			self.opt.searchTimer = setTimeout(function(){
-  				if ( self._getSelectText() ) return;
-	  			self._selectText(interval[0],interval[1],field);  			
-  			}, 35 );
-  		}, 50 );
+  		//clearTimeout( self.opt.searchTimer );
+  		//self.opt.searchTimer = setTimeout( function() {
+			self._renderSearch( field, value );
+  		//}, 50 );
   	},
 
   	hideList : function( force ) {
@@ -326,6 +303,34 @@ var DropdownMenu = React.createClass({
 		self._addClass( item, mode );
 	},
 
+	_renderSearch: function( field, value ) {
+		var matched = this._filterList( value );
+		var option  = (matched || [])[0];
+		if ( ! option || this._getSelectText() ) return;
+
+		var text = option.label, interval = [value.length,text.length];
+
+		// Second text matche
+		var beginning = this._createRegexp( value, 1, 1, 2 );
+		if ( ! text.match(beginning) ) {
+			var reg = this._createRegexp( value+'.*',1,1,1);
+			var splited = text.split( reg );
+			if ( splited[2] ) {
+				splited.unshift( splited[2] );
+				splited[3] = null;
+				text = this._trim( splited.join(' ').replace( /\-/, ''), true);
+				interval = [value.length,text.length];
+			}	
+		}
+
+		field.value = text;
+		this._selectText(interval[0],interval[1],field);
+		//this.opt.searchTimer = setTimeout(function(){
+		//	if ( this._getSelectText() ) return;
+		//	this._selectText(interval[0],interval[1],field);  			
+		//}, 35 );
+	},
+
   	_filterList: function( text ) {
   		if ( ! text ) {
   			this.opt.reg = null;
@@ -338,7 +343,8 @@ var DropdownMenu = React.createClass({
   			if ( ! list[i].label.match(this.opt.reg) ) continue;
   			matched.push( list[i] );
   		}
-  		this.setState({'matched': matched});	
+  		this.setState({'matched': matched});
+  		return matched;
   	},
 
   	_createRegexp : function( text, g, i, b, f ) {
