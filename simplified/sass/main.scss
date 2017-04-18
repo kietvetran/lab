@@ -1,0 +1,10 @@
+main {
+	background: $bg-basic none repeat 0 0;
+
+	&:after {
+		content: ' ';
+		display: block;
+		width: 100%;
+		clear: both;
+	}
+}

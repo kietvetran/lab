@@ -1,0 +1,128 @@
+/******* COLOR ********/
+$red: #E60000;
+$sand: #E1D5AF;
+
+$green: #89b339;
+$green-light: #7fd41b;
+$green-dark: #6ab023;
+
+$orange : #E19100;
+
+$white: #FFFFFF;
+
+$grey: #ADADAD;
+$grey-light: #D8D8D8; // Lines, borders, inactive tool elements (slider, etc.)
+$grey-dark: #676767;
+
+$black: #323232; // Body text, and some other texts
+$black-dark: #212121; // Body text, and some other texts
+
+$blue: #0075D2;
+$blue-dark: #002776; // Titles, lead, overlays
+$blue-light: #008ED2; // Anchor, text on white buttons, active radio buttons
+
+$purple-dark: #A20076;
+$purple: #C94096;
+
+$yellow : #e6e600;
+
+$bg-color: #323232;
+$bg-basic: #f3f3f3;
+
+
+//
+$breakpoint-sm: 480px;
+$breakpoint-md-p: 768px;
+$breakpoint-md: 980px;
+$breakpoint-lg: 1024px;
+
+/******* LAYOUT ********/
+$app-width: 1280px;
+$app-width-half: (1280px/2);
+$app-width-min: 320px;
+$app-width-min-half: (320px/2);
+
+
+.color-holder {
+	background: transparent none repeat 0 0;
+	display: inline-block;
+	width: 290px;
+	height: 60px;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+	padding: 0 0 25px 0;
+	margin: 0 15px 15px 0;
+	position: relative;
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-top: 1px solid #999;
+		height: 25px;
+		line-height: 25px;
+		background: #fff none repeat 0 0;
+		padding: 0 10px;
+	}
+
+	&.-blue {
+		background-color: $blue; &:after { content: '$blue / '+$blue; }
+	}
+	&.-blue-dark {
+		background-color: $blue-dark; &:after { content: '$blue-dark / '+$blue-dark; }
+	}
+	&.-blue-light {
+		background-color: $blue-light; &:after { content: '$blue-light / '+$blue-light; }
+	}
+	&.-green {
+		background-color: $green; &:after { content: '$green / '+$green; }
+	}
+	&.-green-dark {
+		background-color: $green-dark; &:after { content: '$green-dark / '+$green-dark; }
+	}
+	&.-green-light {
+		background-color: $green-light; &:after { content: '$green-light / '+$green-light; }
+	}
+	&.-grey {
+		background-color: $grey; &:after { content: '$grey / '+$grey; }
+	}
+	&.-grey-dark {
+		background-color: $grey-dark; &:after { content: '$grey-dark / '+$grey-dark; }
+	}
+	&.-grey-light {
+		background-color: $grey-light; &:after { content: '$grey-light / '+$grey-light; }
+	}
+	&.-black {
+		background-color: $black; &:after { content: '$black / '+$black; }
+	}
+	&.-black-dark {
+		background-color: $black-dark; &:after { content: '$black-dark / '+$black-dark; }
+	}
+	&.-sand {
+		background-color: $sand; &:after { content: '$sand / '+$sand; }
+	}
+	&.-red {
+		background-color: $red; &:after { content: '$red / '+$red; }
+	}
+	&.-purple {
+		background-color: $purple; &:after { content: '$purple / '+$purple; }
+	}
+	&.-purple-dark {
+		background-color: $purple-dark; &:after { content: '$purple-dark / '+$purple-dark; }
+	}
+	&.-orange {
+		background-color: $orange; &:after { content: '$orange / '+$orange; }
+	}
+	&.-yellow {
+		background-color: $yellow; &:after { content: '$yellow / '+$yellow; }
+	}
+	&.-bg-basic {
+		background-color: $bg-basic; &:after { content: '$bg-basic / '+$bg-basic; }
+	}
+	&.-bg-color {
+		background-color: $bg-color; &:after { content: '$bg-color / '+$bg-color; }
+	}
+  @media (max-width: $breakpoint-md) {
+  	width: 100%;
+  }
+}

@@ -1,0 +1,276 @@
+.form-row {
+  padding: 15px 0 15px 250px;
+  clear: both;
+  float: left;
+  width: 100%;
+  position: relative;
+ 
+  &.-show-information {
+    .row-content {
+      &.-info-wrapper {
+        display: block;
+      }
+    }
+
+    .info-btn {
+      &:before {
+        border-radius: 100%;
+        box-shadow: 0 0 1px 1px $blue;
+      }      
+    }
+  }
+
+  &.-hide {
+    display: none;
+    &.-active {
+      display: block;
+    }
+  }
+
+  legend, .-label-wrapper label {
+    color: $black;
+    font-weight: normal;
+    font-size: 18px;
+  }  
+
+  input {
+    position: relative;
+    z-index: 2;
+  }
+
+  input:not([type='submit']):not([type='checkbox']):not([type='radio']):not([type='reset']) {
+  }
+
+  .input-unit-wrapper {
+    width: 100%;
+    > * {
+      float: left;
+    }
+
+    input:not([type='submit']):not([type='checkbox']):not([type='radio']):not([type='reset']) {
+      width: 90% !important;
+    }
+
+    &.kr-and-or {  
+      padding-right: 60px;
+      position: relative;
+      > * {
+        float: none;
+      }
+
+      input:not([type='submit']):not([type='checkbox']):not([type='radio']):not([type='reset']) {
+        width: 70px !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-left: 8px;
+        &:first-child {
+          width: 100% !important;
+          position: relative;
+          top: auto;
+          right: auto;
+          margin-left: 0;
+          max-width: 230px;
+        }
+      }
+    }
+
+    &.address-postnumer,
+    &.phonenumber-prefix {  
+      padding-right: 0;
+      padding-left: 88px;
+      input:not([type='submit']):not([type='checkbox']):not([type='radio']):not([type='reset']) {
+        width: 100% !important;
+        &:first-child {
+          width: 75px !important;
+          float: left;
+          margin-left: -88px;
+        }
+      }
+    }
+
+    &.house-number {  
+      padding-left: 0;
+      padding-right: 88px;
+      input:not([type='submit']):not([type='checkbox']):not([type='radio']):not([type='reset']) {
+        float: right;
+        width: 75px !important;
+        margin-right: -88px;
+        &:first-child {
+          width: 100% !important;        
+          float: none;
+        }
+      }
+    }
+
+    .input-unit {
+      margin: 10px 0 0 5px;
+      font-weight: 700;
+    }
+  }
+
+  .info-btn {
+    font-size: 1px;
+    color: transparent;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 3;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      background: transparent none no-repeat scroll center center / 30px auto;  
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiICB2aWV3Qm94PSIwIDAgNDAuMTI0IDQwLjEyNCI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTE5LjkzOCwxMi4xNDFjMS44NTYsMCwyLjk3MSwwLjk5LDIuOTcxLDIuNjZjMCwzLjAzMy01LjQxNCwzLjg2OS01LjQxNCw3LjU1YzAsMC45OSwwLjY0OCwyLjA3MiwxLjk3OSwyLjA3MiAgICBjMi4wNDIsMCwxLjc5NS0xLjUxNiwyLjUzOC0yLjZjMC45ODktMS40NTMsNS42LTMsNS42LTcuMDIzYzAtNC4zNjEtMy44OTctNi4xODgtNy44NTgtNi4xODhjLTMuNzczLDAtNy4yNCwyLjY5Mi03LjI0LDUuNzI1ICAgIGMwLDEuMjM3LDAuOTI5LDEuODg3LDIuMDEyLDEuODg3QzE3LjUyNSwxNi4yMjUsMTUuOTc5LDEyLjE0MSwxOS45MzgsMTIuMTQxeiIvPjxwYXRoIGZpbGw9IiMzMzMiIGQ9Ik0yMi4xMzUsMjguOTczYzAtMS4zOTMtMS4xNDUtMi41MzctMi41MzctMi41MzdzLTIuNTM3LDEuMTQ2LTIuNTM3LDIuNTM3YzAsMS4zOTMsMS4xNDUsMi41MzcsMi41MzcsMi41MzcgICAgUzIyLjEzNSwzMC4zNjYsMjIuMTM1LDI4Ljk3M3oiLz48cGF0aCBmaWxsPSIjMzMzIiBkPSJNNDAuMTI0LDIwLjA2MkM0MC4xMjQsOSwzMS4xMjQsMCwyMC4wNjIsMFMwLDksMCwyMC4wNjJzOSwyMC4wNjIsMjAuMDYyLDIwLjA2MlM0MC4xMjQsMzEuMTI1LDQwLjEyNCwyMC4wNjJ6IE0yLDIwLjA2MiAgICBDMiwxMC4xMDMsMTAuMTAzLDIsMjAuMDYyLDJjOS45NTksMCwxOC4wNjIsOC4xMDMsMTguMDYyLDE4LjA2MmMwLDkuOTU5LTguMTAzLDE4LjA2Mi0xOC4wNjIsMTguMDYyICAgIEMxMC4xMDMsMzguMTI0LDIsMzAuMDIxLDIsMjAuMDYyeiIvPjwvc3ZnPg==);
+    }
+
+    &, &:hover, &:focus, &-on-focus {
+      border: 0 none;  
+    }
+
+    &:hover, &:focus, &-on-focus {
+      &:before {
+        border-radius: 100%;
+        box-shadow: 0 0 1px 1px $blue;
+      }
+    }
+  }
+
+  .row-content {
+    &, > * {
+      float: left;      
+    }
+
+    &.-label-wrapper, &.-info-wrapper {
+      margin-left: -250px;
+      width: 245px;
+    }
+
+    &.-label-wrapper {
+      padding: 11px 45px 0 0;
+      .info-btn {
+        float: right;
+        margin: -5px -35px 0 0;
+      }
+
+      div.help-text, span.help-text {
+        color: $grey-dark;        
+      }
+
+      span.help-text, a.help-text {
+        display: inline-block;
+        &:before {
+          content: "(";
+        }
+        &:after {
+          content: ")";
+        }
+
+        &.inline {
+          display: inline;
+        }
+      }    
+    }
+
+    &.-info-wrapper {
+      white-space: normal;
+      position: relative;
+      display: none;
+      margin-top: 40px;
+
+      .content-holder {
+        padding: 10px;
+        margin: 10px 5px 10px 0;
+        border-radius: 4px;
+        background: $grey-light none repeat 0 0;
+      }
+    }
+
+    &.-input-wrapper {
+      clear: none;
+      width: 100%;
+      max-width: 650px;
+
+      &:first-child {
+        padding-top: 5px;
+      }
+    }
+  }
+
+  .info-message {
+    clear: left;
+    &.-error {
+      color: $red;
+    }
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    & {
+      padding: 0 0 10px 0;
+      &.-action-row {
+        padding-top: 15px;
+      }
+    }
+
+    &.-side-50 {
+      &:first-child {
+        .-input-wrapper {
+          padding-right: 15px;
+        }
+      }
+
+      float: left;
+      width: 50%;
+      clear: none;
+    }  
+
+    .row-content {
+      &.-label-wrapper, &.-info-wrapper {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      &.-label-wrapper {
+        padding-bottom: 5px;
+      }
+
+      &.-info-wrapper {
+        margin-top: -5px;
+        .content-holder {
+          width: 100%;
+        }
+      }
+
+      &.-input-wrapper {
+        max-width: none;      
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &.-side-50 {
+      &:first-child {
+        .-input-wrapper {
+          padding-right: 0;
+        }
+      }
+      width: 100%;
+      clear: both;
+      margin-right: 0;
+    }
+
+    .row-content {
+      &.-label-wrapper, &.-info-wrapper {
+        &, .content-holder {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

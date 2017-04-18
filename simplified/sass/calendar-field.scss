@@ -1,0 +1,184 @@
+.calendar-field {
+	min-width: 270px;
+	position: relative;
+
+	&.-on-focus, &.-stay-open {
+		.calendar-field-widget {
+			display: block;
+		}
+	}
+
+	input {
+		width: 130px;
+		float: left;
+		margin-right: 10px;
+	}
+
+	.invisible {
+		color: transparent;
+		font-size: 1px;
+		text-indent: -500px;
+		position: absolute;
+		top: 0;
+		right: 100%;
+	}
+
+	.calendar-field-widget {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		z-index: 10;
+		background: #fff none repeat 0 0; 
+		overflow: hidden;
+		border: 1px solid $grey;
+		border-radius: 4px;
+		margin: 5px 0 0 0;
+		display: none;
+
+		.calendar-field-view {
+			table {
+				margin: 10px;
+			}
+			.calendar-field-header {
+				padding: 20px 15px;
+				margin: 0 0 20px 0;
+				position: relative;
+				background: $grey-light none repeat 0 0;
+				border-bottom: 1px solid $grey-dark;
+				position: relative;
+
+				.calendar-feild-name {
+					font-size: 22px;				
+				}
+
+				.calendar-field-navigation {
+					width: 20px;
+					height: 30px;
+					position: absolute;
+					right: 0;
+					top: 50%;
+					margin: -15px 15px 0 0;
+
+					&:before, &:after {
+						content: " ";
+						position: absolute;
+						left: 0;
+						top: 0;
+						border-style: solid;
+						border-width: 15px 13px;
+						border-color: transparent transparent transparent $grey-dark;
+						margin: 0 0 0 5px;
+					}
+
+					&:after {
+						border-color: transparent transparent transparent $grey-light;						
+						margin-left: 2px;
+					}
+
+					&:hover, &:focus {
+						&:before {
+							border-color: transparent transparent transparent $blue;
+						}
+					}
+
+					&.-previous {
+						margin-right: 45px;
+						&:before, &:after {
+							border-color: transparent $grey-dark transparent transparent;
+							left: auto;
+							right: 0;
+							margin: 0 5px 0 0;
+						}
+
+						&:after {
+							border-color: transparent $grey-light transparent transparent;
+							margin-right: 2px;
+						}
+
+						&:hover, &:focus {
+							&:before {
+								border-color: transparent $blue transparent transparent;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	table {		
+		&, td, th {
+			border-collapse: collapse;
+			padding: 0;
+			margin: 0;
+			text-align: center;
+			vertical-align: middle;
+			position: relative;
+
+			&.off:after {
+				content: " ";
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				z-index: 2;
+				background: transparent none repeat 0 0;
+			}
+		}
+
+		th {
+			font-weight: 700;
+			color: $grey-dark;
+		}
+
+		.calendar-field-item {
+			display: inline-block;
+			min-width: 35px;
+			text-decoration: none;
+			border: 1px solid $grey-light;
+			border-radius: 4px;
+			padding: 5px;
+			margin: 2px;
+			font-weight: 500;
+			background: transparent none repeat 0 0;
+			position: relative;
+
+			&.-is-today {
+				font-weight: 700;
+				&:after {
+					content: ' ';
+					position: absolute;
+					bottom: 4px;
+					left: 5px;
+					right: 5px;
+					border-bottom: 2px solid $grey-dark;
+				}
+			}
+
+			&:hover, &.-selected {
+				background-color: $blue;
+				color: #fff;
+				&:after {
+					border-bottom-color: #fff;
+				}				
+			}
+
+			&:focus {
+				border-color: $grey-dark;
+			}
+
+			&.-out-of-month, &.-disabled {
+				&, &:hover {
+					border: 0 none;
+					cursor: default;
+			    	opacity: 0.5; 
+			    	filter: alpha(opacity=50);				
+			    	background-color: inherit;
+			    	color: inherit;
+			   	}
+			}
+		}
+	}
+}

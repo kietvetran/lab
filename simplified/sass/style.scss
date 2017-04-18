@@ -1,0 +1,82 @@
+/*http://sass-lang.com/guide*/
+
+$base-url: './';
+$img-url: '../img/';
+@import 'reset';
+@import 'variable';
+@import 'mixin';
+@import 'typography';
+@import 'icon-btn';
+@import 'layout';
+@import 'input';
+@import 'slider';
+@import 'form-row';
+@import 'dropdown-menu';
+@import 'carousel';
+@import 'header';
+@import 'main';
+@import 'footer';
+@import 'track-schedule';
+@import 'number-list';
+@import 'breadcrumb';
+@import 'calendar-field';
+@import 'product';
+
+.relative { position: relative; }
+.static   { position: static; }
+.align-right  { text-align: right; }
+.align-left   { text-align: left; }
+.align-center { text-align: center; }
+.pre-wrap    { white-space: pre-wrap; }
+.no-wrap     { white-space: nowrap; }
+.normal-wrap { white-space: normal; }
+
+/*****************************************************************************/
+.aria-visible {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .01;
+  filter: alpha(opacity=1);
+  padding: 0;
+  margin: 0;
+  color: transparent;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/*****************************************************************************/
+a, button, h1, h2, h3, h4, h5, select, input[type="button"],input[type="reset"],input[type="submit"] {
+  &.aria-hidden {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:focus {
+    outline: 1px dotted #333;
+    outline-offset: 3px;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+}
+
+/*****************************************************************************/
+#debugWidget {
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+  height: 150px;
+  width: 300px;
+  overflow: scroll;
+  padding: 5px;
+  border: 1px solid red;
+  background: #FFFFFF none repeat 0 0;
+  z-index: 1000;
+  font-size: 11px;
+  line-height: 16px;
+}
