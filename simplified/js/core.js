@@ -1,46 +1,71 @@
 /******************************************************************************
-=== GLOBAL ATTRIBUTE ===
 ******************************************************************************/
-try { CONFIG;  } catch( error ){ CONFIG  = {}; }
+try { CONFIG; } catch( error ){ CONFIG = {};   }
 var ATTR = {
-  'resizeTimer'   : 0,
-  'scrollTimer'   : 0,
-  'interval'      : 0,
-  'index'         : 0,
-  'today'         : new Date(),
-  'day'           : 60*60*24*1000,
-  'queue'         : [],
-  'hashList'      : [],
-  'history'       : [],
-  'cookie'        : 'reddbarna_support',
-  'reference'     : {'phone':{},'auto':{}},
-  'language'      : CONFIG['language']      || 'nb',
-  'offline'       : false
+  'index'     : 0,
+  'today'     : new Date(),
+  'day'       : 60*60*24*1000,
+  'queue'     : [],
+  'hashList'  : [],
+  'history'   : [],
+  'language'  : CONFIG['language']           || 'no',
+  'errorMSG'  : CONFIG['validationErrorMSG'] || {},
+  'errorSTD'  : CONFIG['validationErrorSTD'] || {}
 };
 
+$( document ).ready(function() {
+  convertTranslation(); 
+  setupFormValidaiton();
+});
+
 /******************************************************************************
-=== MAIN GLOBAL FUCNTION ===
+=== SETUP FUCNTION ===
 ******************************************************************************/
-/**
- */
-function startup() {
-  FastClick.attach(document.body);
-  setTimeout( function() {
-    $('#authentication').FormValidation( {
-      'language' : ATTR['language'],
-      'summaryError'       : false,
-      'validationErrorSTD' : ATTR['errorSTD'],
-      'validationErrorMSG' : ATTR['errorMSG'],
-      //'submitCallback'     : verifyLogin,
-      'beforeSubmitCallback': function() { $('#login_msg').html(''); }
-    });
-  }, 100);
+function convertTranslation() {
+  $('[data-translate]').each( function(i,dom) {      
+  });
+}
+
+function setupFormValidaiton() {
+  $('#product-payment-form').FormValidation({
+    'language' : Conser['language'],
+    'summaryError'       : false,
+    'validationErrorSTD' : CONFIG['errorSTD'],
+    'validationErrorMSG' : CONFIG['errorMSG'],
+    'submitCallback'     : sendProductPaymentForm    
+  });
+}
+
+function sendProductPaymentForm( data ) {
+  console.log( '==== sendProductPaymentForm ===');
+  console.log( data );
 }
 
 
 /******************************************************************************
 === EVENT FUCNTION ===
 ******************************************************************************/
+/**
+ */
+function hashChangeEvent( e ) {
+}
+
+/**
+ */
+function scrollEvent( e ) {
+
+}
+
+/**
+ */
+function keyupEvent( e ) {
+}
+
+/**
+ */
+function resizeEvent( e ) {
+}
+
 /**
  */
 function clickEvent( e ) {
@@ -58,8 +83,8 @@ function clickEvent( e ) {
   var href = target.attr('href') || parent.attr('href') || '';
   if ( href.length > 3 && ! href.match( /^\#/ ) ) return true;
   var order = [
-    {'type':'class','what':'goto_adding_comment',   'handler':clickOnCommentBtn },      
-    {'type':'id',   'what':'logout_btn',            'handler':clickOnLogoutBtn  }
+    {'type':'class','what':'goto_adding_comment',   'handler':clickOnCommentBtn  },      
+    {'type':'id',   'what':'logout_btn',            'handler':clickOnLogoutBtn   }
   ];
 
   var i = 0, loop = order.length, current = null, trigger = 0, data = null, temp = [];
@@ -123,10 +148,14 @@ function clickEvent( e ) {
   return true;
 }
 
+
 /******************************************************************************
-=== CLICK ACTION FUCNTION ===
+=== FUCNTION ===
 ******************************************************************************/
 function clickOnCommentBtn() {
+
 }
 
-function clickOnLogoutBtn() {}
+function clickOnLogoutBtn() {
+
+}

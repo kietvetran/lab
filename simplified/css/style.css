@@ -736,6 +736,8 @@ a.action-btn, a.action-btn:focus, a.action-btn:active, a.primary-btn, a.primary-
     clear: left; }
     .form-row .info-message.-error {
       color: #E60000; }
+  .form-row .form-validation-error {
+    color: #E60000; }
   @media (max-width: 1024px) {
     .form-row {
       padding: 0 0 10px 0; }
@@ -1940,6 +1942,37 @@ ul.breadcrumb a {
     .product .prices .toggler {
       display: block; } }
 
+* {
+  padding: 0;
+  margin: 0; }
+
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+.lowercase {
+  text-transform: lowercase; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+img {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 100%; }
+
+.relative {
+  position: relative; }
+
+.highligth {
+  color: red; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+tr, td, th {
+  padding: 0; }
+
 .relative {
   position: relative; }
 
@@ -1963,6 +1996,11 @@ ul.breadcrumb a {
 
 .normal-wrap {
   white-space: normal; }
+
+fieldset {
+  border: 0 none;
+  padding: 0;
+  margin: 0; }
 
 /*****************************************************************************/
 .aria-visible {

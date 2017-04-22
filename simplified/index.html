@@ -11,12 +11,19 @@
 
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
-	<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./js/fastclick.js"></script>
+
 	<script type="text/javascript" src="./js/config.js"></script>
 	<script type="text/javascript" src="./js/general.js"></script>
+
+	<script type="text/javascript" src="./js/accordion_menu.js"></script>
+	<script type="text/javascript" src="./js/form_validation.js"></script>
+	<script type="text/javascript" src="./js/carousel.js"></script>
+
 	<script type="text/javascript" src="./js/main.js"></script>
 </head> 
-<body>
+<body onload="javascript:startup();">
 	<div class="layout">
 		<header role="banner">
 			<div class="layout-inner">
@@ -45,6 +52,36 @@
 
 		<main role="main">
 			<div class="layout-inner">
+				<div id="product-payment">
+		      <form id="product-payment-form" method="post" action="" novalidate>
+						<div class="form-row">
+							<div>
+								<div class="row-content -label-wrapper">
+									<!--<a aria-controls="a-1492835896702-8261" href="" class="info-btn" role="button">Informasjon om personnummer</a>-->
+									<label for="a-1492835896702-4270">Personnummer</label>
+								</div>
+								<div class="row-content -input-wrapper">
+									<input type="tel" name="personnumber" id="a-1492835896702-4270" class="input-field" spellcheck="false" autocomplete="off" required="true" aria-required="true" maxlength="12">
+									<div class="info-message -error -hide" aria-hidden="true" role="alert"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="row-content -label-wrapper">
+								<!--<a aria-controls="a-1492835896702-8261" href="" class="info-btn" role="button">Informasjon om personnummer</a>-->
+								<label for="phone">Phone</label>
+							</div>
+							<div class="row-content -input-wrapper">
+                <input name="prefix" type="tel" class="input-field" spellcheck="false" autocomplete="off" data-rule="phoneprefix parent_target[.input_unit_wrapper]" maxlength="4" required value="+47" autocorrect="off">
+                <input id="phone" name="phone" type="tel" class="input-field" required spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.input_wrapper] clearbtn" value="" autocorrect="off">
+
+							</div>
+						</div>						
+					</form>
+				</div>
+
+				<!--
 				<ul class="product-menu">
 					<li>
 						<div class="product" role="application" aria-labelledby="a-product-title" aria-describedby="a-product-description">
@@ -165,6 +202,7 @@
 						</div>
 					</li>
 				</ul>
+				-->
 			</div>
 		</main>
 

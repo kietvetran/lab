@@ -22,6 +22,40 @@ $img-url: '../img/';
 @import 'calendar-field';
 @import 'product';
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.lowercase { text-transform: lowercase; }
+.uppercase { text-transform: uppercase;}
+
+img {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+.highligth {
+  color: red;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+tr, td, th {
+  padding: 0;
+}
+
 .relative { position: relative; }
 .static   { position: static; }
 .align-right  { text-align: right; }
@@ -30,6 +64,12 @@ $img-url: '../img/';
 .pre-wrap    { white-space: pre-wrap; }
 .no-wrap     { white-space: nowrap; }
 .normal-wrap { white-space: normal; }
+
+fieldset {
+  border: 0 none;
+  padding: 0;
+  margin: 0;
+}
 
 /*****************************************************************************/
 .aria-visible {
