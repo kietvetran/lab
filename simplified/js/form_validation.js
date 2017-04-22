@@ -44,7 +44,7 @@
       'date','day','month','year','amount','telephone','mobile',
       'postnumber','creditcardnumber','atleastoption','parent_target',
       'tab_target_class','personnumber','interval','text','accountnumber',
-      'phoneprefix','kidormsg'
+      'phoneprefix','kidormsg', 'creditcardexpiration'
     ],
     'validation_error_message' : config.validationErrorMSG || {},
     'selector' : ':text, [type="password"], [type="file"], select, textarea, ' +
@@ -66,7 +66,9 @@
       'accountnumber': /^\d{4}(\s+)?\d{2}(\s+)?\d{5}$/,
       'contrycode'   : /^\+\d{2,3}|00(\s)?\+\d{2,3}/,
       'monthCountDay': [0,31,28,31,30,31,30,31,31,30,31,30,31],
-      'monthName'    : ['','january','february','march','april','may','june','july','august','september','october','november','desember']
+      'monthName'    : ['','january','february','march','april','may','june','july','august','september','october','november','desember'],
+      'creditcardnumber': /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/,
+      'creditcardexpiration': /^(\d{2})\/(\d{2})$/
     },
     /* jshint ignore:end */
     'validation_error': config.validationErrorSTD || {}
@@ -375,6 +377,9 @@
         }
         if ( typeof(rule.creditcardnumber) !== 'undefined' ) { 
           helper._verifyCreditcardnumber( node, null, true );
+        }
+        if ( typeof(rule.creditcardexpiration) !== 'undefined' ) { 
+          helper._verifyCreditcardexpiration( node, null, true );
         }
         if ( typeof(rule.personnumber) !== 'undefined' ) { 
           helper._verifyPersonnumber( node, null, true );
@@ -740,6 +745,9 @@
       if ( typeof(rule.creditcardnumber) !== 'undefined' ) { 
         helper._verifyCreditcardnumber( node, null, true, true );
       }
+      if ( typeof(rule.creditcardexpiration) !== 'undefined' ) { 
+        helper._verifyCreditcardexpiration( node, null, true );
+      }
       if ( typeof(rule.personnumber) !== 'undefined' ) { 
         helper._verifyPersonnumber( node, null, true, true );
       }
@@ -803,6 +811,9 @@
         }
         if ( typeof(rule.creditcardnumber) !== 'undefined' ) { 
           helper._verifyCreditcardnumber( node, null, false, true );
+        }
+        if ( typeof(rule.creditcardexpiration) !== 'undefined' ) { 
+          helper._verifyCreditcardexpiration( node, null, true );
         }
         if ( typeof(rule.personnumber) !== 'undefined' ) { 
           helper._verifyPersonnumber( node, null, false, true );
@@ -1508,6 +1519,31 @@
       var invalid = ! text.match( opt[vr].number );
       return invalid || isNaN(number) || (number+'').length !== 16 ? 
         helper.getErrorMessage('invalid_credit_card_number',param,node) : '';
+    },
+
+    _verifyCreditcardexpiration : function( input, param, focus, keyup ) {
+      var node = $(input), value = node.prop('value') || '';  
+      if ( ! value ) { return; }
+
+      var text = value.replace(/\s+/g,''), vr = 'validation_rule';
+      var matched = text.match(opt[vr].creditcardexpiration);
+      if ( ! matched ) {
+        return helper.getErrorMessage('invalid_credit_card_expiration',param,node);
+      }
+
+      var now = new Date();
+      var nowYear = (now.getFullYear() + '').substring(2);
+      var nowMonth = now.getMonth() + 1;
+      var month = parseFloat( matched[1].replace(/\s+/g,'').replace(/^0+/,'') );
+      var year  = parseFloat( matched[2].replace(/\s+/g,'').replace(/^0+/,'') );
+      if ( isNaN(month) || isNaN(year) || month < 1 || month > 12) {
+        return helper.getErrorMessage('invalid_credit_card_expiration',param,node);
+      }
+
+      if ( year < nowYear || (nowYear === year && month < nowMonth) ) {
+        return helper.getErrorMessage('invalid_credit_card_is_expired',param,node);
+      }
+      return '';
     },
 
     _verifyPhoneprefix : function( input, param, focus ) {

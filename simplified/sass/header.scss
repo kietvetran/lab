@@ -25,7 +25,7 @@ header {
 			> li {
 				text-align: center;
 				display: inline-block;
-				width: 80px;
+				margin: 0 0 0 10px;
 			}
 		}
 	}
@@ -33,15 +33,21 @@ header {
 	a.navigation-item {				
 		position: relative;
 		display: inline-block;
-		padding: 40px 0 0 0;
+		padding: 0 0 0 0;
 		min-width: 50px;
 		text-align: center;
-		text-decoration: none;
+		text-decoration: underline;
+		text-transform: uppercase;
 
 		&, :visited {
 			color: $white;
 		}
 
+		&:hover {
+			color: $red;
+		}
+
+		/*
 		&:before {
 			content: '';
 			position: absolute;
@@ -95,6 +101,7 @@ header {
 				background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA0ODkgNDg5Ij48cGF0aCBmaWxsPSIjMDA3NUQyIiBkPSJNNDE3LjQsNzEuNkMzNzEuMiwyNS40LDMwOS44LDAsMjQ0LjUsMFMxMTcuOCwyNS40LDcxLjYsNzEuNlMwLDE3OS4yLDAsMjQ0LjVzMjUuNCwxMjYuNyw3MS42LDE3Mi45UzE3OS4yLDQ4OSwyNDQuNSw0ODlzMTI2LjctMjUuNCwxNzIuOS03MS42UzQ4OSwzMDkuOCw0ODksMjQ0LjVTNDYzLjYsMTE3LjgsNDE3LjQsNzEuNnogTTI0NC41LDQ2MkMxMjQuNiw0NjIsMjcsMzY0LjQsMjcsMjQ0LjVTMTI0LjYsMjcsMjQ0LjUsMjdTNDYyLDEyNC42LDQ2MiwyNDQuNVMzNjQuNCw0NjIsMjQ0LjUsNDYyeiIvPjxwYXRoIGZpbGw9IiMwMDc1RDIiIGQ9Ik0yNjcuOCwyMzAuM2gtMTEuN3YtNzMuOXYtOS42aDUwLjJjNy41LDAsMTMuNS02LDEzLjUtMTMuNXMtNi0xMy41LTEzLjUtMTMuNWgtNTAuMlY4MC4yYzAtNy41LTYtMTMuNS0xMy41LTEzLjVzLTEzLjUsNi0xMy41LDEzLjV2MzkuNmgtMTEuN2MtMzcuOSwwLTY4LjgsMzAuOC02OC44LDY4LjhjMCwzNy45LDMwLjgsNjguOCw2OC44LDY4LjhoMTEuN3Y3My45djkuNmgtNTEuOWMtNy41LDAtMTMuNSw2LTEzLjUsMTMuNXM2LDEzLjUsMTMuNSwxMy41aDUxLjl2MzkuNmMwLDcuNSw2LDEzLjUsMTMuNSwxMy41czEzLjUtNiwxMy41LTEzLjV2LTM5LjZoMTEuN2MzNy45LDAsNjguOC0zMC44LDY4LjgtNjguOEMzMzYuNSwyNjEuMiwzMDUuNywyMzAuMywyNjcuOCwyMzAuM3ogTTIyOS4xLDE1Ni40djczLjloLTExLjdjLTIzLDAtNDEuOC0xOC43LTQxLjgtNDEuOGMwLTIzLDE4LjctNDEuOCw0MS44LTQxLjhoMTEuN1YxNTYuNHogTTI2Ny44LDM0MC45aC0xMS43di05LjZ2LTczLjloMTEuN2MyMywwLDQxLjgsMTguNyw0MS44LDQxLjhDMzA5LjUsMzIyLjEsMjkwLjgsMzQwLjksMjY3LjgsMzQwLjl6Ii8+PC9zdmc+);
 			}
 		}
+		*/
 	}
 
 	@media (max-width: $breakpoint-md-p) {
@@ -109,7 +116,7 @@ header {
 		nav {
 			> ul {
 				text-align: center;
-				margin: 0 0 10px 0;
+				margin: -5px 0 15px 0;
 			}
 		}
 
@@ -130,6 +137,9 @@ header {
 					width: 20%;
 				}	
 			}
+		}
+		a.navigation-item {
+			font-size: 12px;
 		}
 	}
 }

@@ -1,18 +1,15 @@
-.carousel-screen {
+.carousel_screen {
   overflow: hidden;
   margin: 0;
   background: transparent none repeat scroll 0 0;
   position: relative;
   visibility: hidden;
-  border: 1px solid $grey-dark;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.25);
 
-  &.-initialized {
+  &.initialized {
     visibility: visible;
   }
 
-  &.-carousel-moving {
+  &.carousel_moving {
     &:before {
       content: " ";
       position: absolute;
@@ -25,18 +22,11 @@
     }
   }
 
-  &.-scroll {
-    box-shadow: none;
-    border: 0 none;
-    border-radius: 0;
-  }
-
-  .carousel-slider-holder {
+  .carousel_slider_holder {
     overflow: hidden;
-    background: transparent none repeat 0 0;
   }
 
-  .carousel-slider {
+  .carousel_slider {
     overflow: visible;
     white-space: nowrap;
     position: relative;
@@ -44,11 +34,22 @@
     left: 0; 
     margin: 0;
     list-style: none;
-    @include transition( all, .6s, ease);
+    
+    transition-property: all;
+    -ms-transition-property: all; 
+    -moz-transition-property: all; 
+    -webkit-transition-property: all; 
+    -o-transition-property: all;  
+    
+    transition-timing-function: ease;
+    -ms-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
 
     &.scrolling {
       text-align: center;
-      .carousel-item {
+      .carousel_item {
         display: inline-block;
         text-align: left;
         white-space: normal;
@@ -65,17 +66,17 @@
     width: 100%;
   }
 
-  .carousel-item {
+  .carousel_item {
     overflow: hidden;  
     display: block;
     position: relative;
-    z-index: 10;
-    &.-cloned {
+    z-index: 10;  
+    &.cloned {
       visibility: hidden;
       z-index: 5;
     }
 
-    &.-inactive {
+    &.inactive {
       display: none;
     }
 
@@ -85,7 +86,7 @@
       white-space: normal;
     }
 
-    .image-text {
+    .image_text {
       position: absolute;
       right: 0;
       bottom: 5px;
@@ -93,7 +94,7 @@
     }
   }
 
-  &.-included-arrows {
+  &.included_arrows {
     .image {
       .text {
         margin-left: 45px;
@@ -102,15 +103,10 @@
     }
   }
 
-  .carousel-bullets {
-    list-style: none;
+  .carousel_bullets {
     text-align: center;
     padding: 10px;
-    > li  {
-      display: inline-block;      
-    }
-
-    .bullet-item {
+    .bullet_item {
       display: inline-block;
       margin: 0;
       padding: 0;
@@ -120,20 +116,7 @@
       border: 0 none;
       position: relative;
 
-      &, &:hover, &:focus {
-        text-decoration: none;
-      }
-
-      &.-include-label {
-        width: auto;
-        height: auto;
-        margin: 0 5px;
-        &:after {
-          display: none;
-        }
-      }
-
-      &.-inactive {
+      &.inactive {
         display: none;
       }
 
@@ -148,26 +131,24 @@
         border-radius: 100%;
       }
 
-      &:hover {
-        color: $blue-light; 
+      &:hover { 
         &:after {
-          background-color: $blue-light;
+          background-color: $red;
         }
       }
 
-      &.-active {
+      &.active {
         cursor: default;
         &, &:hover {
-          color: $blue-light; 
           &:after {
-            background-color: $blue-light;
+            background-color: $red;
           }
         }
       }
     }
   }
 
-  .carousel-arrow {
+  .carousel_arrow {
     z-index: 30;
     position: absolute;
     bottom: 50%;
@@ -175,11 +156,11 @@
     margin: 0;
     border: 0 none;
 
-    &.-inactive {
+    &.inactive {
       display: none;
     }
 
-    &.-carousel-left {
+    &.carousel_left {
       left: 0;
 
       &:after {
@@ -194,12 +175,12 @@
 
       &:hover {
         &:after {
-          border-color: transparent $blue-light transparent transparent; 
+          border-color: transparent $red transparent transparent; 
         }
       }
     }
 
-    &.-carousel-right {
+    &.carousel_right {
       right: 0;
 
       &:after {
@@ -215,7 +196,7 @@
 
       &:hover {
         &:after {
-          border-color: transparent transparent transparent $blue-light;
+          border-color: transparent transparent transparent $red;
         }
       }
     }

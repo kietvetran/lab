@@ -18,32 +18,72 @@ var ATTR = {
   'offline'       : false
 };
 
+$( document ).ready(function() {
+  convertTranslation(); 
+  //setupFormValidaiton();
+  setupCarousel();
+
+  $( document ).on('click', clickHandler);
+  $( window ).on('hashchange', hashChangeHandler);
+});
+
 /******************************************************************************
-=== MAIN GLOBAL FUCNTION ===
+=== SETUP FUCNTION ===
 ******************************************************************************/
-/**
- */
-function startup() {
-  FastClick.attach(document.body);
-  setTimeout( function() {
-    $('#authentication').FormValidation( {
-      'language' : ATTR['language'],
-      'summaryError'       : false,
-      'validationErrorSTD' : ATTR['errorSTD'],
-      'validationErrorMSG' : ATTR['errorMSG'],
-      //'submitCallback'     : verifyLogin,
-      'beforeSubmitCallback': function() { $('#login_msg').html(''); }
-    });
-  }, 100);
+function convertTranslation() {
+  $('[data-translate]').each( function(i,dom) {      
+  });
 }
 
+function setupCarousel() {
+  console.log('===== carousel ====');
+
+  $('.carousel_screen').Carousel({
+    'carousel'        : false,
+    'autoSwipe'       : false,
+    'arrowNavigator'  : false
+  }); 
+}
+
+function setupFormValidaiton() {
+  $('#product-payment-form').FormValidation({
+    'language'           : ATTR['language'],
+    'summaryError'       : false,
+    'validationErrorSTD' : ATTR['errorSTD'],
+    'validationErrorMSG' : ATTR['errorMSG'],
+    'submitCallback'     : sendProductPaymentForm    
+  });
+}
+
+function sendProductPaymentForm( data ) {
+  console.log( '==== sendProductPaymentForm ===');
+  console.log( data );
+}
 
 /******************************************************************************
 === EVENT FUCNTION ===
 ******************************************************************************/
 /**
+*/
+function scroll( e ) {
+  clearTimeout( ATTR.timeout );
+  ATTR.timeout = setTimeout( function() {
+    var position = getScrollPosition();
+    position[1] > 20 ? ATTR.body.addClass('scrolled-passed') : 
+      ATTR.body.removeClass('scrolled-passed');
+  }, 100 );
+}
+
+/**
+*/
+function hashChangeHandler( e ) {
+  var opt = getURLoption();
+  console.log('=======');
+  console.log( opt );
+}
+/**
  */
-function clickEvent( e ) {
+function clickHandler( e ) {
   if ( ATTR['dragged'] ) return e.preventDefault();
   if ( e['which'] == 3 ) return true;
 
@@ -59,6 +99,9 @@ function clickEvent( e ) {
   if ( href.length > 3 && ! href.match( /^\#/ ) ) return true;
   var order = [
     {'type':'class','what':'goto_adding_comment',   'handler':clickOnCommentBtn },      
+    {'type':'class','what':'product-get-start-btn', 'handler':clickOnProductGetStartBnt },      
+    {'type':'class','what':'navigation-item',       'handler':clickOnNavigationItem },      
+    {'type':'class','what':'chat-widget-btn',       'handler':clickOnChatWidgetBtn },      
     {'type':'id',   'what':'logout_btn',            'handler':clickOnLogoutBtn  }
   ];
 
@@ -126,6 +169,20 @@ function clickEvent( e ) {
 /******************************************************************************
 === CLICK ACTION FUCNTION ===
 ******************************************************************************/
+function clickOnProductGetStartBnt( data ) {
+}
+
+function clickOnNavigationItem( data ) {
+  console.log( '=== ');
+  console.log( data );
+}
+
+function clickOnChatWidgetBtn( data ) {
+  var widget = $('#chat-widget'), mode = '-expanded';
+  if ( ! widget.length ) { return; }
+  widget.toggleClass( mode );
+}
+
 function clickOnCommentBtn() {
 }
 

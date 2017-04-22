@@ -67,11 +67,14 @@
       === Initialization ===
     **************************************************************************/
     init : function() {
-      opt.main.addClass('carousel_screen');
+      if ( ! opt.main.hasClass('carousel_screen') ) {
+        opt.main = $('<div class="carousel_screen"></div>').appendTo( opt.main );
+      }
+
       opt.ie = helper.isIE();
       opt.android = helper.isAndroid();
       
-      if ( ! opt.slider.size() ) { 
+      if ( ! opt.slider.length ) { 
         opt.slider = $('<ul class="carousel_slider"></ul>').appendTo(opt.main);
       }
 
@@ -116,16 +119,17 @@
         if ( ! s && ! t ) { return; }
 
         var n = ! s ? '<div class="text">'+t+'</div>' : 
-          '<img src="'+d.src+'" alt="'+(d.alt||'')+'">' +
-          '<div class="image_text">' + (
-            (t instanceof Array) ? $.map( t, function(d,i) {
-              return '<div class="text">' + 
-                typeof( d ) === 'string' ? d : ( d.n || '' )+
-              '</div>';
-            }).join('') : ('<div class="text">'+t+'</div>')
-          ) + '</div>';
+          '<img src="'+d.src+'" alt="'+(d.alt||'')+'">' + (!t ? '' : (
+            '<div class="image_text">' + (
+              (t instanceof Array) ? $.map( t, function(d,i) {
+                return '<div class="text">' + 
+                  typeof( d ) === 'string' ? d : ( d.n || '' )+
+                '</div>';
+              }).join('') : ('<div class="text">'+t+'</div>')
+            ) + '</div>'
+          ));
 
-        // incremental load test
+          // incremental load test
         var c = $.map(interval, function(v){return v===i ? i : '';}).join('');
         if ( opt.incremental && ! c ) {
           opt.waiting[i] = n; n = '';     
@@ -138,7 +142,7 @@
         return '<li class="carousel_item'+(d.mode ? ' '+d.mode:'')+'">'+ n + '</li>';       
       }).join('') ).appendTo( opt.slider ).filter('.carousel_item') : opt.slider.find('.carousel_item');
 
-      opt.count = opt.images.not('.inactive').size();
+      opt.count = opt.images.not('.inactive').length;
       if ( typeof(atLeast) === 'number' ) { helper.renderLazyload( atLeast ); }
 
       if ( delay ) { 
@@ -148,7 +152,7 @@
       }
 
       opt.holder = opt.main.find('> .carousel_slider_holder');
-      if ( ! opt.holder.size() ) {
+      if ( ! opt.holder.length ) {
         opt.holder = $('<div class="carousel_slider_holder"></div>').append( opt.main.children() );
         opt.main.append( opt.holder );
       }
@@ -168,7 +172,7 @@
     },
 
     _initArrowOption : function() {
-      opt.arrows = opt.aNavigator && opt.images.size() > 1 ? 
+      opt.arrows = opt.aNavigator && opt.images.length > 1 ? 
         opt.main.append(
           '<a href="#" class="carousel_arrow carousel_left"></a>'+
           '<a href="#" class="carousel_arrow carousel_right"></a>'
@@ -183,7 +187,7 @@
         opt.copies = opt.slider.append(
           opt.images.eq( 0 ).clone().addClass('copy'), 
           opt.images.eq( opt.count-1 ).clone().addClass('copy')
-        ).find('.image.copy');
+        ).find('.carousel_item.copy');
       }
     },
 
@@ -191,7 +195,7 @@
       if ( opt.scroll ) { return; }
 
       var cloned = null, img = opt.images.find('img');
-      if ( img.size() ) { 
+      if ( img.length ) { 
         cloned = img.eq( 0 ).parent().clone();   
       } else { // only text, there 
         var height = 0, pin = 0;
@@ -258,7 +262,7 @@
 
       if ( phase === 'start' && opt.mainId ) {
         var parent = data.target.closest('#'+opt.mainId );
-        if ( parent.size() ) { 
+        if ( parent.length ) { 
           data.touchSource = parent;
           update( data );
         }
@@ -341,7 +345,9 @@
         var pin   = w * next * (-1); 
         if ( ! opt.carousel ) {
           if ( desc ) {
-            if ( next === opt.count ) { desc = false; }
+            if ( next === opt.count ) { 
+              desc = false; pin = 0;
+            }
           }
           else {
             if ( next < 0 ) {
@@ -404,7 +410,7 @@
           'width'    :  w + 'px',
           'position' : 'absolute'
         });
-      }).size();
+      }).length;
       opt.images.filter('.inactive').css({'position':'absolute'});
 
       if ( opt.copies ){
@@ -650,7 +656,7 @@
      * @return {Void}
      */   
     updateBullet : function () {
-      if ( ! opt.bullets || ! opt.bullets.size() ) { return; }
+      if ( ! opt.bullets || ! opt.bullets.length ) { return; }
 
       var mode = 'active', off = 'inactive';
       opt.images.each( function(i,dom) {
@@ -669,7 +675,7 @@
      * @return {Void}
      */   
     updateArrow : function () {
-      if ( ! opt.arrows || ! opt.arrows.size() ) { return; }
+      if ( ! opt.arrows || ! opt.arrows.length ) { return; }
 
       var mode = 'inactive';
       var left  = opt.arrows.filter('.carousel_left');
@@ -689,7 +695,7 @@
 
         if ( opt.atIndex === 0 ) { left.addClass( mode ); } 
           
-        var count = opt.images.not('.inactive').size();
+        var count = opt.images.not('.inactive').length;
         if ( opt.atIndex >= (count-1) ) {  right.addClass( mode ); }
       }
     },    
@@ -702,7 +708,7 @@
     clickBullet : function( e, force ) {
       if ( (opt.onSlide || ! opt.bullets) && ! force ) { return; }
       //var t = $( e.target ), index = opt.bullets.index( t );
-      var index = 0, loop = opt.bullets.size(), j = 0, mode = 'clicked_bullet';
+      var index = 0, loop = opt.bullets.length, j = 0, mode = 'clicked_bullet';
       $( e.target ).addClass(mode);
       for ( var i=0; i<loop; i++ ) {
         if ( opt.bullets.eq(i).hasClass('inactive') ) { continue; }

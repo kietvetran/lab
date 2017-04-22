@@ -1,5 +1,5 @@
 .form-row {
-  padding: 15px 0 15px 250px;
+  padding: 15px 0 15px 175px;
   clear: both;
   float: left;
   width: 100%;
@@ -30,7 +30,6 @@
   legend, .-label-wrapper label {
     color: $black;
     font-weight: normal;
-    font-size: 18px;
   }  
 
   input {
@@ -148,8 +147,8 @@
     }
 
     &.-label-wrapper, &.-info-wrapper {
-      margin-left: -250px;
-      width: 245px;
+      margin-left: -175px;
+      width: 170px;
     }
 
     &.-label-wrapper {
@@ -212,7 +211,8 @@
 
   .form-validation-error {
     color: $red;
-    
+    display: block;
+    clear: both;
   }
 
   @media (max-width: $breakpoint-lg) {

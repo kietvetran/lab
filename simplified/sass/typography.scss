@@ -143,6 +143,13 @@ section, main, header, footer, article, nav, picture, figure, canvas, svg {
   display: block;
 }
 
+fieldset {
+  border: 0 none;
+  padding: 0;
+  margin: 0;
+}
+
+
 @media screen and (max-width: $breakpoint-sm) { 
   h1, .h1, {
     font-size: 32px;

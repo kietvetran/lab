@@ -1,0 +1,75 @@
+#chat-widget {
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+ 
+  &.-expanded {
+    .chat-widget-btn {
+      display: block;
+      background: $red none repeat 0 0;
+      height: 20px;
+      width: 100%;
+
+      &:after {
+        content: 'x';
+        position: absolute;
+        right: 0;
+        top: 0;
+
+      }
+    }
+
+    .chat-widget-cnt {
+      width: 300px;
+      height: 400px;
+      border: 1px solid $border-color;
+    }
+  }
+
+  .chat-widget-btn {
+    @include transition( all, .2s, linear);
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: transparent url('../image/icon/chat.svg') no-repeat 0 0;
+  }
+
+  .chat-widget-cnt {
+    @include transition( all, .2s, linear);
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    background: $white none repeat 0 0;
+ }
+
+  .chat-text-board { 
+    overflow: hidden;
+    overflow-y: scroll;    
+    height: 340px;
+  }
+
+  .chat-action-row {
+    position: relative;
+    padding: 2px;
+    border-top: 1px solid $border-color;
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 60px;
+      line-height: 60px;
+      padding: 0;
+      width: 60px;
+      text-align: center;
+    }
+
+    textarea {
+      resize: none;
+      height: 60px;
+      border-radius: 0;
+      border: 0 none;
+      padding-right: 70px;
+      font-size: 14px;   
+    }
+  }
+} 
