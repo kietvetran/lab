@@ -20,7 +20,7 @@ var ATTR = {
 
 $( document ).ready(function() {
   convertTranslation(); 
-  //setupFormValidaiton();
+  setupFormValidaiton();
   setupCarousel();
 
   $( document ).on('click', clickHandler);
@@ -36,16 +36,31 @@ function convertTranslation() {
 }
 
 function setupCarousel() {
-  console.log('===== carousel ====');
-
   $('.carousel_screen').Carousel({
     'carousel'        : false,
     'autoSwipe'       : false,
-    'arrowNavigator'  : false
+    'arrowNavigator'  : true
   }); 
 }
 
 function setupFormValidaiton() {
+
+  $('#contact-us-form').FormValidation({
+    'language'           : ATTR['language'],
+    'summaryError'       : false,
+    'validationErrorSTD' : ATTR['errorSTD'],
+    'validationErrorMSG' : ATTR['errorMSG'],
+    'submitCallback'     : sendProductPaymentForm    
+  });
+
+  $('#authentication').FormValidation({
+    'language'           : ATTR['language'],
+    'summaryError'       : false,
+    'validationErrorSTD' : ATTR['errorSTD'],
+    'validationErrorMSG' : ATTR['errorMSG'],
+    'submitCallback'     : sendProductPaymentForm    
+  });
+
   $('#product-payment-form').FormValidation({
     'language'           : ATTR['language'],
     'summaryError'       : false,
@@ -173,8 +188,10 @@ function clickOnProductGetStartBnt( data ) {
 }
 
 function clickOnNavigationItem( data ) {
-  console.log( '=== ');
-  console.log( data );
+  var href = data.current.attr('href');
+  if ( href === 'login' ) {
+    toggleLoginWidget();
+  } 
 }
 
 function clickOnChatWidgetBtn( data ) {
@@ -187,3 +204,11 @@ function clickOnCommentBtn() {
 }
 
 function clickOnLogoutBtn() {}
+
+
+/******************************************************************************
+=== LOGIN FUCNTION ===
+******************************************************************************/
+function toggleLoginWidget() {
+
+}

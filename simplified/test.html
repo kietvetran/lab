@@ -2,7 +2,7 @@
 <!--<html class="no-js" lang="en-US"  manifest="offline.appcache">-->
 <html class="no-js" lang="en-US">
 <head>
-<title>ReddBarna - Verver</title>
+<title>Simplifai</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -26,7 +26,7 @@
   <div class="layout">
     <header role="banner">
       <div class="layout-inner">
-        <h1>Simplified</h1>
+        <h1>Simplifai</h1>
         <nav id="navigation-menu" role="navigation">
           <ul class="item-widget">
             <li class="item-wrapper">
@@ -50,9 +50,36 @@
               </a>
             </li>
             <li class="item-wrapper">
-              <a href="#login" class="navigation-item -main-menu-saling" data-translate="main.menu.sign-up">
-                Log in
-              </a>
+              <div class="relative">
+                <a href="#login" class="navigation-item -main-menu-saling" data-translate="main.menu.sign-up" aria-controls="login-widget">
+                  Log in
+                </a>
+                <!--
+                <div id="login-widget" class="login-widget" aria-expanded="false"> 
+                  <form id="authentication"  method="post" action="" novalidate>
+                    <div class="form-row -single-column">
+                      <div class="row-content -label-wrapper">
+                        <div class="content_holder"><label for="login-username">Username</label></div>
+                      </div>          
+                      <div class="row-content -input-wrapper">
+                        <input id="login-username" class="input-field" name="username" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                      </div>
+                    </div>                    
+                    <div class="form-row -single-column">
+                      <div class="row-content -label-wrapper">
+                        <div class="content_holder"><label for="login-password">Password</label></div>
+                      </div>          
+                      <div class="row-content -input-wrapper">
+                        <input id="login-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                      </div>
+                    </div>  
+                    <div class="form-row action-row nolabel -single-column">
+                      <button id="login_btn" class="action-btn -active-bounce">Logg inn</button>
+                    </div>
+                  </form>
+                </div>
+                -->
+              </div>
             </li>
           </ul>
         </nav>
@@ -61,9 +88,77 @@
 
     <main role="main">
       <div class="layout-inner">
-        <!--
-        <div class="buyproduct-section">
-          <div id="product-payment">
+
+        <div class="section -contact-us">
+          <div class="contact-us-wrapper card-wrapper">
+            <h2>Contact us</h2>
+            <form id="contact-us-form" method="post" action="" novalidate>
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="byer-name">Company</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="client-name" class="input-field" name="clientName" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="client-email">Email</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="client-email" class="input-field" name="clientemail" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder">
+                    <label for="client-phone">Phone</label>
+                  </div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="client-phone" class="input-field" name="clientPhone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
+
+              <div class="client-order-info">
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="client-product">Type of request</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <select name="clientProduct" id="client-product" class="select-box">
+                      <option value="nn">A request</option>
+                      <option value="en">B request</option>
+                      <option value="ch">C request </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder">
+                    <label for="client-description">Description</label>
+                  </div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <textarea class="input-textarea" required></textarea>
+                </div>
+              </div>              
+
+              <div class="form-row action-row nolabel">
+                <div id="login_msg"></div>
+                <button id="login_btn" class="action-btn -active-bounce">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>      
+
+        <div class="section -buy-product">
+          <div class="product-payment card-wrapper">
+            <h2>Get start</h2>
             <form id="product-payment-form" method="post" action="" novalidate>
               <div class="buyer-contact-information">
                 <div class="form-row">
@@ -77,7 +172,7 @@
 
                 <div class="form-row">
                   <div class="row-content -label-wrapper">
-                    <div class="content_holder"><label for="buyer-email">E-post</label></div>
+                    <div class="content_holder"><label for="buyer-email">Email</label></div>
                   </div>          
                   <div class="row-content -input-wrapper">
                     <input id="buyer-email" class="input-field" name="buyeremail" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
@@ -138,21 +233,47 @@
 
               <div class="form-row action-row nolabel">
                 <div id="login_msg"></div>
-                <button id="login_btn" class="action-btn -active-bounce">Logg inn</button>
+                <button id="login_btn" class="action-btn -active-bounce">Submit</button>
               </div>
             </form>
           </div>
         </div>
-        -->
 
-        <div class="home-section">
+        <div class="section -login">
+          <div class="login-widget card-wrapper">
+            <h2 data-translate="main.login.title">Login</h2>
+            <form id="authentication"  method="post" action="" novalidate>
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="login-username" data-translate="main.login.username">Username</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="login-username" class="input-field" name="username" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>                    
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="login-password" data-translate="main.login.password">Password</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="login-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>  
+              <div class="form-row action-row nolabel">
+                <button id="login_btn" class="action-btn -active-bounce" data-translate="main.login.submit">Logg inn</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="section -home">
           <div class="home-carousel-holder">
             <div class="carousel_screen carousel-screen">
               <div class="carousel_slider_holder">
                 <ul class="carousel_slider ">
                   <li class="carousel_item">
-                    <div id="carousel-about-us" class="">
-                      <h2>Simplified 2017</h2>
+                    <div id="carousel-about-us" class="carousel-about-us">
+                      <h2>Simplifai 2017</h2>
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nibh, congue id tristique sed, sodales nec nulla. Sed tincidunt malesuada lorem vitae hendrerit.
                       </p>
@@ -214,7 +335,7 @@
                   </div>
                 </div>
                 <div class="action">
-                  <a href="#buyproduct?product=A" role="button" class="primary-btn -active-bounce product-get-start" data-translate="product.simple.action">Get Started</a>
+                  <a href="#buyproduct?product=A" role="button" class="primary-btn -active-bounce product-get-start" data-translate="product.simple.action">Get start</a>
                 </div>
               </div>
             </li>
@@ -254,7 +375,7 @@
                   </div>
                 </div>
                 <div class="action">
-                  <a href="#buyproduct?product=B" role="button" class="primary-btn -active-bounce product-get-start" data-translate="product.simple.action">Get Started</a>
+                  <a href="#buyproduct?product=B" role="button" class="primary-btn -active-bounce product-get-start" data-translate="product.simple.action">Get start</a>
                 </div>
               </div>
             </li>
@@ -293,7 +414,7 @@
                   </div>
                 </div>
                 <div class="action">
-                  <a href="#buyproduct?product=C" role="button" class="primary-btn -active-bounce product-get-start" data-translate="product.simple.action">Get Started</a>
+                  <a href="#buyproduct?product=C" role="button" class="primary-btn -active-bounce product-get-start" data-translate="product.simple.action">Get start</a>
                 </div>
               </div>
             </li>
@@ -302,6 +423,7 @@
       </div>
     </main>
 
+    <!--
     <footer role="contentinfo">
       <div class="layout-inner">
         <div id="mail-me">
@@ -309,6 +431,7 @@
         </div>
       </div>    
     </footer>
+    -->
 
     <div id="chat-widget" role="application">
       <a href="#chat-widget" class="chat-widget-btn" aria-controls="chat-widget-cnt">

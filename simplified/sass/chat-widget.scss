@@ -2,20 +2,29 @@
   position: fixed;
   right: 10px;
   bottom: 20px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10px;
+    height: 50px;
+    background: $white none repeat 0 0;
+  }
  
   &.-expanded {
+    &:before {
+      display: none;
+    }
+
     .chat-widget-btn {
       display: block;
       background: $red none repeat 0 0;
-      height: 20px;
+      height: 30px;
       width: 100%;
-
-      &:after {
-        content: 'x';
-        position: absolute;
-        right: 0;
-        top: 0;
-
+      &:after, &:before {
+        display: block;
       }
     }
 
@@ -32,6 +41,28 @@
     width: 80px;
     height: 80px;
     background: transparent url('../image/icon/chat.svg') no-repeat 0 0;
+    position: relative;
+    z-index: 2;
+
+    &:after, &:before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      right: 15px;
+      height: 15px;
+      width: 2px;
+      background-color: #333;
+      display: none;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+      width: 2px;
+      margin: -1px -1px 0 0;
+    }
   }
 
   .chat-widget-cnt {
