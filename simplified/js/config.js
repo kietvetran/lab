@@ -2,5 +2,5 @@
 === CONFIGURATION ===
 ******************************************************************************/
 var CONFIG = {
-	'cookie': 'kvt.github.io'
+	'cookie': 'kvt.github.io',
 };

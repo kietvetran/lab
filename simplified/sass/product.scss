@@ -38,7 +38,11 @@
     position: relative;
 
     .toggler {
-      display: 
+      display: none;
+    }
+
+    .cnt {
+      @include transition( all, .6s, ease);
     }
   }
 
@@ -49,6 +53,12 @@
   @media (max-width: $breakpoint-md-p) {
     .description {
       height: auto;
+    }
+
+    .prices {
+      .toggler {
+        display: block;
+      }
     }
   }
 }
