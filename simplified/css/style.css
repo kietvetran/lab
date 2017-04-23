@@ -654,9 +654,13 @@ a.action-btn, a.action-btn:focus, a.action-btn:active, a.primary-btn, a.primary-
       display: block; }
   .form-row.-action {
     padding-top: 20px; }
+    .form-row.-action > button {
+      margin: 0 20px 0 0; }
   .form-row legend, .form-row .-label-wrapper label {
     color: #323232;
-    font-weight: normal; }
+    font-weight: 700;
+    opacity: 0.7;
+    filter: alpha(opacity=70); }
   .form-row input {
     position: relative;
     z-index: 2; }
@@ -789,6 +793,10 @@ a.action-btn, a.action-btn:focus, a.action-btn:active, a.primary-btn, a.primary-
         width: 100%; }
     .form-row .row-content.-input-wrapper {
       max-width: none; } }
+  @media (max-width: 480px) {
+    .form-row.-action > button {
+      margin: 0 0 15px 0;
+      width: 100%; } }
 
 .dropdown-menu {
   position: relative;
@@ -1582,6 +1590,17 @@ main {
             width: 50px;
             height: 50px;
             background: transparent url("../image/logo/simplifai.svg") no-repeat 0 0; } }
+  main #product-payment-form.-send-success .form-row,
+  main #contact-us-form.-send-success .form-row {
+    display: none; }
+  main #product-payment-form.-send-success .success-message,
+  main #contact-us-form.-send-success .success-message {
+    display: block; }
+  main #product-payment-form .success-message,
+  main #contact-us-form .success-message {
+    font-style: italic;
+    font-weight: 700;
+    display: none; }
 
 footer {
   background: #323232 none repeat 0 0;
@@ -2100,6 +2119,69 @@ ul.breadcrumb a {
   .follow-us .folowing-list > li {
     display: inline-block;
     margin: 0 15px; }
+
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -10000px;
+  border-top: 15px solid rgba(216, 0, 39, 0.2);
+  border-right: 15px solid rgba(216, 0, 39, 0.2);
+  border-bottom: 15px solid rgba(216, 0, 39, 0.2);
+  border-left: 15px solid #D80027;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: spinner 1.1s infinite linear;
+  animation: spinner 1.1s infinite linear; }
+  .loader, .loader:after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em; }
+
+.-loading {
+  position: relative; }
+  .-loading:after, .-loading:before {
+    content: '';
+    position: absolute;
+    z-index: 30; }
+  .-loading:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2) none repeat 0 0; }
+  .-loading:after {
+    left: 50%;
+    top: 50%;
+    margin: -50px 0 0 -50px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border-width: 12px;
+    border-style: solid;
+    border-color: rgba(216, 0, 39, 0.2) rgba(216, 0, 39, 0.2) rgba(216, 0, 39, 0.2) #D80027;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: spinner 1.1s infinite linear;
+    animation: spinner 1.1s infinite linear; }
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 
 * {
   padding: 0;

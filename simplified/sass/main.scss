@@ -57,4 +57,22 @@ main {
 			}
 		}
 	}
+
+	#product-payment-form,
+	#contact-us-form {
+		&.-send-success {
+			.form-row {
+				display: none;
+			}
+			.success-message {
+				display: block;
+			}
+		}
+
+		.success-message {
+			font-style: italic;
+			font-weight: 700;
+			display: none
+		}
+	}
 }

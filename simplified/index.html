@@ -113,8 +113,11 @@
               </div>              
 
               <div class="form-row -action">
-                <div id="login_msg"></div>
-                <button id="login_btn" class="action-btn -active-bounce">Send</button>
+                <button id="contact-us-submit-btn" class="action-btn -active-bounce">Send</button>
+              </div>
+
+              <div class="success-message">
+                Your request is send.
               </div>
             </form>
           </div>
@@ -196,9 +199,12 @@
               </div>
 
               <div class="form-row -action">
-                <div id="login_msg"></div>
-                <button id="login_btn" class="action-btn -active-bounce">Submit</button>
+                <button id="buyer-submit-btn" class="action-btn -active-bounce">Submit</button>
               </div>
+
+              <div class="success-message">
+                Your request is send.
+              </div>              
             </form>
           </div>
         </div>
@@ -206,7 +212,8 @@
         <div id="panel-login" aria-hidden="false" aria-labelledby="tab-login" class="tab-panel -login">
           <div class="login-widget card-wrapper">
             <h2 data-translate="main.login.title">Login</h2>
-            <form id="authentication"  method="post" action="" novalidate>
+            <p><a href="#signup" class="tab-btn">You may to create a account here</a></p>
+            <form id="login-form"  method="post" action="" novalidate>
               <div class="form-row">
                 <div class="row-content -label-wrapper">
                   <div class="content_holder"><label for="login-username" data-translate="main.login.username">Username</label></div>
@@ -224,7 +231,8 @@
                 </div>
               </div>  
               <div class="form-row -action">
-                <button id="login_btn" class="action-btn -active-bounce" data-translate="main.login.submit">Logg inn</button>
+                <button id="login-submit-btn" class="action-btn -active-bounce" data-translate="main.login.submit">Log in</button>
+                <!--<button id="login-reset-btn" class="secondary-btn -active-bounce" data-translate="main.login.submit" type="reset">Reset</button>-->
               </div>
             </form>
           </div>
@@ -384,6 +392,65 @@
             </li>
           </ul>
         </div>
+
+        <div id="panel-signup" aria-hidden="false" class="tab-panel -signup">
+          <div class="product-payment card-wrapper">
+            <h2>Signup</h2>
+            <form id="signup-form" method="post" action="" novalidate>
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="byer-name">Name</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="signup-name" class="input-field" name="name" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="signup-email">Email</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="signup-email" class="input-field" name="email" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder">
+                    <label for="signup-phone">Phone</label>
+                  </div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="signup-phone" class="input-field" name="phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="signup-password" data-translate="main.signup.password">Password</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="signup-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>  
+
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="signup-repeat-password" data-translate="main.signup.repeat-password">Re-password</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="signup-repeat-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper] repeatpassword[signup-password]" value="" autocorrect="off" required>
+                </div>
+              </div>  
+
+              <div class="form-row -action">
+                <button id="signup-btn" class="action-btn -active-bounce">Sign up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
       </div>
     </main>
 

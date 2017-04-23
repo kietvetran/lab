@@ -57,15 +57,7 @@ function setupFormValidaiton() {
     'summaryError'       : false,
     'validationErrorSTD' : ATTR['errorSTD'],
     'validationErrorMSG' : ATTR['errorMSG'],
-    'submitCallback'     : sendProductPaymentForm    
-  });
-
-  $('#authentication').FormValidation({
-    'language'           : ATTR['language'],
-    'summaryError'       : false,
-    'validationErrorSTD' : ATTR['errorSTD'],
-    'validationErrorMSG' : ATTR['errorMSG'],
-    'submitCallback'     : sendProductPaymentForm    
+    'submitCallback'     : submitCallback    
   });
 
   $('#product-payment-form').FormValidation({
@@ -73,13 +65,59 @@ function setupFormValidaiton() {
     'summaryError'       : false,
     'validationErrorSTD' : ATTR['errorSTD'],
     'validationErrorMSG' : ATTR['errorMSG'],
-    'submitCallback'     : sendProductPaymentForm    
+    'submitCallback'     : submitProductPayment    
   });
+
+  $('#login-form').FormValidation({
+    'language'           : ATTR['language'],
+    'summaryError'       : false,
+    'validationErrorSTD' : ATTR['errorSTD'],
+    'validationErrorMSG' : ATTR['errorMSG'],
+    'submitCallback'     : submitLoginForm    
+  });
+
+  $('#signup-form').FormValidation({
+    'language'           : ATTR['language'],
+    'summaryError'       : false,
+    'validationErrorSTD' : ATTR['errorSTD'],
+    'validationErrorMSG' : ATTR['errorMSG'],
+    'submitCallback'     : submitSignupForm    
+  });  
 }
 
-function sendProductPaymentForm( data ) {
-  console.log( '==== sendProductPaymentForm ===');
-  console.log( data );
+function submitProductPayment( data ) {
+  data.main.addClass('-loading');
+  setTimeout( function() {
+    data.main.removeClass('-loading').addClass('-send-success');
+  }, 1000 );
+  return false;
+}
+
+
+function submitCallback( data ) {
+  data.main.addClass('-loading');
+  setTimeout( function() {
+    data.main.removeClass('-loading').addClass('-send-success');
+  }, 1000 );
+  return false;
+}
+
+function submitLoginForm( data ) {
+  data.main.addClass('-loading');
+  setTimeout( function() {
+    data.main.removeClass('-loading');
+    updateLocationHash({'tab': 'home'});
+  }, 500 );
+  return false;
+}
+
+function submitSignupForm( data ) {
+  data.main.addClass('-loading');
+  setTimeout( function() {
+    data.main.removeClass('-loading');
+    updateLocationHash({'tab': 'home'});
+  }, 500 );
+  return false;
 }
 
 /******************************************************************************
@@ -163,7 +201,12 @@ function changeTab( name ) {
   var panel = ATTR.panel.filter('#panel-'+pin).addClass('-show').attr('aria-hidden', 'false');
 
   if ( ! panel  ) { return; }
-  
+
+  panel.find('form').each( function(i,dom) {
+    dom.reset();
+    $(dom).removeClass('-send-success');
+  });
+
   for ( var key in opt ) {
     var input = panel.find('[name="'+key+'"]');
     if ( input.length && opt[key] ) {

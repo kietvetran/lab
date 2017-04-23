@@ -44,7 +44,7 @@
       'date','day','month','year','amount','telephone','mobile',
       'postnumber','creditcardnumber','atleastoption','parent_target',
       'tab_target_class','personnumber','interval','text','accountnumber',
-      'phoneprefix','kidormsg', 'creditcardexpiration'
+      'phoneprefix','kidormsg', 'creditcardexpiration', 'repeatpassword'
     ],
     'validation_error_message' : config.validationErrorMSG || {},
     'selector' : ':text, [type="password"], [type="file"], select, textarea, ' +
@@ -85,7 +85,9 @@
 
       helper._generateId( opt.main );
 
-      opt.form.on('submit',helper._submit).on( 'keydown', helper._formKeydown);
+      opt.form.on('submit',helper._submit)
+        .on( 'keydown', helper._formKeydown)
+        .on( 'reset', function() { helper.removeError(); });
     },
 
     /*************************************************************************
@@ -197,7 +199,7 @@
 
     removeError : function( input, reInsert ) {
       (input ? $(input) :  opt.all).each( function(i,dom) {
-        var node = $(input), target = helper._getErrorInsertTarget( node ); 
+        var node = $(dom), target = helper._getErrorInsertTarget( node ); 
         var mode = 'form-validation-error';
 
         var next = target.next('.input_placeholder,label');
@@ -389,6 +391,9 @@
         }
         if ( typeof(rule.date) !== 'undefined' ) { 
           helper._verifyDate( node, null, true );
+        }
+        if ( typeof(rule.repeatpassword) !== 'undefined' ) { 
+          helper._verifyRepeatpassword( node, null, true );
         }
 
         if ( helper.isClickable(node) ) {
@@ -746,8 +751,11 @@
         helper._verifyCreditcardnumber( node, null, true, true );
       }
       if ( typeof(rule.creditcardexpiration) !== 'undefined' ) { 
-        helper._verifyCreditcardexpiration( node, null, true );
+        helper._verifyCreditcardexpiration( node, null, true, true );
       }
+      if ( typeof(rule.repeatpassword) !== 'undefined' ) { 
+        helper._verifyRepeatpassword( node, null, true, true );
+      }      
       if ( typeof(rule.personnumber) !== 'undefined' ) { 
         helper._verifyPersonnumber( node, null, true, true );
       }
@@ -813,8 +821,11 @@
           helper._verifyCreditcardnumber( node, null, false, true );
         }
         if ( typeof(rule.creditcardexpiration) !== 'undefined' ) { 
-          helper._verifyCreditcardexpiration( node, null, true );
+          helper._verifyCreditcardexpiration( node, null, false, true );
         }
+        if ( typeof(rule.repeatpassword) !== 'undefined' ) { 
+          helper._verifyRepeatpassword( node, null, false, true );
+        }        
         if ( typeof(rule.personnumber) !== 'undefined' ) { 
           helper._verifyPersonnumber( node, null, false, true );
         }
@@ -1544,6 +1555,20 @@
         return helper.getErrorMessage('invalid_credit_card_is_expired',param,node);
       }
       return '';
+    },
+
+    _verifyRepeatpassword : function( input, param, focus, keyup ) {
+      var node = $(input), value = node.prop('value') || '';  
+      if ( ! value ) { return; }
+
+      var id = node.attr('id'), rule = opt.map[id] || {}, password = '';
+      if ( rule.repeatpassword ) {
+        var field = opt.all.filter('#'+rule.repeatpassword);
+        if ( field.length ) { password = field.val(); }
+      }
+
+      return password !== value ? 
+        helper.getErrorMessage('repeat_password_is_not_matched',param,node) : '';
     },
 
     _verifyPhoneprefix : function( input, param, focus ) {
