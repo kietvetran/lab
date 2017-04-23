@@ -1,0 +1,9 @@
+.follow-us {
+  text-align: center;
+  .folowing-list {
+    > li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+  } 
+}
