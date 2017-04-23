@@ -25,6 +25,7 @@ $img-url: '../img/';
 @import 'login-widget';
 @import 'product-payment';
 @import 'contact-us-wrapper';
+@import 'follow-us';
 
 * {
   padding: 0;
@@ -89,6 +90,32 @@ a, button, h1, h2, h3, h4, h5, select, input[type="button"],input[type="reset"],
   border-radius: 4px;
   @include box-shadow();
 }
+
+/*****************************************************************************/
+.tab-panel {
+  visibility: hidden;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+  @include opacity( 0 );
+
+  > * {
+    position: relative;
+  }
+
+  &.-show, &.-stay-open {
+    height: auto;
+    visibility: visible;
+    position: relative;
+    z-index: 1;
+    @include opacity( 1 );
+  }
+}
+
 
 /*****************************************************************************/
 #debugWidget {

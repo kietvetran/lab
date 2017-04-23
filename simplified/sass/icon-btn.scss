@@ -7,5 +7,31 @@
   background-size: 30px auto;
   font-size: 1px;
   color: transparent !important;
+
+  &.-active-bounce {
+    top: 0;
+    &:active {
+      top: 2px;
+    }
+  }  
+
+  &.-twitter {
+  	background-image: url('../image/icon/twitter.svg');
+  	&.-white {
+	  	background-image: url('../image/icon/twitter-w.svg');  		
+  	}
+  }
+  &.-facebook {
+  	background-image: url('../image/icon/facebook.svg');
+  	&.-white {
+	  	background-image: url('../image/icon/facebook-w.svg');
+  	}
+  }
+  &.-linkedin {
+  	background-image: url('../image/icon/linkedin-w.svg');
+  	&.-white {
+	  	background-image: url('../image/icon/linkedin-w.svg');
+  	}
+  }
 }
 

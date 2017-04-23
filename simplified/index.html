@@ -1,219 +1,431 @@
 <!doctype html>
+<!--<html class="no-js" lang="en-US"  manifest="offline.appcache">-->
 <html class="no-js" lang="en-US">
 <head>
-	<title>Simplified</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no" />
+<title>Simplifai</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- <script type="text/javascript" src="js/1.11.2.jquery.min.js"></script> -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script type="text/javascript" src="js/config.js"></script>
 
-	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="./js/fastclick.js"></script>
+<script type="text/javascript" src="js/form_validation.js"></script>
+<script type="text/javascript" src="js/carousel.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
-	<script type="text/javascript" src="./js/config.js"></script>
-	<script type="text/javascript" src="./js/general.js"></script>
-
-	<script type="text/javascript" src="./js/accordion_menu.js"></script>
-	<script type="text/javascript" src="./js/form_validation.js"></script>
-	<script type="text/javascript" src="./js/carousel.js"></script>
-
-	<script type="text/javascript" src="./js/main.js"></script>
 </head> 
-<body onload="javascript:startup();">
-	<div class="layout">
-		<header role="banner">
-			<div class="layout-inner">
-				<h1>Simplified</h1>
-				<nav id="navigation-menu" role="navigation">
-					<ul class="item-widget">
-						<li class="item-wrapper">
-							<a href="" class="navigation-item -main-menu-trading" data-translate="main.menu.product-and-service">Product</a>
-						</li>
-						<li class="item-wrapper">
-							<a href="" class="navigation-item -main-menu-buying" data-translate="main.menu.blog">Blog</a>
-						</li>
-						<li class="item-wrapper">
-							<a href="" class="navigation-item -main-menu-gift" data-translate="main.menu.about-us">About us</a>
-						</li>
-						<li class="item-wrapper">
-							<a href="" class="navigation-item -main-menu-saling" data-translate="main.menu.sign-up">Sign up</a>
-						</li>
-						<li class="item-wrapper">
-							<a href="" class="navigation-item -main-menu-saling" data-translate="main.menu.sign-up">Log in</a>
-						</li>
-					</ul>
-				</nav>
-			</div>		
-		</header>
+<body class="">
+  <div class="layout">
+    <header role="banner">
+      <div class="layout-inner">
+        <h1>Simplifai</h1>
+        <nav id="navigation-menu" role="navigation">
+          <ul class="item-widget" role="tablist">
+            <li class="item-wrapper" role="presentation">
+              <a href="#home" role="tab" id="tab-home" aria-selected="true" aria-controls="panel-home" class="tab-btn" data-translate="main.menu.product-and-service">
+                Product
+              </a>
+            </li>
+            <li class="item-wrapper" role="presentation">
+              <a href="#contact" role="tab" id="tab-contact" aria-selected="false" aria-controls="panel-contact"" class="tab-btn" data-translate="main.menu.about-us">
+                Contact us
+              </a>
+            </li>
+            <li class="item-wrapper" role="presentation">
+              <a href="#signup" role="tab" id="tab-signup" aria-selected="false" aria-controls="panel-signup" class="tab-btn" data-translate="main.menu.sign-up">
+                Sign up
+              </a>
+            </li>
+            <li class="item-wrapper" role="presentation">
+              <a href="#login" role="tab" id="tab-login" aria-selected="false" aria-controls="panel-login" class="tab-btn" data-translate="main.menu.login">
+                Log in
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>    
+    </header>
 
-		<main role="main">
-			<div class="layout-inner">
-				<div id="product-payment">
-		      <form id="product-payment-form" method="post" action="" novalidate>
-						<div class="form-row">
-							<div>
-								<div class="row-content -label-wrapper">
-									<!--<a aria-controls="a-1492835896702-8261" href="" class="info-btn" role="button">Informasjon om personnummer</a>-->
-									<label for="a-1492835896702-4270">Personnummer</label>
-								</div>
-								<div class="row-content -input-wrapper">
-									<input type="tel" name="personnumber" id="a-1492835896702-4270" class="input-field" spellcheck="false" autocomplete="off" required="true" aria-required="true" maxlength="12">
-									<div class="info-message -error -hide" aria-hidden="true" role="alert"></div>
-								</div>
-							</div>
-						</div>
+    <main role="main">
+      <div class="layout-inner">
 
-						<div class="form-row">
-							<div class="row-content -label-wrapper">
-								<!--<a aria-controls="a-1492835896702-8261" href="" class="info-btn" role="button">Informasjon om personnummer</a>-->
-								<label for="phone">Phone</label>
-							</div>
-							<div class="row-content -input-wrapper">
-                <input name="prefix" type="tel" class="input-field" spellcheck="false" autocomplete="off" data-rule="phoneprefix parent_target[.input_unit_wrapper]" maxlength="4" required value="+47" autocorrect="off">
-                <input id="phone" name="phone" type="tel" class="input-field" required spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.input_wrapper] clearbtn" value="" autocorrect="off">
+        <div id="panel-contact" aria-hidden="false" aria-labelledby="tab-contactus" class="tab-panel -contact-us">
+          <div class="contact-us-wrapper card-wrapper">
+            <h2>Contact us</h2>
+            <form id="contact-us-form" method="post" action="" novalidate>
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="byer-name">Company</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="client-name" class="input-field" name="name" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
 
-							</div>
-						</div>						
-					</form>
-				</div>
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="client-email">Email</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="client-email" class="input-field" name="email" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
 
-				<!--
-				<ul class="product-menu">
-					<li>
-						<div class="product" role="application" aria-labelledby="a-product-title" aria-describedby="a-product-description">
-							<h2 class="title" id="a-product-title" data-translate="product.simple.title">A product</h2>
-							<div class="description" id="a-product-description">
-								<div>
-									<span class="label" data-translate="product.simple.live.label">Live</span>
-									<span class="value"="product.simple.live.value">15</span>
-								</div>
-								<div>
-									<span class="label" data-translate="product.simple.support.label">Support</span>
-									<span class="value" data-translate="product.simple.support.value">Facebook page</span>
-								</div>
-							</div>
-							<div class="prices">
-								<a class="toggler" href="" role="button" aria-controls="a-product-prices-cnt">
-									<span data-translate="product.hide">Hide</span>
-									<span data-translate="product.show">Show</span>
-									<span class="aria-visible" data-translate="product.prices.descrition">prices</span>
-								</a>
-								<div class="cnt" id="a-product-prices-cnt">
-									<div>
-										<span class="label" data-translate="product.simple.setupfee.label">Setup fee</span>
-										<span class="value" data-translate="product.simple.setupfee.value">500</span>
-									</div>
-									<div>
-										<span class="label" data-translate="product.simple.monthly.label">Monthly</span>
-										<span class="value" data-translate="product.simple.monthly.value">149</span>
-									</div>
-									<div>
-										<span class="label" data-translate="product.simple.trans.label">Trans<span>
-										<span class="value" data-translate="product.simple.trans.value">0,75</span>
-									</div>
-								</div>
-							</div>
-							<div class="action">
-								<a href="" role="button" class="primary-btn -active-bounce" data-translate="product.simple.action">Get Started</a>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="product" role="application" aria-labelledby="b-product-title" aria-describedby="b-product-description">
-							<h2 class="title" id="b-product-title" data-translate="product.simple.title">B product</h2>
-							<div class="description" id="b-product-description">
-								<div>
-									<span class="label" data-translate="product.simple.live.label">Live</span>
-									<span class="value" data-translate="product.simple.live.value">15</span>
-								</div>
-								<div>
-									<span class="label" data-translate="product.simple.support.label">Support</span>
-									<span class="value" data-translate="product.simple.support.value">Facebook page</span>
-									<span class="value" data-translate="product.simple.support.value">Instergram</span>
-								</div>
-							</div>
-							<div class="prices">
-								<a class="toggler" href="" role="button" aria-controls="b-product-prices-cnt">
-									<span data-translate="product.hide">Hide</span>
-									<span data-translate="product.show">Show</span>
-									<span class="aria-visible" data-translate="product.prices.descrition">prices</span>
-								</a>
-								<div class="cnt" id="b-product-prices-cnt">
-									<div>
-										<span class="label" data-translate="product.simple.setupfee.label">Setup fee</span>
-										<span class="value" data-translate="product.simple.setupfee.value">500</span>
-									</div>
-									<div>
-										<span class="label" data-translate="product.simple.monthly.label">Monthly<span>
-										<span class="value" data-translate="product.simple.monthly.value">149</span>
-									</div>
-									<div>
-										<span class="label" data-translate="product.simple.trans.label">Trans</span>
-										<span class="value" data-translate="product.simple.trans.value">0,75</span>
-									</div>
-								</div>
-							</div>
-							<div class="action">
-								<a href="" role="button" class="primary-btn -active-bounce" data-translate="product.simple.action">Get Started</a>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="product" role="application" aria-labelledby="c-product-title" aria-describedby="c-product-description">
-							<h2 class="title" id="c-product-title" data-translate="product.simple.title">C product</h2>
-							<div class="description" id="c-product-description">
-								<div>
-									<span class="label" data-translate="product.simple.live.label">Live</span>
-									<span class="value" data-translate="product.simple.live.value">15</span>
-								</div>
-								<div>
-									<span class="label" data-translate="product.simple.support.label">Support</span>
-									<span class="value" data-translate="product.simple.support.value">Facebook page</span>
-								</div>
-							</div>
-							<div class="prices">
-								<a class="toggler" href="" role="button" aria-controls="b-product-prices-cnt">
-									<span data-translate="product.hide">Hide</span>
-									<span data-translate="product.show">Show</span>
-									<span class="aria-visible" data-translate="product.prices.descrition">prices</span>
-								</a>
-								<div class="cnt" id="b-product-prices-cnt">
-									<div>
-										<span class="label" data-translate="product.simple.setupfee.label">Setup fee</span>
-										<span class="value" data-translate="product.simple.setupfee.value">500</span>
-									</div>
-									<div>
-										<span class="label" data-translate="product.simple.monthly.label">Monthly</span>
-										<span class="value" data-translate="product.simple.monthly.value">149</span>
-									</div>
-									<div>
-										<span class="label" data-translate="product.simple.trans.label">Trans</span>
-										<span class="value" data-translate="product.simple.trans.value">0,75</span>
-									</div>
-								</div>
-							</div>
-							<div class="action">
-								<a href="" role="button" class="primary-btn -active-bounce" data-translate="product.simple.action">Get Started</a>
-							</div>
-						</div>
-					</li>
-				</ul>
-				-->
-			</div>
-		</main>
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder">
+                    <label for="client-phone">Phone</label>
+                  </div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="client-phone" class="input-field" name="phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>
 
-		<footer role="contentinfo">
-			<div class="layout-inner">
-				<div id="mail-me">
-					<a href="mailto:kietvetran@gmail.com">kietvetran@gmail.com</a>
-				</div>
-			</div>		
-		</footer>
-	</div>
+              <div class="client-order-info">
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="client-request">Type of request</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <select name="request" id="client-request" class="select-box">
+                      <option value="A">A request</option>
+                      <option value="B">B request</option>
+                      <option value="B">C request </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder">
+                    <label for="client-description">Description</label>
+                  </div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <textarea class="input-textarea" name="description" id="client-description" required></textarea>
+                </div>
+              </div>              
+
+              <div class="form-row -action">
+                <div id="login_msg"></div>
+                <button id="login_btn" class="action-btn -active-bounce">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>      
+
+        <div id="panel-buying" aria-hidden="false" class="tab-panel -buy-product">
+          <div class="product-payment card-wrapper">
+            <h2>Get start</h2>
+            <form id="product-payment-form" method="post" action="" novalidate>
+              <div class="buyer-contact-information">
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="byer-name">Name</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-name" class="input-field" name="name" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-email">Email</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-email" class="input-field" name="email" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder">
+                      <label for="buyer-phone">Phone</label>
+                    </div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-phone" class="input-field" name="phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                  </div>
+                </div>
+              </div>
+              <div class="buyer-order-info">
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-product">Product</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <select name="product" id="buyer-product" class="select-box">
+                      <option value="A">A product</option>
+                      <option value="B">B product</option>
+                      <option value="C">C product</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="buyer-payment">
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-credit-card">Credit card</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">                  
+                    <input id="buyer-credit-card" class="input-field" name="creditcard" type="tel" spellcheck="false" autocomplete="off" data-rule="creditcardnumber parent_target[.-input-wrapper]" value="" autocorrect="off" required maxlength="19">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-expired-date">Expire date</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">                  
+                    <input id="buyer-expired-date" class="input-field" name="expiration " type="tel" spellcheck="false" autocomplete="off" data-rule="creditcardexpiration parent_target[.-input-wrapper]" value="" autocorrect="off" required maxlength="5" placeholder="MM/YY">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-csv">Credit card CSV</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">                  
+                    <input id="buyer-csv" class="input-field" name="cSV" type="tel" spellcheck="false" autocomplete="off" data-rule="number parent_target[.-input-wrapper]" value="" autocorrect="off" required maxlength="4">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row -action">
+                <div id="login_msg"></div>
+                <button id="login_btn" class="action-btn -active-bounce">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="panel-login" aria-hidden="false" aria-labelledby="tab-login" class="tab-panel -login">
+          <div class="login-widget card-wrapper">
+            <h2 data-translate="main.login.title">Login</h2>
+            <form id="authentication"  method="post" action="" novalidate>
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="login-username" data-translate="main.login.username">Username</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="login-username" class="input-field" name="username" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>                    
+              <div class="form-row">
+                <div class="row-content -label-wrapper">
+                  <div class="content_holder"><label for="login-password" data-translate="main.login.password">Password</label></div>
+                </div>          
+                <div class="row-content -input-wrapper">
+                  <input id="login-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+              </div>  
+              <div class="form-row -action">
+                <button id="login_btn" class="action-btn -active-bounce" data-translate="main.login.submit">Logg inn</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="panel-home" aria-hidden="false" aria-labelledby="tab-home" class="tab-panel -home">
+          <div class="home-carousel-holder">
+            <div class="carousel_screen carousel-screen">
+              <div class="carousel_slider_holder">
+                <ul class="carousel_slider ">
+                  <li class="carousel_item">
+                    <div id="carousel-about-us" class="carousel-about-us">
+                      <h2>Simplifai 2017</h2>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nibh, congue id tristique sed, sodales nec nulla. Sed tincidunt malesuada lorem vitae hendrerit.
+                      </p>
+                      <p>
+                        Integer id nibh semper, pulvinar magna sit amet, dignissim felis. Aliquam erat volutpat. Proin congue nunc sit amet mollis dignissim. Quisque accumsan auctor viverra. Vivamus non ipsum sed mi accumsan posuere sit amet quis quam. Suspendisse nec erat consectetur massa convallis congue ac vitae mi. Praesent sollicitudin, dui et pretium bibendum, purus odio venenatis libero, sagittis lacinia est nisl eget libero.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="carousel_item">
+                    <div id="carousel-our-customer" class="">
+                      <h2>Our customer</h2>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nibh, congue id tristique sed, sodales nec nulla. Sed tincidunt malesuada lorem vitae hendrerit.
+                      </p>
+                      <p>
+                        Integer id nibh semper, pulvinar magna sit amet, dignissim felis. Aliquam erat volutpat. Proin congue nunc sit amet mollis dignissim. Quisque accumsan auctor viverra. Vivamus non ipsum sed mi accumsan posuere sit amet quis quam. Suspendisse nec erat consectetur massa convallis congue ac vitae mi. Praesent sollicitudin, dui et pretium bibendum, purus odio venenatis libero, sagittis lacinia est nisl eget libero.
+                      </p>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <ul class="product-menu">
+            <li>
+              <div class="product" role="application" aria-labelledby="a-product-title" aria-describedby="a-product-description">
+                <h2 class="title" id="a-product-title" data-translate="product.simple.title">A product</h2>
+                <div class="description" id="a-product-description">
+                  <div>
+                    <span class="label" data-translate="product.simple.live.label">Live</span>
+                    <span class="value" data-translate="product.simple.live.value">15</span>
+                  </div>
+                  <div>
+                    <span class="label" data-translate="product.simple.support.label">Support</span>
+                    <span class="value" data-translate="product.simple.support.value">Facebook page</span>
+                  </div>
+                </div>
+                <div class="prices">
+                  <a class="toggler" href="" role="button" aria-controls="a-product-prices-cnt">
+                    <span data-translate="product.hide">Hide</span>
+                    <span data-translate="product.show">Show</span>
+                    <span class="aria-visible" data-translate="product.prices.descrition">prices</span>
+                  </a>
+                  <div class="cnt" id="a-product-prices-cnt">
+                    <div>
+                      <span class="label" data-translate="product.simple.setupfee.label">Setup fee</span>
+                      <span class="value" data-translate="product.simple.setupfee.value">500</span>
+                    </div>
+                    <div>
+                      <span class="label" data-translate="product.simple.monthly.label">Monthly</span>
+                      <span class="value" data-translate="product.simple.monthly.value">149</span>
+                    </div>
+                    <div>
+                      <span class="label" data-translate="product.simple.trans.label">Trans</span>
+                      <span class="value" data-translate="product.simple.trans.value">0,75</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="action">
+                  <a href="#buying?product=A" role="button" class="primary-btn -active-bounce product-get-start tab-btn" data-translate="product.simple.action">Get start</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="product" role="application" aria-labelledby="b-product-title" aria-describedby="b-product-description">
+                <h2 class="title" id="b-product-title" data-translate="product.simple.title">B product</h2>
+                <div class="description" id="b-product-description">
+                  <div>
+                    <span class="label" data-translate="product.simple.live.label">Live</span>
+                    <span class="value" data-translate="product.simple.live.value">15</span>
+                  </div>
+                  <div>
+                    <span class="label" data-translate="product.simple.support.label">Support</span>
+                    <span class="value" data-translate="product.simple.support.value">Facebook page</span>
+                    <span class="value" data-translate="product.simple.support.value">Instergram</span>
+                  </div>
+                </div>
+                <div class="prices">
+                  <a class="toggler" href="" role="button" aria-controls="b-product-prices-cnt">
+                    <span data-translate="product.hide">Hide</span>
+                    <span data-translate="product.show">Show</span>
+                    <span class="aria-visible" data-translate="product.prices.descrition">prices</span>
+                  </a>
+                  <div class="cnt" id="b-product-prices-cnt">
+                    <div>
+                      <span class="label" data-translate="product.simple.setupfee.label">Setup fee</span>
+                      <span class="value" data-translate="product.simple.setupfee.value">500</span>
+                    </div>
+                    <div>
+                      <span class="label" data-translate="product.simple.monthly.label">Monthly<span>
+                      <span class="value" data-translate="product.simple.monthly.value">149</span>
+                    </div>
+                    <div>
+                      <span class="label" data-translate="product.simple.trans.label">Trans</span>
+                      <span class="value" data-translate="product.simple.trans.value">0,75</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="action">
+                  <a href="#buying?product=B" role="button" class="primary-btn -active-bounce product-get-start tab-btn" data-translate="product.simple.action">Get start</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="product" role="application" aria-labelledby="c-product-title" aria-describedby="c-product-description">
+                <h2 class="title" id="c-product-title" data-translate="product.simple.title">C product</h2>
+                <div class="description" id="c-product-description">
+                  <div>
+                    <span class="label" data-translate="product.simple.live.label">Live</span>
+                    <span class="value" data-translate="product.simple.live.value">15</span>
+                  </div>
+                  <div>
+                    <span class="label" data-translate="product.simple.support.label">Support</span>
+                    <span class="value" data-translate="product.simple.support.value">Facebook page</span>
+                  </div>
+                </div>
+                <div class="prices">
+                  <a class="toggler" href="" role="button" aria-controls="b-product-prices-cnt">
+                    <span data-translate="product.hide">Hide</span>
+                    <span data-translate="product.show">Show</span>
+                    <span class="aria-visible" data-translate="product.prices.descrition">prices</span>
+                  </a>
+                  <div class="cnt" id="b-product-prices-cnt">
+                    <div>
+                      <span class="label" data-translate="product.simple.setupfee.label">Setup fee</span>
+                      <span class="value" data-translate="product.simple.setupfee.value">500</span>
+                    </div>
+                    <div>
+                      <span class="label" data-translate="product.simple.monthly.label">Monthly</span>
+                      <span class="value" data-translate="product.simple.monthly.value">149</span>
+                    </div>
+                    <div>
+                      <span class="label" data-translate="product.simple.trans.label">Trans</span>
+                      <span class="value" data-translate="product.simple.trans.value">0,75</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="action">
+                  <a href="#buying?product=C" role="button" class="primary-btn -active-bounce product-get-start tab-btn" data-translate="product.simple.action">Get start</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="layout-inner">
+        <div class="follow-us">
+          <h2>Follow us</h2>
+          <ul class="folowing-list">
+            <li>
+              <a href="" class="icon-btn -active-bounce -facebook -white">
+                <span class="aria-visible">Folow us at facebook</span>
+              </a>
+            </li>
+            <li>
+              <a href="" class="icon-btn -active-bounce -twitter -white">
+                <span class="aria-visible">Folow us at twitter</span>
+              </a>              
+            </li>
+            <li>
+              <a href="" class="icon-btn -active-bounce -linkedin -white">
+                <span class="aria-visible">Folow us at linkedin</span>
+              </a>              
+            </li>
+          </ul>
+        </div>
+      </div>    
+    </footer>
+
+    <div id="chat-widget" role="application">
+      <a href="#chat-widget" class="chat-widget-btn" aria-controls="chat-widget-cnt">
+        <span class="aria-visible" data-translate="main.chat.toggle-widget">Toggle chat widget</span>
+      </a>
+      <div id="chat-widget-cnt" class="chat-widget-cnt" aria-expanded="false">
+        <div id="chat-text-board" class="chat-text-board">
+
+        </div> 
+        <div class="chat-action-row">
+          <textarea class="input-textarea"></textarea>
+          <button class="primary-btn --active-bounce">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
-

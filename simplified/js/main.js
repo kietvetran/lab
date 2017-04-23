@@ -1,30 +1,37 @@
 /******************************************************************************
 === GLOBAL ATTRIBUTE ===
 ******************************************************************************/
-try { CONFIG;  } catch( error ){ CONFIG  = {}; }
+try { CONFIG; } catch( error ){ CONFIG = {};   }
+try { HOMEGALLERY; } catch( error ){ HOMEGALLERY = null;   }
+try { MENUGALLERY; } catch( error ){ MENUGALLERY = null;   }
+try { ALACARTE; } catch( error ){ ALACARTE = [];   }
+try { SETMENU; } catch( error ){ SETMENU = [];   }
+try { GALLERY; } catch( error ){ GALLERY = [];   }
+try { MAPSTYLING; } catch( error ){ MAPSTYLING = [];   }
+try { INFORMATION; } catch( error ){ INFORMATION = [];   }
+
 var ATTR = {
-  'resizeTimer'   : 0,
-  'scrollTimer'   : 0,
-  'interval'      : 0,
-  'index'         : 0,
-  'today'         : new Date(),
-  'day'           : 60*60*24*1000,
-  'queue'         : [],
-  'hashList'      : [],
-  'history'       : [],
-  'cookie'        : 'reddbarna_support',
-  'reference'     : {'phone':{},'auto':{}},
-  'language'      : CONFIG['language']      || 'nb',
-  'offline'       : false
+  'timeout'  : 0,
+  'interval' : 0,
+  'now'      : new Date()
 };
 
+/******************************************************************************
+=== MAIN GLOBAL FUCNTION ===
+******************************************************************************/
 $( document ).ready(function() {
   convertTranslation(); 
   setupFormValidaiton();
   setupCarousel();
 
+  ATTR.tab   = $('.tab-btn');
+  ATTR.panel = $('.tab-panel');
+  ATTR.body = $('body');  
+
   $( document ).on('click', clickHandler);
   $( window ).on('hashchange', hashChangeHandler);
+
+  hashChangeHandler();
 });
 
 /******************************************************************************
@@ -79,119 +86,90 @@ function sendProductPaymentForm( data ) {
 === EVENT FUCNTION ===
 ******************************************************************************/
 /**
-*/
-function scroll( e ) {
-  clearTimeout( ATTR.timeout );
-  ATTR.timeout = setTimeout( function() {
-    var position = getScrollPosition();
-    position[1] > 20 ? ATTR.body.addClass('scrolled-passed') : 
-      ATTR.body.removeClass('scrolled-passed');
-  }, 100 );
-}
-
-/**
+* The function 
+* @return {Void}
 */
 function hashChangeHandler( e ) {
   var opt = getURLoption();
-  console.log('=======');
-  console.log( opt );
+  changeTab( opt.tab || 'home' );
 }
+
 /**
+ * @param e {Window.Event}
+ * @return {Void}
  */
 function clickHandler( e ) {
-  if ( ATTR['dragged'] ) return e.preventDefault();
-  if ( e['which'] == 3 ) return true;
+  var target = $(e.target), parent = target.parent(), order = [
+    //{'type':'id',    'what':'btnLogo',           'handler':clickOnBtnLogo       },
+    {'type':'class','what':'chat-widget-btn',    'handler':clickOnChatWidgetBtn },      
+    {'type':'class', 'what':'tab-btn',           'handler':clickOnTabBtn        }
+  ]; 
 
-  var target  = $( e.target ), parent = target.parent();
-  var disabled = target.hasClass('disabled') || parent.hasClass('disabled') ||
-    target.hasClass('lib_disabled') || parent.hasClass('lib_disabled');
-  if ( disabled ) {
-    e.preventDefault();
-    return false;
-  }
-
-  var href = target.attr('href') || parent.attr('href') || '';
-  if ( href.length > 3 && ! href.match( /^\#/ ) ) return true;
-  var order = [
-    {'type':'class','what':'goto_adding_comment',   'handler':clickOnCommentBtn },      
-    {'type':'class','what':'product-get-start-btn', 'handler':clickOnProductGetStartBnt },      
-    {'type':'class','what':'navigation-item',       'handler':clickOnNavigationItem },      
-    {'type':'class','what':'chat-widget-btn',       'handler':clickOnChatWidgetBtn },      
-    {'type':'id',   'what':'logout_btn',            'handler':clickOnLogoutBtn  }
-  ];
-
-  var i = 0, loop = order.length, current = null, trigger = 0, data = null, temp = [];
-  for ( i; i<loop; i++ ) {
-    var test = order[i]['type'] === 'id' ? (
-      target.attr('id')==order[i]['what'] ? 1  : (parent.attr('id')==order[i]['what'] ? 2 : 0) 
-    ) : ( 
-      target.hasClass(order[i]['what']) ? 1 : (parent.hasClass(order[i]['what']) ? 2 : 0)
-    );
-
-    if ( ! test ) { 
-      if ( order[i].grand ) {
-        var grand = parent.parent(), grandP = grand.parent();
-        test = order[i].type === 'id' ? (
-          grand.attr('id')==order[i]['what'] ? 1  : (grandP.attr('id')==order[i]['what'] ? 2 : 0) 
-        ) : ( 
-          grand.hasClass(order[i]['what']) ? 1 : (grandP.hasClass(order[i]['what']) ? 2 : 0)
-        );        
-
-        if      ( test == 1 ) target = grand;
-        else if ( test == 2 ) parent = grandP;
+  var i = 0, loop = order.length, current = null; 
+  for ( i; i < loop; i++ ) {
+    if ( order[i].type === 'class' ) {
+      if ( target.hasClass(order[i].what) ) {
+        current = target;
+      } else if ( parent.hasClass(order[i].what) ) {
+        current = parent;
       }
-      if ( ! test ) continue;
-    }
-
-    current = test == 1 ? target : parent;
-
-    href = current.attr('href') || target.attr('href') || parent.attr('href') || '';
-    if ( href.length < 3 || href.match( /^\#/ ) ) e.preventDefault();   
-
-    //order[i].handler({'target':target,'current':current,'event':e});
-
-    data = {'target':target,'current':current,'event':e};
-    trigger = order[i].handler( data );
-
-    if ( trigger === 1 ) ATTR['queue'].push( data ); 
-    i = loop;
-  }
-
-  while ( ATTR['queue'].length ) {
-    data = ATTR['queue'].shift();
-    if ( current && trigger !== -1 ) {
-      if ( data['current'].attr('id') == current.attr('id') ) {
-        temp.push( data );
-        continue;
+    } else if ( order[i].type === 'id' ) {
+      if ( target.is(order[i].what) ) {
+        current = target;
+      } else if ( parent.is(order[i].what) ) {
+        current = parent;
       }
     }
 
-    if ( data['rm'] ) {
-      data['current'].removeClass( data['rm'] );
-      if ( data['parent'] ) data['parent'].removeClass( data['rm'] );
+    if ( current ) {
+      e.preventDefault();
+      order[i].handler({'e':e, 'current': current});
+      i = loop;
     }
-    if ( data['ad'] ) { 
-      data['current'].addClass( data['ad'] );
-      if ( data['parent'] ) data['parent'].addClass( data['ad'] );
-    }
-    if ( typeof(data['callback'])=='function' ) data['callback'](data);
   }
-
-  ATTR['queue'] = temp;
-  return true;
 }
 
-/******************************************************************************
-=== CLICK ACTION FUCNTION ===
-******************************************************************************/
-function clickOnProductGetStartBnt( data ) {
-}
-
-function clickOnNavigationItem( data ) {
+function clickOnTabBtn( data ) {
   var href = data.current.attr('href');
-  if ( href === 'login' ) {
-    toggleLoginWidget();
-  } 
+  if ( ! href ) { return; }
+
+  if ( data.current.hasClass('-menu-headline') ) {
+    var parent = data.current.hasClass('-cloned') ? 
+      $('#setmenu-head-link').parent() : data.current.parent();
+    href = parent.find('.tablist .tab-btn').eq(0).attr('href');
+    if ( href ) {
+      updateLocationHash({'menu': href.replace( /\#/g, '' )});
+    } 
+  } else if ( data.current.hasClass('-menu') ) {
+    updateLocationHash({'menu': href.replace( /\#/g, '' )});
+  } else {
+    updateLocationHash({'tab': href.replace( /\#/g, '' )});
+  }
+}
+
+function changeTab( name ) {
+  if ( ! name ) { return; }
+
+  var pin = name.replace( /\?.*/,''), opt = getURLoption( name ); 
+
+  ATTR.tab.removeClass('-show').each( function(i,d) {    
+    $(d).attr('aria-selected', 'false');
+  });
+  ATTR.panel.removeClass('-show').each( function(i,d) {
+    $(d).attr('aria-hidden', 'true');
+  });
+
+  var tab = ATTR.tab.filter('#tab-'+pin).addClass('-show').attr('aria-selected', 'true');
+  var panel = ATTR.panel.filter('#panel-'+pin).addClass('-show').attr('aria-hidden', 'false');
+
+  if ( ! panel  ) { return; }
+  
+  for ( var key in opt ) {
+    var input = panel.find('[name="'+key+'"]');
+    if ( input.length && opt[key] ) {
+      input.val( opt[key] || '');
+    }
+  }
 }
 
 function clickOnChatWidgetBtn( data ) {
@@ -200,15 +178,63 @@ function clickOnChatWidgetBtn( data ) {
   widget.toggleClass( mode );
 }
 
-function clickOnCommentBtn() {
+/******************************************************************************
+=== GENERAL FUCNTION ===
+******************************************************************************/
+function updateLocationHash( data ) {
+  if ( ! data ) { data = {}; }
+
+  var opt = getURLoption(), key = '', param = [];
+  for ( key in data ) {
+    opt[key] = data[key];
+  }
+
+  for ( key in opt ) {
+    if ( opt[key] ) {
+      param.push( key+'='+opt[key] );
+    }
+  }
+  window.location.hash = param.length ? ('?'+param.join('&')) : '';
+}
+ 
+function getURLoption( href ) {
+  var opt = {}, url = href || window.location.href;
+  var matched = url.replace(/\#+/g, '#').match( /^([\w\.\-\s\_\%\/\:]+)\#(.*)/ )
+    || url.replace(/\?+/g, '?').match( /^([\w\.\-\s\_\#\%\/\:]+)\?(.*)/ );
+
+  if ( matched ) {
+    let splited = (decodeURIComponent(matched[2]) || '')
+      .replace( /\#\?/g, '&' ).split( '&' );
+    for ( let i = 0; i < splited.length; i++ ) {
+      let m = splited[i].match( /(\w+)\=(.*)/ );
+      if ( m ) { opt[m[1]] = m[2].replace( /\#$/, '' ); }
+    }
+  }
+  return opt;
 }
 
-function clickOnLogoutBtn() {}
+function getAutoId() {
+  var random = Math.floor((Math.random() * 10) + 1);
+  var time   = (new Date()).getTime();
+  return 'auto_' + time + '_' + random;
+}
 
+function getScrollPosition() {
+  if (typeof window.pageYOffset !== 'undefined') {
+    return [ window.pageXOffset, window.pageYOffset ];
+  }
 
-/******************************************************************************
-=== LOGIN FUCNTION ===
-******************************************************************************/
-function toggleLoginWidget() {
+  if (
+    typeof document.documentElement.scrollTop !== 'undefined' &&
+    document.documentElement.scrollTop > 0
+  ) {
+    return [
+      document.documentElement.scrollLeft,
+      document.documentElement.scrollTop
+    ];
+  }
 
+  return typeof document.body.scrollTop !== 'undefined' ? [
+    document.body.scrollLeft, document.body.scrollTop
+  ] : [0, 0];
 }

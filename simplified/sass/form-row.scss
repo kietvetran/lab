@@ -2,6 +2,7 @@
   padding: 15px 0 15px 175px;
   clear: both;
   width: 100%;
+  display: table;
   position: relative;
  
   &.-show-information {
@@ -24,6 +25,10 @@
     &.-active {
       display: block;
     }
+  }
+
+  &.-action {
+    padding-top: 20px;
   }
 
   legend, .-label-wrapper label {
@@ -214,55 +219,13 @@
     clear: both;
   }
 
-  &.-single-column {
-    & {
-      padding: 0 0 10px 0;
-      &.-action-row {
-        padding-top: 15px;
-      }
-    }    
-    .row-content {
-      &.-label-wrapper, &.-info-wrapper {
-        width: 100%;
-        margin-left: 0;
-      }
-
-      &.-label-wrapper {
-        padding-bottom: 5px;
-      }
-
-      &.-info-wrapper {
-        margin-top: -5px;
-        .content-holder {
-          width: 100%;
-        }
-      }
-
-      &.-input-wrapper {
-        max-width: none;      
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-lg) {
+  @media (max-width: $breakpoint-md-p) {
     & {
       padding: 0 0 10px 0;
       &.-action-row {
         padding-top: 15px;
       }
     }
-
-    &.-side-50 {
-      &:first-child {
-        .-input-wrapper {
-          padding-right: 15px;
-        }
-      }
-
-      float: left;
-      width: 50%;
-      clear: none;
-    }  
 
     .row-content {
       &.-label-wrapper, &.-info-wrapper {
@@ -285,26 +248,5 @@
         max-width: none;      
       }
     }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    &.-side-50 {
-      &:first-child {
-        .-input-wrapper {
-          padding-right: 0;
-        }
-      }
-      width: 100%;
-      clear: both;
-      margin-right: 0;
-    }
-
-    .row-content {
-      &.-label-wrapper, &.-info-wrapper {
-        &, .content-holder {
-          width: 100%;
-        }
-      }
-    }
-  }
+  }  
 }
