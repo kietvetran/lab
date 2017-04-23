@@ -83,6 +83,24 @@ function setupFormValidaiton() {
     'validationErrorMSG' : ATTR['errorMSG'],
     'submitCallback'     : submitSignupForm    
   });  
+
+  $('#chat-widget-form').FormValidation({
+    'language'           : ATTR['language'],
+    'summaryError'       : false,
+    'validationErrorSTD' : ATTR['errorSTD'],
+    'validationErrorMSG' : ATTR['errorMSG'],
+    'submitCallback'     : submitChatWidget    
+  });  
+}
+
+function submitChatWidget( data ) {
+  var area = $('#chat-widget-textarea'), text = area.val(); 
+  if ( text.replace( /\s+/,'') ) {
+    var board = $('#chat-text-board').append('<div class="message -right">'+text+'</div>');
+    board.scrollTop( board.get(0).clientHeight );
+    data.main.get(0).reset();
+  }
+  return false;
 }
 
 function submitProductPayment( data ) {

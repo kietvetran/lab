@@ -479,17 +479,21 @@
       </div>    
     </footer>
 
-    <div id="chat-widget" role="application">
+    <div id="chat-widget" role="application" class="-expanded-">
       <a href="#chat-widget" class="chat-widget-btn" aria-controls="chat-widget-cnt">
         <span class="aria-visible" data-translate="main.chat.toggle-widget">Toggle chat widget</span>
       </a>
       <div id="chat-widget-cnt" class="chat-widget-cnt" aria-expanded="false">
         <div id="chat-text-board" class="chat-text-board">
-
+          <div class="message -left">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae consequat elit, nec interdum augue.
+          </div>
         </div> 
         <div class="chat-action-row">
-          <textarea class="input-textarea"></textarea>
-          <button class="primary-btn --active-bounce">Send</button>
+          <form id="chat-widget-form" method="post" action="" novalidate>
+            <textarea name="chat" id="chat-widget-textarea" class="input-textarea" aria-label="chat-text"></textarea>
+            <button aria-label="submittext" class="primary-btn --active-bounce">Send</button>
+          </form>
         </div>
       </div>
     </div>
