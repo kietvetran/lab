@@ -52,8 +52,9 @@
       true : config.arrowNavigator,
     'bNavigator' : config.scroll ? false : (typeof(config.bulletNavigator) === 'undefined' ? 
       true : config.bulletNavigator),
-    'autoTime'   : config.scroll || ! config.autoSwipe ? 0 : 
-      (config.autoSwipe===true ? 5000 : config.autoSwipe),
+    //'autoTime'   : config.scroll || ! config.autoSwipe ? 0 : 
+    //  (config.autoSwipe===true ? 5000 : config.autoSwipe),
+    'autoTime'   : config.autoSwipe && typeof(config.autoSwipe) ? config.autoSwipe : 0,
     'incremental': config.scroll || ! config.incremental ? 0 :
       (config.incremental===true ? 1 : config.incremental),
     'completeCallback' : config.completeCallback,

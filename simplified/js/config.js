@@ -3,10 +3,22 @@
 ******************************************************************************/
 var CONFIG = {
   'month' : ['januar','februar','mars','april','mai','juni','juli','august','september','oktober','november','desember'],
-  'language' : 'no', // eq: en,nb,nn
+  'language' : 'no',
+
+  'carouselAutoSwipe': 15*1000, // 15 seconds
+
+  'popupChatWidget': {
+    'delay': 15*1000, //  15 seconds
+    'message': {
+      'no': 'Hva kan jeg hjelpe deg?',
+      'en': 'What can i help you?'
+    }
+  },
 
 	'api': {
-    'login' : ''
+    'login' : 'https://simplifai-backend.eu-de.mybluemix.net/login',
+    'order' : 'https://simplifai-backend.eu-de.mybluemix.net/subscribe', 
+    'concat': 'https://simplifai-backend.eu-de.mybluemix.net/contact'
 	},
 
   'translation' : {
@@ -114,12 +126,12 @@ var CONFIG = {
       'en': 'Phone'
     },
     'main.buyer.product': {
-      'no': 'Betalingsmåte',
-      'en': 'Payment'
+      'no': 'Produkt',
+      'en': 'Product'
     },
     'main.buyer.payment': {
-      'no': 'Beskrivelse',
-      'en': 'Description'
+      'no': 'Betalemåte',
+      'en': 'Payment'
     },
     'main.buyer.visa': {
       'no': 'Visa',
@@ -149,6 +161,10 @@ var CONFIG = {
       'no': 'CSV',
       'en': 'CSV'
     },    
+    'main.buyer.street': {
+      'no': 'Gate adresse',
+      'en': ''
+    },    
     'main.buyer.billing-street': {
       'no': 'Gate (Faktura)',
       'en': 'Street (billing)'
@@ -169,6 +185,14 @@ var CONFIG = {
       'no': 'Din forspørsel er sendt.',
       'en': 'Your request is send.'
     },    
+    'main.buyer.password': {
+      'no': 'Passord',
+      'en': 'Password'
+    },    
+    'main.buyer.repeat-password': {
+      'no': 'Repeter passord',
+      'en': 'Re-password'
+    },    
 
     /*** ***/
     'main.login.title': {
@@ -187,6 +211,10 @@ var CONFIG = {
       'no': 'Logg inn',
       'en': 'Login'
     },    
+    'main.login.create-account': {
+      'no': 'Du kan opprette en konto her.',
+      'en': 'You may to create a account here.'
+    },   
 
     /*** ***/
     'main.contact': {

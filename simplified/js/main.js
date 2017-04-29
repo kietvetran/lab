@@ -7,11 +7,13 @@ var ATTR = {
   'timeout'  : 0,
   'interval' : 0,
   'now'      : new Date(),
-  'language'      : CONFIG['language']      || 'no',
-  'errorMSG'      : CONFIG['validationErrorMSG'],
-  'errorSTD'      : CONFIG['validationErrorSTD'],
-  'translation'   : CONFIG['translation']   || {},
-  'api'           : CONFIG['api']           || {} 
+  'carouselAutoSwipe': CONFIG['carouselAutoSwipe'], 
+  'language'       : CONFIG['language']      || 'no',
+  'errorMSG'       : CONFIG['validationErrorMSG'],
+  'errorSTD'       : CONFIG['validationErrorSTD'],
+  'popupChatWidget': CONFIG['popupChatWidget'], 
+  'translation'    : CONFIG['translation']   || {},
+  'api'            : CONFIG['api']           || {}
 };
 
 /******************************************************************************
@@ -21,6 +23,7 @@ $( document ).ready(function() {
   convertTranslation(); 
   setupFormValidaiton();
   setupCarousel();
+  setupPopupChatWidget();
 
   ATTR.tab   = $('.tab-btn');
   ATTR.panel = $('.tab-panel');
@@ -48,11 +51,31 @@ function convertTranslation() {
   });
 }
 
+function setupPopupChatWidget( stop ) {
+  if ( ! ATTR.popupChatWidget || ATTR.popupChatWidget.showed ) { return; }
+  clearTimeout( ATTR.popupChatWidget.timer || 0);
+
+  if ( stop ) { 
+    ATTR.popupChatWidget.showed = true;
+    return; 
+  }
+
+  ATTR.popupChatWidget.timer = setTimeout( function() {
+    var text =  ATTR.popupChatWidget.message[ATTR.language];
+    var board = $('#chat-text-board').append('<div class="message -left">'+text+'</div>');
+    board.scrollTop( board.get(0).clientHeight );
+
+    clickOnChatWidgetBtn( {}, true );
+    ATTR.popupChatWidget.showed = true;
+  }, ATTR.popupChatWidget.delay || 10000 );
+}
+
 function setupCarousel() {
   $('.carousel_screen').Carousel({
     'carousel'        : false,
-    'autoSwipe'       : true,
-    'arrowNavigator'  : true
+    'autoSwipe'       : ATTR['carouselAutoSwipe'] ? true : false,
+    'arrowNavigator'  : true,
+    'autoSwipe'       : ATTR['carouselAutoSwipe']
   }); 
 }
 
@@ -105,6 +128,7 @@ function submitChatWidget( data ) {
     var board = $('#chat-text-board').append('<div class="message -right">'+text+'</div>');
     board.scrollTop( board.get(0).clientHeight );
     data.main.get(0).reset();
+    setupPopupChatWidget( true );
   }
   return false;
 }
@@ -116,7 +140,6 @@ function submitProductPayment( data ) {
   }, 1000 );
   return false;
 }
-
 
 function submitCallback( data ) {
   data.main.addClass('-loading');
@@ -189,6 +212,7 @@ function clickHandler( e ) {
       i = loop;
     }
   }
+  setupPopupChatWidget();
 }
 
 function clickOnTabBtn( data ) {
@@ -239,10 +263,16 @@ function changeTab( name ) {
   }
 }
 
-function clickOnChatWidgetBtn( data ) {
+function clickOnChatWidgetBtn( data, force ) {
   var widget = $('#chat-widget'), mode = '-expanded';
   if ( ! widget.length ) { return; }
-  widget.toggleClass( mode );
+
+  var has = typeof(force) === 'boolean' ? !(force) : widget.hasClass(mode);
+  if ( has ) {
+    widget.removeClass( mode );
+  } else {
+    widget.addClass( mode );
+  }
 }
 
 /******************************************************************************

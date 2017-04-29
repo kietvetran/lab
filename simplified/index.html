@@ -36,7 +36,7 @@
               </a>
             </li>
             <li class="item-wrapper" role="presentation">
-              <a href="#signup" role="tab" id="tab-signup" aria-selected="false" aria-controls="panel-signup" class="tab-btn" data-translate="main.menu.sign-up">
+              <a href="#buying" role="tab" id="tab-signup" aria-selected="false" aria-controls="panel-signup" class="tab-btn" data-translate="main.menu.sign-up">
                 Sign up
               </a>
             </li>
@@ -96,7 +96,7 @@
                       <option value="account" data-translate="main.contact.request-account">Account</option>
                       <option value="billing" data-translate="main.contact.request-billing">Billing</option>
                       <option value="product" data-translate="main.contact.request-upgrade">Product upgrade</option>
-                      <option value="sales" data-translate="main.contact.request-saless">Sales</option>
+                      <option value="sales" data-translate="main.contact.request-sales">Sales</option>
                       <option value="support" data-translate="main.contact.request-support">Support</option>
                       <option value="other" data-translate="main.contact.request-other">Other</option>
                     </select>
@@ -168,6 +168,25 @@
                     <input id="buyer-phone" class="input-field" name="phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
                   </div>
                 </div>
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-password" data-translate="main.buyer.password">Password</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                  </div>
+                </div>  
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-repeat-password" data-translate="main.buyer.repeat-password">Re-password</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-repeat-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper] repeatpassword[buyer-password]" value="" autocorrect="off" required>
+                  </div>
+                </div>
+
               </div>
               <div class="collection -order-info">
                 <div class="form-row">
@@ -237,7 +256,7 @@
                       <div class="content_holder"><label for="buyer-street" data-translate="main.buyer.billing-street">Street (billing)</label></div>
                     </div>          
                     <div class="row-content -input-wrapper">                  
-                      <input id="buyer-street" class="input-field" name="street" type="text" spellcheck="false" autocomplete="off" data-rule="parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                      <input id="buyer-street" class="input-field" name="street" type="text" spellcheck="false" autocomplete="off" data-rule="parent_target[.-input-wrapper]" value="" autocorrect="off" required placeholder="street" data-translate="main.buyer.street">
                     </div>
                   </div>                  
                   <div class="form-row">
@@ -266,7 +285,7 @@
         <div id="panel-login" aria-hidden="false" aria-labelledby="tab-login" class="tab-panel -login">
           <div class="login-widget card-wrapper">
             <h2 data-translate="main.login.title">Login</h2>
-            <p><a href="#signup" class="tab-btn">You may to create a account here</a></p>
+            <p><a href="#buying" class="tab-btn" data-translate="main.login.create-account">You may to create a account here</a></p>
             <form id="login-form"  method="post" action="" novalidate>
               <div class="form-row">
                 <div class="row-content -label-wrapper">
@@ -538,11 +557,7 @@
         <span class="aria-visible" data-translate="main.chat.toggle-widget">Toggle chat widget</span>
       </a>
       <div id="chat-widget-cnt" class="chat-widget-cnt" aria-expanded="false">
-        <div id="chat-text-board" class="chat-text-board">
-          <div class="message -left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae consequat elit, nec interdum augue.
-          </div>
-        </div> 
+        <div id="chat-text-board" class="chat-text-board"></div> 
         <div class="chat-action-row">
           <form id="chat-widget-form" method="post" action="" novalidate>
             <textarea name="chat" id="chat-widget-textarea" class="input-textarea" aria-label="chat-text"></textarea>
