@@ -8,7 +8,7 @@ var CONFIG = {
   'carouselAutoSwipe': 15*1000, // 15 seconds
 
   'popupChatWidget': {
-    'delay': 15*1000, //  15 seconds
+    'delay': 150*1000, //  15 seconds
     'message': {
       'no': 'Hva kan jeg hjelpe deg?',
       'en': 'What can i help you?'
@@ -217,10 +217,219 @@ var CONFIG = {
     },   
 
     /*** ***/
-    'main.contact': {
+    'product.title': {
+      'no': 'Produkt oversikt',
+      'en': 'Product overview'
+    },
+    'product.legend': {
+      'no': 'Kvalitet / Produkt',
+      'en': 'Quality / Product'
+    },
+    'product.live': {
+      'no': 'Live',
+      'en': 'Live'
+    },
+    'product.support': {
+      'no': 'Support',
+      'en': 'Support'
+    },
+    'product.action': {
+      'no': 'Kom i gang',
+      'en': 'Get started'
+    },
+    'product.contact': {
+      'no': 'Kontakt oss',
+      'en': 'Contact us'
+    },
+    'product.simple.title': {
+      'no': 'Simple',
+      'en': 'Simple'
+    },
+    'product.simpler.title': {
+      'no': 'Simpler',
+      'en': 'Simpler'
+    },
+    'product.simplest.title': {
+      'no': 'Simplest',
+      'en': 'Simplest'
+    },
+    'product.language': {
+      'no': 'Språk',
+      'en': 'Language'
+    },
+    'product.simple.language': {
+      'no': 'Norsk',
+      'en': 'English'
+    },
+    'product.simpler.language': {
+      'no': 'Norsk og Engelsk',
+      'en': 'English and Norwegian'
+    },
+    'product.simplest.language': {
+      'no': 'Flerspråk støtte',
+      'en': 'Multilanguage support'
+    },
+    'product.channel': {
+      'no': 'Tilgjengelige kanal',
+      'en': 'Available channels'
+    },
+    'product.simple.channel': {
+      'no': 'FB Messenger, Web',
+      'en': 'FB Messenger, Web'
+    },
+    'product.simpler.channel': {
+      'no': 'Messenger, Web, Slack',
+      'en': 'Messenger, Web, Slack'
+    },
+    'product.simplest.channel': {
+      'no': 'Flerkanal støtte',
+      'en': 'Multichannel support'
+    },
+    'product.question': {
+      'no': 'Antall FAQ spørsmål',
+      'en': 'Number of FAQ questions'
+    },
+    'product.simple.question': {
+      'no': '20',
+      'en': '20'
+    },
+    'product.simpler.question': {
+      'no': '40',
+      'en': '40'
+    },
+    'product.simplest.question': {
+      'no': '150',
+      'en': '150'
+    },
+    'product.history': {
+      'no': 'Chat historikk',
+      'en': 'Chat history'
+    },
+    'product.simple.history': {
+      'no': '1 måned',
+      'en': '1 month'
+    },
+    'product.simpler.history': {
+      'no': '3 måneder',
+      'en': '3 months'
+    },
+    'product.simplest.history': {
+      'no': '24 måneder',
+      'en': '24 months'
+    },
+    'product.dashboard': {
+      'no': 'Dashboard',
+      'en': 'Dashboard'
+    },
+    'product.simple.dashboard': {
       'no': '',
       'en': ''
     },
+    'product.simpler.dashboard': {
+      'no': '*check*',
+      'en': '*check*'
+    },
+    'product.simplest.dashboard': {
+      'no': '*check*',
+      'en': '*check*'
+    },
+    'product.support': {
+      'no': 'Support responstid',
+      'en': 'Support responsetime'
+    },
+    'product.simple.support': {
+      'no': '48 timer',
+      'en': '48 hours'
+    },
+    'product.simpler.support': {
+      'no': '24 timer',
+      'en': '24 hours'
+    },
+    'product.simplest.support': {
+      'no': '12 timer',
+      'en': '12 hours'
+    },
+    'product.chatbot': {
+      'no': 'Chatbot trening',
+      'en': 'Chatbot trening'
+    },
+    'product.simple.chatbot': {
+      'no': 'Ukentlig',
+      'en': 'Weekly'
+    },
+    'product.simpler.chatbot': {
+      'no': 'Hver 2. dag',
+      'en': 'Every 2nd day'
+    },
+    'product.simplest.chatbot': {
+      'no': 'Daglig',
+      'en': 'Daily'
+    },
+    'product.fee': {
+      'no': 'Oppstart kostnad',
+      'en': 'Setup fee'
+    },
+    'product.simple.fee': {
+      'no': '500,-',
+      'en': '500,-'
+    },
+    'product.simpler.fee': {
+      'no': '1 500,-',
+      'en': '1 500,-'
+    },
+    'product.simplest.fee': {
+      'no': '',
+      'en': ''
+    },
+    'product.month-fee': {
+      'no': 'Månedlig kostnad',
+      'en': 'Monthly fee'
+    },
+    'product.simple.month-fee': {
+      'no': '150,-',
+      'en': '150,-'
+    },
+    'product.simpler.month-fee': {
+      'no': '450,-',
+      'en': '450,-'
+    },
+    'product.simplest.month-fee': {
+      'no': '',
+      'en': ''
+    },
+    'product.free-chat': {
+      'no': 'Gratis chat inkl. pr mnd',
+      'en': 'Free chat included each month'
+    },
+    'product.simple.free-chat': {
+      'no': '100',
+      'en': '100'
+    },
+    'product.simpler.free-chat': {
+      'no': '300',
+      'en': '300'
+    },
+    'product.simplest.free-chat': {
+      'no': '',
+      'en': ''
+    },
+    'product.fee-chat': {
+      'no': 'Pr chat kostnad',
+      'en': 'Fee pr chat'
+    },
+    'product.simple.fee-chat': {
+      'no': '0,75,-',
+      'en': '0,75,-'
+    },
+    'product.simpler.fee-chat': {
+      'no': '0,50,-',
+      'en': '0,50,-'
+    },
+    'product.simplest.fee-chat': {
+      'no': '',
+      'en': ''
+    },
+
     'main.contact': {
       'no': '',
       'en': ''

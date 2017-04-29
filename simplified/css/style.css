@@ -310,6 +310,11 @@ fieldset {
     background-image: url("../image/icon/linkedin-w.svg"); }
     .icon-btn.-linkedin.-white {
       background-image: url("../image/icon/linkedin-w.svg"); }
+  .icon-btn.-yes {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA0NjkuMTg0IDQ2OS4xODUiPjxwYXRoIGZpbGw9IiMwMDc1RDIiIGQ9Ik00NjIuNSw5Ni4xOTNsLTIxLjcyNi0yMS43MjZjLTguOTUxLTguOTUtMjMuNTYyLTguOTUtMzIuNTksMEwxODAuMzY4LDMwMi4zNjFsLTExOS4zNC0xMTkuMzQgICBjLTguOTUtOC45NTEtMjMuNTYyLTguOTUxLTMyLjU4OSwwTDYuNzEyLDIwNC43NDdjLTguOTUsOC45NTEtOC45NSwyMy41NjIsMCwzMi41ODlMMTYzLjk5NywzOTQuNjIgICBjNC41MTQsNC41MTQsMTAuMzI3LDYuODA5LDE2LjIxOCw2LjgwOXMxMS43ODEtMi4yOTUsMTYuMjE5LTYuODA5TDQ2Mi4yNywxMjguNzgzQzQ3MS40NSwxMTkuNjgsNDcxLjQ1LDEwNS4xNDUsNDYyLjUsOTYuMTkzeiIvPjwvc3ZnPg==); }
+  .icon-btn.-no {
+    background-size: 23px auto;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMS45IDIxLjkiPiAgPHBhdGggZmlsbD0iI0Q4MDAyNyIgZD0iTTE0LjEsMTEuM2MtMC4yLTAuMi0wLjItMC41LDAtMC43bDcuNS03LjVjMC4yLTAuMiwwLjMtMC41LDAuMy0wLjdzLTAuMS0wLjUtMC4zLTAuN2wtMS40LTEuNEMyMCwwLjEsMTkuNywwLDE5LjUsMCAgYy0wLjMsMC0wLjUsMC4xLTAuNywwLjNsLTcuNSw3LjVjLTAuMiwwLjItMC41LDAuMi0wLjcsMEwzLjEsMC4zQzIuOSwwLjEsMi42LDAsMi40LDBTMS45LDAuMSwxLjcsMC4zTDAuMywxLjdDMC4xLDEuOSwwLDIuMiwwLDIuNCAgczAuMSwwLjUsMC4zLDAuN2w3LjUsNy41YzAuMiwwLjIsMC4yLDAuNSwwLDAuN2wtNy41LDcuNUMwLjEsMTksMCwxOS4zLDAsMTkuNXMwLjEsMC41LDAuMywwLjdsMS40LDEuNGMwLjIsMC4yLDAuNSwwLjMsMC43LDAuMyAgczAuNS0wLjEsMC43LTAuM2w3LjUtNy41YzAuMi0wLjIsMC41LTAuMiwwLjcsMGw3LjUsNy41YzAuMiwwLjIsMC41LDAuMywwLjcsMC4zczAuNS0wLjEsMC43LTAuM2wxLjQtMS40YzAuMi0wLjIsMC4zLTAuNSwwLjMtMC43ICBzLTAuMS0wLjUtMC4zLTAuN0wxNC4xLDExLjN6Ii8+PC9zdmc+); }
 
 body {
   overflow: scroll;
@@ -1944,6 +1949,31 @@ ul.breadcrumb a {
       filter: alpha(opacity=50);
       background-color: inherit;
       color: inherit; }
+
+.product-overview table {
+  border: 1px solid #676767;
+  border-radius: 2px;
+  width: 100%; }
+  .product-overview table th {
+    font-weight: 700;
+    font-size: 130%;
+    background: #eee none repeat 0 0;
+    border-bottom: 2px solid #676767; }
+  .product-overview table th, .product-overview table td {
+    width: 200px;
+    padding: 10px 15px;
+    vertical-align: top;
+    text-align: center;
+    font-weight: 500;
+    border-top: 1px solid #676767;
+    border-left: 1px solid #676767; }
+    .product-overview table th:first-child, .product-overview table td:first-child {
+      text-align: left;
+      width: auto;
+      opacity: 0.7;
+      filter: alpha(opacity=70); }
+    .product-overview table th.action, .product-overview table td.action {
+      border-top: 2px solid #676767; }
 
 .product-menu {
   width: 100%;

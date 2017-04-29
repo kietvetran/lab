@@ -1,3 +1,42 @@
+.product-overview {
+
+  table {
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    width: 100%;
+
+    th {
+      font-weight: 700;
+      font-size: 130%;
+      background: #eee none repeat 0 0;
+      border-bottom: 2px solid $border-color;
+    }
+
+    th, td {
+      width: 200px;
+      padding: 10px 15px;
+      vertical-align: top;
+      text-align: center;
+      font-weight: 500;
+
+      border-top: 1px solid $border-color;
+      border-left: 1px solid $border-color;
+
+      &:first-child {
+        text-align: left;
+        width: auto;
+        @include opacity(.7);
+      }
+
+      &.action {
+        border-top: 2px solid $border-color;        
+      }
+    }
+
+  } 
+}
+
+
 .product-menu {
   width: 100%;
   text-align: center;

@@ -41,7 +41,8 @@ $( document ).ready(function() {
 function convertTranslation() {
   $('[data-translate]').each( function(i,dom) {  
     var node = $(dom), key = node.attr('data-translate');
-    var label = (ATTR['translation'][key] || {})[ATTR['language']] || key;
+    var label = (ATTR['translation'][key] || {})[ATTR['language']];
+    if ( ! label && label !== '' ) { label = key; }
 
     if ( node.is('input') ) {
       node.attr('placeholder', label);
