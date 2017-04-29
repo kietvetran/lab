@@ -75,4 +75,13 @@ main {
 			display: none
 		}
 	}
+
+	#product-payment-form {
+		#pay-by-visa, #pay-by-billing {
+			display: none;
+			&.-active {
+				display: block;
+			}
+		}
+	}
 }

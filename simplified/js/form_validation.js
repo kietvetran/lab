@@ -714,14 +714,12 @@
       var has = node.hasClass('view_yes_no_btn'); 
       var pt  = 'parent_target', tt = 'tabpanel_target';
       if ( helper.isRadio(node) && ! has ) {
-        //setTimeout( function() {
-          var parent = helper._getParentTarget( node, rule[pt], node );
-          var same   = opt.map._parent[parent.attr('id') || ''] || []; 
-          for ( var j=0; j<same.length; j++ ) {
-            var r = opt.map[same[j].attr('id') || ''];
-            if ( r[tt] ) { helper._verifyTab( same[j], null, r ); }
-          }
-        //}, 15 );
+        var parent = helper._getParentTarget( node, rule[pt], node );
+        var same   = opt.map._parent[parent.attr('id') || ''] || []; 
+        for ( var j=0; j<same.length; j++ ) {
+          var r = opt.map[same[j].attr('id') || ''];
+          if ( r[tt] ) { helper._verifyTab( same[j], null, r ); }
+        }
       }
       else if ( rule[tt] && ! has ) {
         helper._verifyTab( node, null, rule );
@@ -1676,7 +1674,22 @@
       return size;
     },
 
+
     _verifyTab : function( node, startup, nodeRule ) {
+      var rule  = nodeRule || (node ? helper._getRule(node) || {} : {});
+      var tt    = 'tabpanel_target', panel = rule[tt] ? $(rule[tt]) : null;
+
+      if ( ! panel || ! panel.size() ) { return; }
+
+      if ( node.prop('checked') ) {
+        panel.attr('aria-hidden', 'false').addClass('-active');
+      } else {
+        panel.attr('aria-hidden', 'true').removeClass('-active');
+      }
+    },    
+    /*
+    _verifyTab : function( node, startup, nodeRule ) {
+
       var rule  = nodeRule || (node ? helper._getRule(node) || {} : {});
       var tt    = 'tabpanel_target', panel = rule[tt] ? $(rule[tt]) : null;
       if ( ! panel || ! panel.size() ) { return; }
@@ -1717,6 +1730,7 @@
       top = scrolled[1] + (top-view[1]);
       $('html, body').animate({'scrollTop':top+'px'}, duration||300,render);
     },    
+    */
 
     _none : function() {}
   };

@@ -424,18 +424,36 @@ body {
     .input-radio + label:hover:before, .input-checkbox + label:hover:before {
       border-color: #0075D2; }
 
+.input-radio.-box + label {
+  border: 1px solid #676767;
+  border-radius: 4px;
+  padding-left: 40px; }
+  .input-radio.-box + label:before {
+    left: 7px; }
+  .input-radio.-box + label:after {
+    width: auto;
+    height: auto;
+    top: -13px;
+    left: -3px;
+    bottom: -3px;
+    right: -3px; }
+
+.input-radio.-box:checked + label {
+  background-color: #0075D2;
+  color: #FFFFFF; }
+  .input-radio.-box:checked + label:before {
+    box-shadow: 0 0 0 1px #676767; }
+
 .input-radio + label {
   display: inline-block;
   cursor: pointer; }
   .input-radio + label:before {
     border-radius: 100%; }
 
-.input-radio:checked + label {
-  border-color: transparent; }
-  .input-radio:checked + label:before {
-    background-color: #0075D2;
-    border: 4px solid #FFFFFF;
-    box-shadow: 0 0 0 2px #676767; }
+.input-radio:checked + label:before {
+  background-color: #0075D2;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 0 0 2px #676767; }
 
 .input-checkbox + label {
   display: inline-block;
@@ -769,6 +787,11 @@ a.action-btn, a.action-btn:focus, a.action-btn:active, a.primary-btn, a.primary-
     max-width: 650px; }
     .form-row .row-content.-input-wrapper:first-child {
       padding-top: 5px; }
+    .form-row .row-content.-input-wrapper.-address, .form-row .row-content.-input-wrapper.-visa-expireation {
+      padding-left: 140px; }
+      .form-row .row-content.-input-wrapper.-address input:first-child, .form-row .row-content.-input-wrapper.-visa-expireation input:first-child {
+        width: 130px;
+        margin-left: -140px; }
   .form-row .info-message {
     clear: left; }
     .form-row .info-message.-error {
@@ -1539,6 +1562,10 @@ main {
     font-style: italic;
     font-weight: 700;
     display: none; }
+  main #product-payment-form #pay-by-visa, main #product-payment-form #pay-by-billing {
+    display: none; }
+    main #product-payment-form #pay-by-visa.-active, main #product-payment-form #pay-by-billing.-active {
+      display: block; }
 
 footer {
   background: #323232 none repeat 0 0;

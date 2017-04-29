@@ -207,6 +207,15 @@
       &:first-child {
         padding-top: 5px;
       }
+
+      &.-address, &.-visa-expireation {
+        padding-left: 140px;
+
+        input:first-child {
+          width: 130px;
+          margin-left: -140px;
+        }
+      }
     }
   }
 

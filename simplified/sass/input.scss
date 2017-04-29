@@ -122,6 +122,35 @@
 }
 
 .input-radio {
+  &.-box {
+    + label {
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      padding-left: 40px;
+      &:before {
+        left: 7px;
+      }
+
+      &:after {
+        width: auto;
+        height: auto;
+        top: -13px;
+        left: -3px;
+        bottom: -3px;
+        right: -3px;
+      }
+    }
+    &:checked {
+      + label {
+        background-color: $blue;
+        color: $white;
+        &:before {
+          box-shadow: 0 0 0 1px $grey-dark;
+        }
+      }
+    }
+  }
+
   + label {
     display: inline-block;
     cursor: pointer;
@@ -133,8 +162,6 @@
 
   &:checked {
     + label {
-      border-color: transparent;
-
       &:before {
         background-color: $blue; 
         border: 4px solid $white;

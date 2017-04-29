@@ -2,18 +2,16 @@
 === GLOBAL ATTRIBUTE ===
 ******************************************************************************/
 try { CONFIG; } catch( error ){ CONFIG = {};   }
-try { HOMEGALLERY; } catch( error ){ HOMEGALLERY = null;   }
-try { MENUGALLERY; } catch( error ){ MENUGALLERY = null;   }
-try { ALACARTE; } catch( error ){ ALACARTE = [];   }
-try { SETMENU; } catch( error ){ SETMENU = [];   }
-try { GALLERY; } catch( error ){ GALLERY = [];   }
-try { MAPSTYLING; } catch( error ){ MAPSTYLING = [];   }
-try { INFORMATION; } catch( error ){ INFORMATION = [];   }
 
 var ATTR = {
   'timeout'  : 0,
   'interval' : 0,
-  'now'      : new Date()
+  'now'      : new Date(),
+  'language'      : CONFIG['language']      || 'no',
+  'errorMSG'      : CONFIG['validationErrorMSG'],
+  'errorSTD'      : CONFIG['validationErrorSTD'],
+  'translation'   : CONFIG['translation']   || {},
+  'api'           : CONFIG['api']           || {} 
 };
 
 /******************************************************************************
@@ -38,14 +36,22 @@ $( document ).ready(function() {
 === SETUP FUCNTION ===
 ******************************************************************************/
 function convertTranslation() {
-  $('[data-translate]').each( function(i,dom) {      
+  $('[data-translate]').each( function(i,dom) {  
+    var node = $(dom), key = node.attr('data-translate');
+    var label = (ATTR['translation'][key] || {})[ATTR['language']] || key;
+
+    if ( node.is('input') ) {
+      node.attr('placeholder', label);
+    } else {
+      node.html( label );      
+    }
   });
 }
 
 function setupCarousel() {
   $('.carousel_screen').Carousel({
     'carousel'        : false,
-    'autoSwipe'       : false,
+    'autoSwipe'       : true,
     'arrowNavigator'  : true
   }); 
 }
