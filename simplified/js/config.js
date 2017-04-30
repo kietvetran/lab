@@ -215,6 +215,10 @@ var CONFIG = {
       'no': 'Du kan opprette en konto her.',
       'en': 'You may to create a account here.'
     },   
+    'main.login.system-error': {
+      'no': 'System feil har oppstått. Prøv igjen senere.',
+      'en': 'System error, please try later.'
+    },   
 
     /*** ***/
     'product.title': {

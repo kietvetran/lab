@@ -169,6 +169,14 @@
       }
     }
   }
+
+  @media (max-width: $breakpoint-sm) {
+    + label {
+      &:before, &:after {
+        top: -2px;
+      }
+    }
+  }
 }
 
 .input-checkbox {

@@ -7,6 +7,7 @@ var ATTR = {
   'timeout'  : 0,
   'interval' : 0,
   'now'      : new Date(),
+  'cookie'        : 'simplifia_support',
   'carouselAutoSwipe': CONFIG['carouselAutoSwipe'], 
   'language'       : CONFIG['language']      || 'no',
   'errorMSG'       : CONFIG['validationErrorMSG'],
@@ -24,6 +25,7 @@ $( document ).ready(function() {
   setupFormValidaiton();
   setupCarousel();
   setupPopupChatWidget();
+  initializeOpenDatabase();
 
   ATTR.tab   = $('.tab-btn');
   ATTR.panel = $('.tab-panel');
@@ -123,46 +125,61 @@ function setupFormValidaiton() {
   });  
 }
 
-function submitChatWidget( data ) {
+function submitChatWidget( source ) {
   var area = $('#chat-widget-textarea'), text = area.val(); 
   if ( text.replace( /\s+/,'') ) {
     var board = $('#chat-text-board').append('<div class="message -right">'+text+'</div>');
     board.scrollTop( board.get(0).clientHeight );
-    data.main.get(0).reset();
+    source.main.get(0).reset();
     setupPopupChatWidget( true );
   }
   return false;
 }
 
-function submitProductPayment( data ) {
-  data.main.addClass('-loading');
+function submitProductPayment( source ) {
+  source.main.addClass('-loading');
   setTimeout( function() {
-    data.main.removeClass('-loading').addClass('-send-success');
+    source.main.removeClass('-loading').addClass('-send-success');
   }, 1000 );
   return false;
 }
 
-function submitCallback( data ) {
-  data.main.addClass('-loading');
+function submitCallback( source ) {
+  source.main.addClass('-loading');
   setTimeout( function() {
-    data.main.removeClass('-loading').addClass('-send-success');
+    source.main.removeClass('-loading').addClass('-send-success');
   }, 1000 );
   return false;
 }
 
-function submitLoginForm( data ) {
-  data.main.addClass('-loading');
+function submitLoginForm( source ) {
+  source.main.addClass('-loading');
+  var verify = function( response ) {
+    console.log( response );
+    source.main.removeClass('-loading');
+
+  }, failed = function() {
+    source.main.removeClass('-loading');
+    source.insertSummaryError( ATTR.translation['main.login.system-error'][ATTR.language] );
+  };
+
+  ATTR.ajax = $.ajax({
+    'type':'POST','url': ATTR.api.login, 'data': source.data, 'success':verify, 'error': failed
+  });
+
+  /*
   setTimeout( function() {
-    data.main.removeClass('-loading');
+    source.main.removeClass('-loading');
     updateLocationHash({'tab': 'home'});
   }, 500 );
+  */
   return false;
 }
 
-function submitSignupForm( data ) {
-  data.main.addClass('-loading');
+function submitSignupForm( source ) {
+  source.main.addClass('-loading');
   setTimeout( function() {
-    data.main.removeClass('-loading');
+    source.main.removeClass('-loading');
     updateLocationHash({'tab': 'home'});
   }, 500 );
   return false;
@@ -275,6 +292,65 @@ function clickOnChatWidgetBtn( data, force ) {
     widget.addClass( mode );
   }
 }
+
+
+/******************************************************************************
+=== GENERAL FUCNTION ===
+******************************************************************************/
+function initializeOpenDatabase() {
+  try { // http://www.tutorialspoint.com/html5/html5_web_sql.htm
+    ATTR.database = openDatabase(ATTR['cookie'], '1.0', 'simplifai', 50*1024*1024);
+    ATTR.database.transaction(function (tx) {
+      tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+    });
+  } catch( error ) {}
+}
+
+function getStorageData( callback, key, type, isArray ) { 
+  var text = '';
+  if ( ! key ) { 
+    return typeof(callback)=='function' ? callback( 
+      type == 'json' ? (isArray ? [] : {}) :text
+    ) : null; 
+  }
+
+  var render = function() {
+    if ( type == 'json' ) {
+      if ( text ) {
+        var json = JSON.parse( text );
+        text = typeof(json)=='string' ? JSON.parse(json) : json; 
+      } else { text = isArray ? [] : {}; }
+    }
+    if ( typeof(callback)=='function' ) callback(text);
+  };
+
+  if ( ATTR.database ) {
+    return ATTR.database.transaction(function (tx) {
+      tx.executeSql('SELECT * FROM LOGS WHERE id = ?', [key], function (tx, results) {
+        text = results.rows.length ? decodeURI( results.rows.item(0).log ) : '';
+        if ( text ) text = decodeLZW( text ) || '';
+        //if ( typeof(callback)=='function' ) callback( text );
+        render();
+      }, null );
+    });
+  }
+
+  if ( ATTR.storage ) text = decodeLZW(ATTR.storage[key]) || '';
+  render();
+  //if ( typeof(callback)=='function' ) callback( text );
+}
+
+function setStorageData( key, text ) { 
+  if ( ATTR.database ) {
+    text = text ? encodeURI( encodeLZW(text) ) : '';
+    ATTR.database.transaction(function(tx) {
+      tx.executeSql('DELETE FROM LOGS WHERE id = ?', [key], function(){
+        tx.executeSql('INSERT INTO LOGS (id, log) VALUES ("'+key+'", "'+text+'")');
+      });
+    });
+  } else if ( ATTR.storage ) { ATTR.storage[key] = encodeLZW(text||''); }
+}
+
 
 /******************************************************************************
 === GENERAL FUCNTION ===

@@ -93,6 +93,17 @@
     /*************************************************************************
     === PUBLIC FUNCTIOn ===
     **************************************************************************/
+    insertSummaryError( text ) {
+      var first = opt.main.children().eq(0);
+      if ( first.hasClass('summary') ) {
+        first.remove();
+        first = opt.main.children().eq(0);
+      }
+
+      return $('<div class="form-row -summary-error" role="alert">'+text+'</div>')
+        .insertBefore( first );
+    },
+
     getMap : function () { return opt.map; },
 
     getRule : function ( input, ignorMap ) { 
@@ -250,6 +261,8 @@
           node.val('').trigger('reset');
         }
       });
+
+      opt.main.find('> .-summary-error').remove();
     },
 
     validate : function( input, ignorRequired, ignorAriaAlert, mode, onlyValidate ) {
@@ -258,6 +271,7 @@
       if ( answer === false ) { return; }
 
       current.each( function(x,dom) {
+
         var node = $(dom), id = node.attr('id'), rule = opt.map[id] || {}; 
         var msg  = '', pt = 'parent_target';
         rule._error = [];
@@ -347,6 +361,8 @@
 
     validateHasValue : function( node, parent ) {
       if ( ! node || ! node.size() ) { return; }
+      opt.main.find('> .-summary-error').remove();
+
       var target = parent || helper._getErrorInsertTarget( node );
       if ( node.prop('value') ) { 
         node.addClass('form-validation-has-value');
@@ -872,7 +888,7 @@
 
     _submit : function(e) {
       if ( typeof(opt.beforeSubmitCallback)==='function' ){
-        if ( opt.beforeSubmitCallback({'e':e,'main':opt.main})===false ) { return; }
+        if ( opt.beforeSubmitCallback({'e':e,'main':opt.main, 'data': helper.getFormData()})===false ) { return; }
       }
 
       var form = $( e.currentTarget ), mode = 'form-validation-all-valid';
@@ -889,7 +905,12 @@
 
       if ( ! count ) { 
         if ( typeof(opt.submitCallback)==='function' ){
-          if ( opt.submitCallback({'e':e,'main':opt.main})===false ) { return; }
+          var test = opt.submitCallback({
+            'e':e, 'main':opt.main, 'data': helper.getFormData(),
+            'insertSummaryError' : helper.insertSummaryError
+          });
+
+          if ( test === false ) { return; }
         }
         return form.addClass(mode).submit(); 
       }
