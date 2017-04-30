@@ -8,7 +8,7 @@ var CONFIG = {
   'carouselAutoSwipe': 15*1000, // 15 seconds
 
   'popupChatWidget': {
-    'delay': 150*1000, //  15 seconds
+    'delay': 1500*1000, //  15 seconds
     'message': {
       'no': 'Hva kan jeg hjelpe deg?',
       'en': 'What can i help you?'
@@ -236,6 +236,18 @@ var CONFIG = {
     'product.action': {
       'no': 'Kom i gang',
       'en': 'Get started'
+    },
+    'product.start': {
+      'no': 'Start',
+      'en': 'Start'
+    },
+    'product.buy': {
+      'no': 'Kjøp',
+      'en': 'Buy'
+    },
+    'product.simplest.contact': {
+      'no': 'Kontakt',
+      'en': 'Contact'
     },
     'product.contact': {
       'no': 'Kontakt oss',

@@ -26,4 +26,11 @@ body {
 		right: 0;
 		left: 0;
 	}
+
+	@media (max-width: $breakpoint-sm) {
+		.layout-inner {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}  
 }

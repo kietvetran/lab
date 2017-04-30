@@ -338,6 +338,10 @@ body {
     top: 100%;
     right: 0;
     left: 0; }
+  @media (max-width: 480px) {
+    .layout .layout-inner {
+      padding-left: 0;
+      padding-right: 0; } }
 
 /******************************************************************************
   field 
@@ -548,6 +552,9 @@ body {
     top: 0; }
     .action-btn.-active-bounce:active, .primary-btn.-active-bounce:active, .secondary-btn.-active-bounce:active {
       top: 2px; }
+  @media (max-width: 480px) {
+    .action-btn, .primary-btn, .secondary-btn {
+      font-size: 14px; } }
 
 .action-btn {
   color: #FFFFFF;
@@ -1950,30 +1957,59 @@ ul.breadcrumb a {
       background-color: inherit;
       color: inherit; }
 
-.product-overview table {
-  border: 1px solid #676767;
-  border-radius: 2px;
-  width: 100%; }
-  .product-overview table th {
-    font-weight: 700;
-    font-size: 130%;
-    background: #eee none repeat 0 0;
-    border-bottom: 2px solid #676767; }
-  .product-overview table th, .product-overview table td {
-    width: 200px;
-    padding: 10px 15px;
-    vertical-align: top;
-    text-align: center;
-    font-weight: 500;
-    border-top: 1px solid #676767;
-    border-left: 1px solid #676767; }
-    .product-overview table th:first-child, .product-overview table td:first-child {
-      text-align: left;
-      width: auto;
-      opacity: 0.7;
-      filter: alpha(opacity=70); }
-    .product-overview table th.action, .product-overview table td.action {
-      border-top: 2px solid #676767; }
+.product-overview {
+  position: relative; }
+  .product-overview table {
+    border: 1px solid #676767;
+    border-radius: 2px;
+    width: 100%; }
+    .product-overview table th, .product-overview table td {
+      width: 200px;
+      padding: 10px 15px;
+      vertical-align: top;
+      text-align: center;
+      font-weight: 500;
+      border-top: 1px solid #676767;
+      border-left: 1px solid #676767; }
+      .product-overview table th .label, .product-overview table th:first-child, .product-overview table td .label, .product-overview table td:first-child {
+        text-align: left;
+        width: auto;
+        opacity: 0.7;
+        filter: alpha(opacity=70); }
+      .product-overview table th.action a span:first-child, .product-overview table td.action a span:first-child {
+        display: none; }
+      .product-overview table th .label, .product-overview table td .label {
+        display: none;
+        font-size: 70%;
+        margin: -5px 0 5px 0; }
+        .product-overview table th .label:after, .product-overview table td .label:after {
+          content: ':'; }
+    .product-overview table th {
+      font-weight: 700;
+      font-size: 120%;
+      background: #eee none repeat 0 0;
+      border-bottom: 2px solid #676767; }
+  @media (max-width: 980px) {
+    .product-overview table th, .product-overview table td {
+      width: 130px;
+      padding: 7px 10px; } }
+  @media (max-width: 480px) {
+    .product-overview table th, .product-overview table td {
+      width: 33.33%;
+      font-size: 100%;
+      padding: 7px; }
+      .product-overview table th:first-child, .product-overview table td:first-child {
+        display: none; }
+      .product-overview table th.action a, .product-overview table td.action a {
+        padding-left: 5px;
+        padding-right: 5px;
+        display: block; }
+        .product-overview table th.action a span, .product-overview table td.action a span {
+          display: none; }
+          .product-overview table th.action a span:first-child, .product-overview table td.action a span:first-child {
+            display: inline; }
+      .product-overview table th .label, .product-overview table td .label {
+        display: block; } }
 
 .product-menu {
   width: 100%;
@@ -2280,6 +2316,9 @@ a:focus, button:focus, h1:focus, h2:focus, h3:focus, h4:focus, h5:focus, select:
   margin: 30px 0;
   border-radius: 4px;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4); }
+  @media (max-width: 480px) {
+    .card-wrapper {
+      padding: 10px; } }
 
 /*****************************************************************************/
 .tab-panel {
