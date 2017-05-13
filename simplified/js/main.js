@@ -7,7 +7,8 @@ var ATTR = {
   'timeout'  : 0,
   'interval' : 0,
   'now'      : new Date(),
-  'cookie'        : 'simplifia_support',
+  'cookie'   : 'simplifia_support',
+  'storage'  : {},
   'carouselAutoSwipe': CONFIG['carouselAutoSwipe'], 
   'language'       : CONFIG['language']      || 'no',
   'errorMSG'       : CONFIG['validationErrorMSG'],
@@ -34,6 +35,7 @@ $( document ).ready(function() {
   $( document ).on('click', clickHandler);
   $( window ).on('hashchange', hashChangeHandler);
 
+  verifyAuthentication();
   hashChangeHandler();
 });
 
@@ -154,6 +156,7 @@ function submitCallback( source ) {
 
 function submitLoginForm( source ) {
   source.main.addClass('-loading');
+
   var verify = function( response ) {
     console.log( response );
     source.main.removeClass('-loading');
@@ -161,6 +164,23 @@ function submitLoginForm( source ) {
   }, failed = function() {
     source.main.removeClass('-loading');
     source.insertSummaryError( ATTR.translation['main.login.system-error'][ATTR.language] );
+    /*
+    var person = {
+      "UserID": 5,
+      "FirstName": "Test",
+      "LastName": "User",
+      "CompanyName": "TestCompany",
+      "Email": "info@simplifai.ai",
+      "Address": "Testveien 123",
+      "PostCode": "0123",
+      "PostArea": "Oslo",
+      "Phone": "90812348"
+    };
+
+    sessionStorage.setItem( ATTR.cookie + 'person', JSON.stringify(person));
+    verifyAuthentication();
+    changeTab( 'home' );
+    */
   };
 
   ATTR.ajax = $.ajax({
@@ -195,6 +215,7 @@ function submitSignupForm( source ) {
 function hashChangeHandler( e ) {
   var opt = getURLoption();
   changeTab( opt.tab || 'home' );
+  scrollBodyTop(0);
 }
 
 /**
@@ -279,6 +300,22 @@ function changeTab( name ) {
       input.val( opt[key] || '');
     }
   }
+
+  // Pre insert value
+  panel.find('input,select,textarea,[data-field]').each( function(i,dom) {
+    var node = $( dom ), name = node.attr('name') || '', tmp = node.attr('data-field') || '';
+    var value = ATTR.storage[name || tmp] || '';
+
+    if ( tmp ) { 
+      node.html( value || '&nbsp;' );
+    } else if ( value ) {
+      if ( (node.attr('type') || '').match(/radio|checkbox/i) ) {
+
+      } else {
+        node.val( value );
+      }
+    }
+  });
 }
 
 function clickOnChatWidgetBtn( data, force ) {
@@ -351,6 +388,20 @@ function setStorageData( key, text ) {
   } else if ( ATTR.storage ) { ATTR.storage[key] = encodeLZW(text||''); }
 }
 
+function verifyAuthentication() {
+  var storage = sessionStorage.getItem( ATTR.cookie + 'person') || '';
+  var mode    = 'authenticated';
+
+  try {
+    ATTR.storage = JSON.parse( storage || '{}' );
+  } catch( error ) {}
+
+  if ( ATTR.storage && JSON.stringify(ATTR.storage) !== '{}' ) {
+    ATTR.body.addClass( mode );
+  } else {
+    ATTR.body.removeClass( mode );
+  }
+}
 
 /******************************************************************************
 === GENERAL FUCNTION ===
@@ -411,4 +462,14 @@ function getScrollPosition() {
   return typeof document.body.scrollTop !== 'undefined' ? [
     document.body.scrollLeft, document.body.scrollTop
   ] : [0, 0];
+}
+
+
+function getBodyScrollTop() {
+  return document.body.scrollTop || document.documentElement.scrollTop || 0;
+}
+
+function scrollBodyTop( where ) {
+  document.body.scrollTop = document.documentElement.scrollTop = 
+    where && (! isNaN(where) ) && where > 0 ? where : 0;
 }

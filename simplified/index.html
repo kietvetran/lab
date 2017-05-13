@@ -35,14 +35,19 @@
                 Contact us
               </a>
             </li>
-            <li class="item-wrapper" role="presentation">
+            <li class="item-wrapper authentication-hide" role="presentation">
               <a href="#buying" role="tab" id="tab-signup" aria-selected="false" aria-controls="panel-signup" class="tab-btn" data-translate="main.menu.sign-up">
                 Sign up
               </a>
             </li>
-            <li class="item-wrapper" role="presentation">
+            <li class="item-wrapper authentication-hide" role="presentation">
               <a href="#login" role="tab" id="tab-login" aria-selected="false" aria-controls="panel-login" class="tab-btn" data-translate="main.menu.log-in">
                 Log in
+              </a>
+            </li>
+            <li class="item-wrapper authentication-show" role="presentation">
+              <a href="#profile" role="tab" id="tab-profile" aria-selected="false" aria-controls="panel-profile" class="tab-btn" data-translate="main.menu.profile">
+                Profile
               </a>
             </li>
           </ul>
@@ -57,32 +62,37 @@
           <div class="contact-us-wrapper card-wrapper">
             <h2 data-translate="main.contact.title">Contact us</h2>
             <form id="contact-us-form" method="post" action="" novalidate>
-              <div class="form-row">
-                <div class="row-content -label-wrapper">
-                  <div class="content_holder"><label for="byer-name" data-translate="main.contact.company">Company</label></div>
-                </div>          
-                <div class="row-content -input-wrapper">
-                  <input id="client-name" class="input-field" name="name" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="row-content -label-wrapper">
-                  <div class="content_holder"><label for="client-email" data-translate="main.contact.email">Email</label></div>
-                </div>          
-                <div class="row-content -input-wrapper">
-                  <input id="client-email" class="input-field" name="email" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="row-content -label-wrapper">
-                  <div class="content_holder">
-                    <label for="client-phone" data-translate="main.contact.phone">Phone</label>
+              <div class="buyer-info authentication-hide">
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="byer-name" data-translate="main.contact.company">Company</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="client-name" class="input-field authentication-hide" name="CompanyName" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="CompanyName"></div>
                   </div>
-                </div>          
-                <div class="row-content -input-wrapper">
-                  <input id="client-phone" class="input-field" name="phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                </div>
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="client-email" data-translate="main.contact.email">Email</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="client-email" class="input-field authentication-hide" name="Email" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="Email"></div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder">
+                      <label for="client-phone" data-translate="main.contact.phone">Phone</label>
+                    </div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="client-phone" class="input-field authentication-hide" name="Phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="Phone"></div>
+                  </div>
                 </div>
               </div>
 
@@ -98,6 +108,8 @@
                       <option value="product" data-translate="main.contact.request-upgrade">Product upgrade</option>
                       <option value="sales" data-translate="main.contact.request-sales">Sales</option>
                       <option value="support" data-translate="main.contact.request-support">Support</option>
+                      <option value="simple" data-translate="product.simple.title">Simple</option>
+                      <option value="simpler" data-translate="product.simpler.title">Simpler</option>
                       <option value="simplest" data-translate="product.simplest.title">Simplest</option>
                       <option value="other" data-translate="main.contact.request-other">Other</option>
                     </select>
@@ -138,7 +150,8 @@
                     <div class="content_holder"><label for="byer-company" data-translate="main.buyer.company">Company</label></div>
                   </div>          
                   <div class="row-content -input-wrapper">
-                    <input id="signup-company" class="input-field" name="company" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <input id="signup-company" class="input-field authentication-hide" name="CompanyName" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="CompanyName"></div>
                   </div>
                 </div>
                 <div class="form-row">
@@ -155,7 +168,8 @@
                     <div class="content_holder"><label for="buyer-email" data-translate="main.buyer.email">Email</label></div>
                   </div>          
                   <div class="row-content -input-wrapper">
-                    <input id="buyer-email" class="input-field" name="email" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <input id="buyer-email" class="input-field authentication-hide" name="Email" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="Email"></div>
                   </div>
                 </div>
 
@@ -166,11 +180,12 @@
                     </div>
                   </div>          
                   <div class="row-content -input-wrapper">
-                    <input id="buyer-phone" class="input-field" name="phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <input id="buyer-phone" class="input-field authentication-hide" name="Phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="Phone"></div>
                   </div>
                 </div>
 
-                <div class="form-row">
+                <div class="form-row authentication-hide">
                   <div class="row-content -label-wrapper">
                     <div class="content_holder"><label for="buyer-password" data-translate="main.buyer.password">Password</label></div>
                   </div>          
@@ -179,7 +194,7 @@
                   </div>
                 </div>  
 
-                <div class="form-row">
+                <div class="form-row authentication-hide">
                   <div class="row-content -label-wrapper">
                     <div class="content_holder"><label for="buyer-repeat-password" data-translate="main.buyer.repeat-password">Re-password</label></div>
                   </div>          
@@ -202,6 +217,32 @@
                   </div>
                 </div>
               </div>
+
+              <div class="collection -address-info">
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-street" data-translate="main.buyer.street">Street</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">                  
+                    <input id="buyer-street" class="input-field authentication-hide" name="Address" type="text" spellcheck="false" autocomplete="off" data-rule="parent_target[.-input-wrapper]" value="" autocorrect="off" required placeholder="">
+                    <div class="input-field authentication-show" data-field="Address"></div>
+                  </div>
+                </div>                  
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-street" data-translate="main.buyer.address">Place</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper -address">                  
+                    <input id="buyer-postal" class="input-field authentication-hide" name="PostCode" type="text" spellcheck="false" autocomplete="off" data-rule="postal parent_target[.-input-wrapper]" value="" autocorrect="off" required maxlength="4" placeholder="Postal"  data-translate="main.buyer.postal">
+                    <div class="input-field authentication-show" data-field="PostCode"></div>
+
+                    <input id="buyer-city" class="input-field authentication-hide" name="PostArea" type="text" spellcheck="false" autocomplete="off" data-rule="parent_target[.-input-wrapper]" value="" autocorrect="off" required placeholder="City" data-translate="main.buyer.city">
+                    <div class="input-field authentication-show" data-field="PostArea"></div>
+                  </div>
+                </div>                
+              </div>
+
+              <!--
               <div class="collection -payment">
 
                 <div class="form-row">
@@ -239,7 +280,6 @@
                     </div>
                   </div>
 
-                  <!--
                   <div class="form-row">
                     <div class="row-content -label-wrapper">
                       <div class="content_holder"><label for="buyer-csv">Credit card CSV</label></div>
@@ -248,7 +288,6 @@
                       <input id="buyer-csv" class="input-field" name="csv" type="tel" spellcheck="false" autocomplete="off" data-rule="number parent_target[.-input-wrapper]" value="" autocorrect="off" required maxlength="4">
                     </div>
                   </div>
-                  -->
                 </div>
                 <div id="pay-by-billing">
                   <div class="form-row">
@@ -270,6 +309,7 @@
                   </div>                  
                 </div>
               </div>
+              -->
 
               <div class="form-row -action">
                 <button id="buyer-submit-btn" class="action-btn -active-bounce">Submit</button>
@@ -311,6 +351,105 @@
           </div>
         </div>
 
+        <div id="panel-profile" aria-hidden="false" aria-labelledby="tab-profile" class="tab-panel -profile">
+          <div class="profile-widget card-wrapper">
+            <h2 data-translate="main.profile.title">profile</h2>
+
+            <form id="product-payment-form" method="post" action="" novalidate>
+              <div class="collection -contact-information">
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="byer-company" data-translate="main.buyer.company">Company</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="signup-company" class="input-field authentication-hide" name="CompanyName" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="CompanyName"></div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="byer-name" data-translate="main.buyer.name">Name</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-name" class="input-field" name="name" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-email" data-translate="main.buyer.email">Email</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-email" class="input-field authentication-hide" name="Email" type="email" spellcheck="false" autocomplete="off" data-rule="email parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="Email"></div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder">
+                      <label for="buyer-phone" data-translate="main.buyer.phone">Phone</label>
+                    </div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-phone" class="input-field authentication-hide" name="Phone" type="tel" spellcheck="false" autocomplete="off" data-rule="telephone[none] parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                    <div class="input-field authentication-show" data-field="Phone"></div>
+                  </div>
+                </div>
+
+                <div class="form-row authentication-hide">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-password" data-translate="main.buyer.password">Password</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                  </div>
+                </div>  
+
+                <div class="form-row authentication-hide">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-repeat-password" data-translate="main.buyer.repeat-password">Re-password</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">
+                    <input id="buyer-repeat-password" class="input-field" name="password" type="password" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper] repeatpassword[buyer-password]" value="" autocorrect="off" required>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="collection -address-info">
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-street" data-translate="main.buyer.street">Street</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper">                  
+                    <input id="buyer-street" class="input-field authentication-hide" name="Address" type="text" spellcheck="false" autocomplete="off" data-rule="parent_target[.-input-wrapper]" value="" autocorrect="off" required placeholder="">
+                    <div class="input-field authentication-show" data-field="Address"></div>
+                  </div>
+                </div>                  
+                <div class="form-row">
+                  <div class="row-content -label-wrapper">
+                    <div class="content_holder"><label for="buyer-street" data-translate="main.buyer.address">Place</label></div>
+                  </div>          
+                  <div class="row-content -input-wrapper -address">                  
+                    <input id="buyer-postal" class="input-field authentication-hide" name="PostCode" type="text" spellcheck="false" autocomplete="off" data-rule="postal parent_target[.-input-wrapper]" value="" autocorrect="off" required maxlength="4" placeholder="Postal"  data-translate="main.buyer.postal">
+                    <div class="input-field authentication-show" data-field="PostCode"></div>
+
+                    <input id="buyer-city" class="input-field authentication-hide" name="PostArea" type="text" spellcheck="false" autocomplete="off" data-rule="parent_target[.-input-wrapper]" value="" autocorrect="off" required placeholder="City" data-translate="main.buyer.city">
+                    <div class="input-field authentication-show" data-field="PostArea"></div>
+                  </div>
+                </div>                
+              </div>
+
+              <div class="form-row -action">
+                <button id="buyer-submit-btn" class="secondary-btn -active-bounce" disabled="true" data-translate="main.edit">Edit</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
         <div id="panel-home" aria-hidden="false" aria-labelledby="tab-home" class="tab-panel -home">
           <div class="home-carousel-holder">
             <div class="carousel_screen carousel-screen">
@@ -348,15 +487,15 @@
             <h2 data-translate="product.title">Product overview</h2>
 
             <table class="product-table">
-              <tr>
+              <tr class="odd">
                 <th></th> 
-                <th>
+                <th class="bg-simple">
                   <span data-translate="product.simple.title">Simple</span>
                 </th> 
-                <th>
+                <th class="bg-simpler">
                   <span data-translate="product.simpler.title">Simpler</span>
                 </th> 
-                <th>
+                <th class="bg-simplest">
                   <span data-translate="product.simplest.title">Simplest</span>
                 </th> 
               </tr>
@@ -377,7 +516,7 @@
                   <span data-translate="product.simplest.language"></span>
                 </td> 
               </tr>        
-              <tr>
+              <tr class="odd">
                 <td>
                   <span data-translate="product.channel"></span>
                 </td> 
@@ -411,7 +550,7 @@
                   <span data-translate="product.simplest.question"></span>
                 </td> 
               </tr>              
-              <tr>
+              <tr class="odd">
                 <td>
                   <span data-translate="product.history"></span>
                 </td> 
@@ -445,7 +584,7 @@
                   <span data-translate="product.simplest.dashboard"></span>
                 </td> 
               </tr>              
-              <tr>
+              <tr class="odd">
                 <td>
                   <span data-translate="product.support"></span>
                 </td> 
@@ -479,7 +618,7 @@
                   <span data-translate="product.simplest.chatbot"></span>
                 </td> 
               </tr>              
-              <tr>
+              <tr class="odd">
                 <td>
                   <span data-translate="product.fee"></span>
                 </td> 
@@ -513,7 +652,7 @@
                   <span data-translate="product.simplest.month-fee"></span>
                 </td> 
               </tr>              
-              <tr>
+              <tr class="odd">
                 <td>
                   <span data-translate="product.free-chat"></span>
                 </td> 
@@ -547,19 +686,28 @@
                   <span data-translate="product.simplest.fee-chat"></span>
                 </td> 
               </tr>    
-              <tr>
+              <tr class="odd">
                 <td class="action"></td> 
                 <td class="action">
-                  <a href="#buying?product=simple" role="button" class="primary-btn -active-bounce product-get-start tab-btn">
+                  <a href="#buying?product=simple" role="button" class="primary-btn -active-bounce product-get-start tab-btn authentication-hide">
                       <span class="" data-translate="product.start">Start</span>
                       <span class="" data-translate="product.action">Get started</span>
+                  </a>
+                  <a href="#contact?request=simple" role="button" class="secondary-btn -active-bounce product-get-start tab-btn authentication-show">
+                      <span class="" data-translate="product.simplest.contact">Contact</span>
+                      <span class="" data-translate="product.contact">Contact us</span>                    
                   </a>
                 </td> 
                 <td class="action">
-                  <a href="#buying?product=simpler" role="button" class="primary-btn -active-bounce product-get-start tab-btn">
+                  <a href="#buying?product=simpler" role="button" class="primary-btn -active-bounce product-get-start tab-btn authentication-hide">
                       <span class="" data-translate="product.start">Start</span>
                       <span class="" data-translate="product.action">Get started</span>
                   </a>
+                  <a href="#contact?request=simpler" role="button" class="secondary-btn -active-bounce product-get-start tab-btn authentication-show">
+                      <span class="" data-translate="product.simplest.contact">Contact</span>
+                      <span class="" data-translate="product.contact">Contact us</span>                    
+                  </a>
+
                 </td> 
                 <td class="action">
                   <a href="#contact?request=simplest" role="button" class="secondary-btn -active-bounce product-get-start tab-btn">
@@ -804,6 +952,7 @@
                 </div>          
                 <div class="row-content -input-wrapper">
                   <input id="signup-name" class="input-field" name="name" type="text" spellcheck="false" autocomplete="off" data-rule="required parent_target[.-input-wrapper]" value="" autocorrect="off" required>
+                  <div class="input-field authentication-show" data-field="CompanyName"></div>
                 </div>
               </div>
 

@@ -42,6 +42,15 @@
   }
 }
 
+div.input-field {
+  border-style: dashed;
+
+  &, &:hover, &:focus {
+    box-shadow: none;
+    border-color: $grey;
+  }  
+}
+
 /******************************************************************************
   textarea 
 ******************************************************************************/
@@ -264,6 +273,11 @@
     &:after {
       margin-left: 2px;
     }     
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
   }
 
 

@@ -323,6 +323,39 @@ body {
   width: 100%;
   background: #323232 none repeat 0 0;
   position: relative; }
+  body .authentication-show {
+    display: none !important; }
+  body.authenticated .authentication-show {
+    display: block !important; }
+    body.authenticated .authentication-show.item-wrapper {
+      display: inline-block !important; }
+  body.authenticated .authentication-hide {
+    display: none; }
+  body.authenticated input.authentication-hide, body.authenticated select.authentication-hide, body.authenticated textarea.authentication-hide {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; }
+  body .color-simple {
+    color: #C94096; }
+  body .color-simpler {
+    color: #002776; }
+  body .color-simplest {
+    color: #6ab023; }
+  body .bg-simple {
+    background-color: #97cc56 !important;
+    background-color: #57a839 !important;
+    color: #FFFFFF; }
+  body .bg-simpler {
+    background-color: #57a839 !important;
+    background-color: #20803e !important;
+    color: #FFFFFF; }
+  body .bg-simplest {
+    background-color: #20803e !important;
+    background-color: #0e5954 !important;
+    color: #FFFFFF; }
 
 .layout {
   position: relative; }
@@ -387,6 +420,12 @@ body {
     -o-transition: margin 0.2s ease-in-out 0s;
     -ms-transition: margin 0.2s ease-in-out 0s;
     transition: margin 0.2s ease-in-out 0s; }
+
+div.input-field {
+  border-style: dashed; }
+  div.input-field, div.input-field:hover, div.input-field:focus {
+    box-shadow: none;
+    border-color: #ADADAD; }
 
 /******************************************************************************
   textarea 
@@ -552,6 +591,9 @@ body {
       border-color: transparent #FFFFFF transparent transparent; }
     .action-btn.-arrow-left:after, .primary-btn.-arrow-left:after, .secondary-btn.-arrow-left:after {
       margin-left: 2px; }
+  .action-btn:disabled, .primary-btn:disabled, .secondary-btn:disabled {
+    opacity: 0.5;
+    cursor: default; }
   .action-btn.-active-bounce, .primary-btn.-active-bounce, .secondary-btn.-active-bounce {
     top: 0; }
     .action-btn.-active-bounce:active, .primary-btn.-active-bounce:active, .secondary-btn.-active-bounce:active {
@@ -807,7 +849,7 @@ a.action-btn, a.action-btn:focus, a.action-btn:active, a.primary-btn, a.primary-
       padding-top: 5px; }
     .form-row .row-content.-input-wrapper.-address, .form-row .row-content.-input-wrapper.-visa-expireation {
       padding-left: 140px; }
-      .form-row .row-content.-input-wrapper.-address input:first-child, .form-row .row-content.-input-wrapper.-visa-expireation input:first-child {
+      .form-row .row-content.-input-wrapper.-address input:first-child, .form-row .row-content.-input-wrapper.-address input:first-child + div.authentication-show, .form-row .row-content.-input-wrapper.-visa-expireation input:first-child, .form-row .row-content.-input-wrapper.-visa-expireation input:first-child + div.authentication-show {
         width: 130px;
         margin-left: -140px; }
   .form-row .info-message {
@@ -1966,22 +2008,22 @@ ul.breadcrumb a {
 .product-overview {
   position: relative; }
   .product-overview table {
-    border: 1px solid #676767;
     border-radius: 2px;
     width: 100%; }
+    .product-overview table .odd td {
+      background-color: #f9f9f9; }
     .product-overview table th, .product-overview table td {
       width: 200px;
       padding: 10px 15px;
       vertical-align: top;
       text-align: center;
       font-weight: 500;
-      border-top: 1px solid #676767;
-      border-left: 1px solid #676767; }
+      border: 1px solid #ADADAD; }
       .product-overview table th .label, .product-overview table th:first-child, .product-overview table td .label, .product-overview table td:first-child {
         text-align: left;
         width: auto;
-        opacity: 0.7;
-        filter: alpha(opacity=70); }
+        opacity: 0.8;
+        filter: alpha(opacity=80); }
       .product-overview table th.action a span:first-child, .product-overview table td.action a span:first-child {
         display: none; }
       .product-overview table th .label, .product-overview table td .label {
@@ -1992,9 +2034,9 @@ ul.breadcrumb a {
           content: ':'; }
     .product-overview table th {
       font-weight: 700;
-      font-size: 120%;
-      background: #eee none repeat 0 0;
-      border-bottom: 2px solid #676767; }
+      font-size: 120%; }
+      .product-overview table th:first-child {
+        border: 0 none; }
   @media (max-width: 980px) {
     .product-overview table th, .product-overview table td {
       width: 130px;

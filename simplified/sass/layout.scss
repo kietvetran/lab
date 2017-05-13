@@ -5,6 +5,62 @@ body {
   width: 100%;  
   background: $bg-color none repeat 0 0;
   position: relative;
+
+  .authentication-show {
+  	display: none !important;
+  }
+
+  &.authenticated {
+		.authentication-show {
+			display: block !important;
+
+			&.item-wrapper {
+				display: inline-block !important;
+			}		
+		}
+
+		.authentication-hide {
+	  	display: none;
+	  }
+
+	  input, select, textarea {
+			&.authentication-hide {
+				display: block;
+				visibility: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+		  }	  	
+	  }
+  }
+
+  .color-simple {
+  	color: $purple;
+  }
+  .color-simpler {
+  	color: $blue-dark;
+  }
+  .color-simplest {
+  	color: $green-dark;
+  }
+
+  .bg-simple {
+  	background-color: #97cc56 !important;
+  	background-color: #57a839 !important;
+  	color: $white;
+  }
+  .bg-simpler {
+  	background-color: #57a839 !important;
+  	background-color: #20803e !important;
+  	color: $white;
+  }
+  .bg-simplest {
+  	background-color: #20803e !important;
+  	background-color: #0e5954 !important;
+  	color: $white;
+  }
+ 
 }
 
 .layout {

@@ -2,9 +2,14 @@
   position: relative;
 
   table {
-    border: 1px solid $border-color;
     border-radius: 2px;
     width: 100%;
+
+    .odd {
+      td {
+        background-color: #f9f9f9;
+      }
+    }
 
     th, td {
       width: 200px;
@@ -12,14 +17,13 @@
       vertical-align: top;
       text-align: center;
       font-weight: 500;
-      border-top: 1px solid $border-color;
-      border-left: 1px solid $border-color;
+      border: 1px solid $grey;
 
       .label,
       &:first-child {
         text-align: left;
         width: auto;
-        @include opacity(.7);
+        @include opacity(.8);
       }
 
       &.action {
@@ -46,8 +50,9 @@
     th {
       font-weight: 700;
       font-size: 120%;
-      background: #eee none repeat 0 0;
-      border-bottom: 2px solid $border-color;
+      &:first-child {
+        border: 0 none;
+      }
     }    
   } 
 

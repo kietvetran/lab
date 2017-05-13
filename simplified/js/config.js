@@ -8,7 +8,7 @@ var CONFIG = {
   'carouselAutoSwipe': 15*1000, // 15 seconds
 
   'popupChatWidget': {
-    'delay': 1500*1000, //  15 seconds
+    'delay': 15*1000, //  15 seconds
     'message': {
       'no': 'Hva kan jeg hjelpe deg?',
       'en': 'What can i help you?'
@@ -26,6 +26,14 @@ var CONFIG = {
     'main.send': {
       'no': 'Send',
       'en': 'Send'
+    },
+    'main.edit': {
+      'no': 'Rediger',
+      'en': 'Edit'
+    },
+    'main.change': {
+      'no': 'Endre',
+      'en': 'Change'
     },
 
     /*** menu ***/
@@ -48,6 +56,10 @@ var CONFIG = {
     'main.menu.log-in': {
       'no': 'Logg inn',
       'en': 'Log in'
+    },
+    'main.menu.profile': {
+      'no': 'Profil',
+      'en': 'Profile'
     },
 
     /*** contact ***/
@@ -162,8 +174,12 @@ var CONFIG = {
       'en': 'CSV'
     },    
     'main.buyer.street': {
-      'no': 'Gate adresse',
-      'en': ''
+      'no': 'Gate',
+      'en': 'Stret'
+    },    
+    'main.buyer.address': {
+      'no': 'Sted',
+      'en': 'Place'
     },    
     'main.buyer.billing-street': {
       'no': 'Gate (Faktura)',
@@ -219,6 +235,13 @@ var CONFIG = {
       'no': 'System feil har oppstått. Prøv igjen senere.',
       'en': 'System error, please try later.'
     },   
+
+    /*** ***/
+    'main.profile.title': {
+      'no': 'Profil',
+      'en': 'Profile'
+    },    
+  
 
     /*** ***/
     'product.title': {
