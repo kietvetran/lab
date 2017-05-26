@@ -368,7 +368,7 @@ body {
   .layout .layout-inner {
     padding: 0 10px;
     margin: 0 auto;
-    max-width: 1280px;
+    max-width: 1024px;
     clear: both; }
   .layout main {
     padding: 20px 0; }
@@ -2389,7 +2389,7 @@ a:focus, button:focus, h1:focus, h2:focus, h3:focus, h4:focus, h5:focus, select:
     padding: 0;
     border-radius: 0; }
   .card-wrapper .poster-cnt {
-    max-width: 600px;
+    max-width: 630px;
     margin-left: auto;
     margin-right: auto; }
     .card-wrapper .poster-cnt h1, .card-wrapper .poster-cnt h2 {
