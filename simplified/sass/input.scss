@@ -7,16 +7,16 @@
   background: $white none repeat 0 0;
   display: block;
   padding: 7px 9px;
-  border: 1px solid $grey-dark;
+  border: 1px solid $border-color;
   width: 100%;
 
   &:hover {
-    border-color: $blue;
+    border-color: $border-focus;
   }
 
   &:focus, &:active {
-    border-color: $blue;
-    box-shadow: 0 0 0 2px $blue-light;
+    border-color: $border-focus;
+    box-shadow: 0 0 0 2px $border-focus;
     outline: none;
 
     + .input-field-description {
@@ -225,7 +225,6 @@ div.input-field {
   box-shadow: none;
   border: 0 none;
   font-size: 18px;
-  color: $grey-dark;
   text-decoration: none;
 
   &.-hide {
@@ -233,12 +232,22 @@ div.input-field {
   }
 
   &:hover {
-    border-color: $blue;
+    border-color: $border-focus;
+    background-color: $border-focus;
+    color: $white;
   }
 
-  &:focus, &:active {
-    border-color: $blue;
-    box-shadow: 0 0 0 2px $blue-light;
+  &:focus{
+    border-color: $border-focus;
+    background-color: $border-focus;
+    color: $white;
+    outline: none;
+  }
+
+  &:active {
+    border-color: $brand-color-fourth;
+    background-color: $brand-color-fourth;    
+    color: $white;
     outline: none;
   }
 
@@ -280,37 +289,6 @@ div.input-field {
     cursor: default;
   }
 
-
-  /*
-  &.-arrow-right, &.-arrow-left {
-    &:before {
-      content: "";
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      top: 50%;
-      margin-top: -20px;
-      background: transparent none no-repeat center center / 20px auto;
-    }
-  }
-
-  &.-arrow-right { 
-    padding-right: 40px;
-    &:before {
-      right: 0;
-      background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA3OTIuMDMzIDc5Mi4wMzMiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik02MTcuODU4LDM3MC44OTZMMjIxLjUxMyw5LjcwNWMtMTMuMDA2LTEyLjk0LTM0LjA5OS0xMi45NC00Ny4xMDUsMGMtMTMuMDA2LDEyLjkzOS0xMy4wMDYsMzMuOTM0LDAsNDYuODc0ICAgICBsMzcyLjQ0NywzMzkuNDM4TDE3NC40NDEsNzM1LjQ1NGMtMTMuMDA2LDEyLjk0LTEzLjAwNiwzMy45MzUsMCw0Ni44NzRzMzQuMDk5LDEyLjkzOSw0Ny4xMDQsMGwzOTYuMzQ2LTM2MS4xOTEgICAgIGM2LjkzMi02Ljg5OCw5LjkwNC0xNi4wNDMsOS40NDEtMjUuMDg3QzYyNy43NjMsMzg2Ljk3Miw2MjQuNzkyLDM3Ny44MjgsNjE3Ljg1OCwzNzAuODk2eiIvPjwvc3ZnPg==);
-    }
-  }
-
-  &.-arrow-left {
-    padding-left: 40px;
-    &:before {
-      left: 0;
-      background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA4Ni4wMDEgODYuMDAxIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNjQuOTk4LDgwLjA5NWMxLjMzOCwxLjM1MiwxLjMzOCwzLjU0MSwwLDQuODkzYy0xLjMzNiwxLjM1LTMuNTA2LDEuMzUyLTQuODQ0LDBsLTM5LjE1MS0zOS41NCAgIGMtMS4zMzgtMS4zNTItMS4zMzgtMy41NDMsMC00Ljg5NWwzOS4xNS0zOS41MzljMS4zMzgtMS4zNTIsMy41MDYtMS4zNTIsNC44NDQsMEM2Ni4zMzUsMi4zNjYsNjYuMzM1LDQuNTU2LDY1LDUuOTA3ICAgTDI5LjI5NCw0My4wMDFMNjQuOTk4LDgwLjA5NXoiLz48L3N2Zz4=);
-    }
-  }
-  */
-
   &.-active-bounce {
     top: 0;
     &:active {
@@ -337,8 +315,8 @@ div.input-field {
 }
 
 .primary-btn {
-  border: 1px solid $blue;
-  background: $blue none repeat 0 0;
+  border: 1px solid $brand-color-primary;
+  background: $brand-color-primary none repeat 0 0;
   color: $white;
 
   &.-arrow-right:after {
@@ -350,9 +328,8 @@ div.input-field {
 }
 
 .secondary-btn {
-  border: 1px solid $grey-dark;
+  border: 2px solid $brand-color-primary;
   background: $white none repeat 0 0;
-  color: $black;
 
   &.-arrow-right:before {
     border-color: transparent transparent transparent $grey-dark;
@@ -379,18 +356,18 @@ a.action-btn, a.primary-btn {
 ******************************************************************************/
 .select-box {
   padding: 8px 32px 8px 10px;
-  border: 1px solid $grey-dark;
+  border: 1px solid $border-color;
   border-radius: 4px;
   width: 100%;
   @include transition( all, .2s, ease-in-out); 
 
   &:hover {
-    border-color: $blue;
+    border-color: $border-focus;
   }
 
   &:focus, &:active {
-    border-color: $blue;
-    box-shadow: 0 0 0 2px $blue-light;
+    border-color: $border-focus;
+    box-shadow: 0 0 0 2px $border-focus;
     outline: none;
   }
 

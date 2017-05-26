@@ -26,11 +26,21 @@ $purple: #C94096;
 
 $yellow : #e6e600;
 
-$bg-color: #323232;
-$bg-basic: #f3f3f3;
+$bg-color: #ffffff;
+$bg-basic: #ffffff;
 
-$border-color: $grey-dark;
+$brand-color-primary: #5c40bc;
+$brand-color-secondary: #6e4dde;
+$brand-color-tertiary: #8dffd7;
+$brand-color-fourth: #4b3598;
 
+$font-color: $brand-color-primary; 
+$font-family: Arial, Helvetica, sans-serif;
+$border-color: $brand-color-primary;
+$border-focus: $brand-color-secondary;
+$shadow-focus: $brand-color-tertiary;
+
+$readable-width: 600px;
 
 //
 $breakpoint-sm: 480px;

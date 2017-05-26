@@ -91,7 +91,7 @@ function setupFormValidaiton() {
     'summaryError'       : false,
     'validationErrorSTD' : ATTR['errorSTD'],
     'validationErrorMSG' : ATTR['errorMSG'],
-    'submitCallback'     : submitCallback    
+    'submitCallback'     : submitContactUsForm    
   });
 
   $('#product-payment-form').FormValidation({
@@ -192,6 +192,51 @@ function submitLoginForm( source ) {
   return false;
 }
 
+function submitContactUsForm( source ) {
+  source.main.addClass('-loading');
+
+  var verify = function( response ) {
+    console.log( response );
+    source.main.removeClass('-loading').addClass('-send-success');
+
+    /*
+    source.main.removeClass('-loading');
+    var person = '';
+    try {
+      person = JSON.stringify(response);
+    } catch( error ) {}
+
+    if ( person && response.UserID && !(isNaN(response.UserID)) && response.UserID > 0 ) {
+      sessionStorage.setItem( ATTR.cookie + 'person', person);
+      verifyAuthentication();
+      changeTab( 'home' );
+    } else {
+      source.main.removeClass('-loading');
+      source.insertSummaryError( ATTR.translation['main.login.invalid'][ATTR.language] );
+    }
+    */
+  }, failed = function() {
+    source.main.removeClass('-loading');
+    source.insertSummaryError( ATTR.translation['main.login.system-error'][ATTR.language] );
+  };
+
+  var url = ATTR.api.contact;// + '?username='+source.data.username+'&password='+source.data.password;
+  console.log( url );
+  console.log( source.data );
+  ATTR.ajax = $.ajax({
+    'type':'POST','url': url, 'data': source.data, 'success':verify, 'error': failed
+  });
+
+  /*
+  setTimeout( function() {
+    source.main.removeClass('-loading');
+    updateLocationHash({'tab': 'home'});
+  }, 500 );
+  */
+  return false;
+}
+
+
 function submitSignupForm( source ) {
   source.main.addClass('-loading');
   setTimeout( function() {
@@ -219,14 +264,18 @@ function hashChangeHandler( e ) {
  * @return {Void}
  */
 function clickHandler( e ) {
-  var target = $(e.target), parent = target.parent(), order = [
+  var target = $(e.target), parent = target.parent(); 
+  if (target.hasClass('ignor-handler') || parent.hasClass('ignor-handler')) { return; }
+
+  var order = [
     //{'type':'id',    'what':'btnLogo',           'handler':clickOnBtnLogo       },
     {'type':'class','what':'chat-widget-btn',    'handler':clickOnChatWidgetBtn },      
     {'type':'class', 'what':'tab-btn',           'handler':clickOnTabBtn        }
   ]; 
-
+  
   var i = 0, loop = order.length, current = null; 
   for ( i; i < loop; i++ ) {
+
     if ( order[i].type === 'class' ) {
       if ( target.hasClass(order[i].what) ) {
         current = target;

@@ -8,7 +8,7 @@ var CONFIG = {
   'carouselAutoSwipe': 15*1000, // 15 seconds
 
   'popupChatWidget': {
-    'delay': 15*1000, //  15 seconds
+    'delay': 10000000000, //15*1000, //  15 seconds
     'message': {
       'no': 'Hva kan jeg hjelpe deg?',
       'en': 'What can i help you?'
@@ -18,7 +18,7 @@ var CONFIG = {
 	'api': {
     'login' : 'https://simplifai-backend.eu-de.mybluemix.net/login',
     'order' : 'https://simplifai-backend.eu-de.mybluemix.net/subscribe', 
-    'concat': 'https://simplifai-backend.eu-de.mybluemix.net/contact'
+    'contact': 'https://simplifai-backend.eu-de.mybluemix.net/contact'
 	},
 
   'translation' : {
@@ -36,10 +36,26 @@ var CONFIG = {
       'en': 'Change'
     },
 
+    /*** footer ***/
+    'footer.follow-us': {
+      'no': 'Følg oss på sosialmedia',
+      'en': 'Follow us'
+    },
+
+
     /*** menu ***/
+    'main.menu.home': {
+      'no': 'Hjem',
+      'en': 'Home'
+    },
+
     'main.menu.product-and-service': {
       'no': 'Produkt',
       'en': 'Product'
+    },
+    'main.menu.blog': {
+      'no': 'Blogg',
+      'en': 'Blog'
     },
     'main.menu.contact-us': {
       'no': 'Kontakt oss',
@@ -66,6 +82,10 @@ var CONFIG = {
     'main.contact.title': {
       'no': 'Kontakt oss',
       'en': 'Contact us'
+    },
+    'main.contact.name': {
+      'no': 'Navn',
+      'en': 'Name'
     },
     'main.contact.company': {
       'no': 'Firma',

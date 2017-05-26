@@ -47,6 +47,9 @@ $img-url: '../img/';
 .pre-wrap    { white-space: pre-wrap; }
 .no-wrap     { white-space: nowrap; }
 .normal-wrap { white-space: normal; }
+.bold { font-weight: 700; }
+.italic { font-style: italic; }
+.block { display: block; }
 
 /*****************************************************************************/
 .aria-visible {
@@ -91,8 +94,89 @@ a, button, h1, h2, h3, h4, h5, select, input[type="button"],input[type="reset"],
   border-radius: 4px;
   @include box-shadow();
 
-  @media (max-width: $breakpoint-sm) {  
+  &.-none-all {
+    border: 0 none;
+    background: transparent none repeat 0 0;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .poster-cnt {
+    max-width: $readable-width;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1, h2 {
+      margin-left: -50px;
+    }
+  }
+
+  &.-main {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    margin-top: -30px;
+
+    &, h1, .h1, h2, .h2, h3, .h3, h4, .h4, * {
+      color: $white;
+    }
+
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+      margin-bottom: 40px;
+    }
+
+    &, &:before, &:after {
+      background: $brand-color-secondary none repeat 0 0;
+    }
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    &:before {
+      left: 100%;
+    }
+    &:after {
+      right: 100%;
+    }
+  }
+
+  @media (max-width: $breakpoint-md-p) {
+    .poster-cnt {
+      h1, h2 {
+        margin-left: 0;
+      }
+    }
+    &.-main {
+      padding-top: 70px;
+      padding-bottom: 30px;
+
+      h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
     padding: 10px;
+
+    &.-none-all {
+      padding: 0 10px;
+    }
+
+    &.-main {
+      padding-top: 50px;
+      padding-bottom: 15px;
+
+      h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+        margin-bottom: 15px;
+      }
+    }
   }
 }
 
@@ -115,6 +199,7 @@ a, button, h1, h2, h3, h4, h5, select, input[type="button"],input[type="reset"],
   &.-show, &.-stay-open {
     height: auto;
     visibility: visible;
+    overflow: visible;
     position: relative;
     z-index: 1;
     @include opacity( 1 );

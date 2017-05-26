@@ -20,18 +20,27 @@
   	&.-white {
 	  	background-image: url('../image/icon/twitter-w.svg');  		
   	}
+    &.-purple {
+      background-image: url('../image/icon/twitter-p.svg');     
+    }
   }
   &.-facebook {
   	background-image: url('../image/icon/facebook.svg');
   	&.-white {
 	  	background-image: url('../image/icon/facebook-w.svg');
   	}
+    &.-purple {
+      background-image: url('../image/icon/facebook-p.svg');
+    }
   }
   &.-linkedin {
   	background-image: url('../image/icon/linkedin-w.svg');
   	&.-white {
 	  	background-image: url('../image/icon/linkedin-w.svg');
   	}
+    &.-purple {
+      background-image: url('../image/icon/linkedin-p.svg');
+    }
   }
 
   &.-yes {
@@ -40,6 +49,12 @@
   &.-no {
     background-size: 23px auto;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMS45IDIxLjkiPiAgPHBhdGggZmlsbD0iI0Q4MDAyNyIgZD0iTTE0LjEsMTEuM2MtMC4yLTAuMi0wLjItMC41LDAtMC43bDcuNS03LjVjMC4yLTAuMiwwLjMtMC41LDAuMy0wLjdzLTAuMS0wLjUtMC4zLTAuN2wtMS40LTEuNEMyMCwwLjEsMTkuNywwLDE5LjUsMCAgYy0wLjMsMC0wLjUsMC4xLTAuNywwLjNsLTcuNSw3LjVjLTAuMiwwLjItMC41LDAuMi0wLjcsMEwzLjEsMC4zQzIuOSwwLjEsMi42LDAsMi40LDBTMS45LDAuMSwxLjcsMC4zTDAuMywxLjdDMC4xLDEuOSwwLDIuMiwwLDIuNCAgczAuMSwwLjUsMC4zLDAuN2w3LjUsNy41YzAuMiwwLjIsMC4yLDAuNSwwLDAuN2wtNy41LDcuNUMwLjEsMTksMCwxOS4zLDAsMTkuNXMwLjEsMC41LDAuMywwLjdsMS40LDEuNGMwLjIsMC4yLDAuNSwwLjMsMC43LDAuMyAgczAuNS0wLjEsMC43LTAuM2w3LjUtNy41YzAuMi0wLjIsMC41LTAuMiwwLjcsMGw3LjUsNy41YzAuMiwwLjIsMC41LDAuMywwLjcsMC4zczAuNS0wLjEsMC43LTAuM2wxLjQtMS40YzAuMi0wLjIsMC4zLTAuNSwwLjMtMC43ICBzLTAuMS0wLjUtMC4zLTAuN0wxNC4xLDExLjN6Ii8+PC9zdmc+);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 30px;
+    height: 30px;
+    background-size: 25px auto;
   }
 }
 

@@ -41,9 +41,7 @@
   }
 
   legend, .-label-wrapper label {
-    color: $black;
     font-weight: 700;
-    @include opacity(.7);
   }  
 
   input {

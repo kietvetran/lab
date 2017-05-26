@@ -1,30 +1,25 @@
 /* Mobile typography */
 h1, .h1, {
-  color: $black;
   font-size: 36px;
   line-height: 44px;
 }
 
 h2, .h2, {
-  color: $black;
   font-size: 32px;
   line-height: 40px;
 }
 
 h3, .h3, {
-  color: $black;
   font-size: 28px;
   line-height: 36px;
 }
 
 h4, .h4, {
-  color: $black;
   font-size: 24px;
   line-height: 30px;
 }
 
 h5, .h5, {
-  color: $black;
   font-size: 16px;
   line-height: 22px;
 }
@@ -37,15 +32,27 @@ h3, h4, .h3, .h4 {
   padding: 5px 0 10px 0;
 }
 
-body, .body-text, textarea, input, h1, h2, h3, h4, h5{
-  font-family: arial, sans-serif;
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  font-weight: 700;
+}
+
+body, .body-text, textarea, input, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
+.action-btn, .primary-btn, label, legend, select, option {
+  font-family: $font-family;
 }
 
 body, .body-text, textarea, input, .action-btn, .primary-btn, label, legend, select, option {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 22px;
-  color: $black;
+}
+
+body, .body-text, textarea, .action-btn, .primary-btn, label, legend, p, a, .lead {
+  color: $font-color;  
+}
+
+input, textarea, select, option, button {
+  color: $black;  
+  color: $font-color;  
 }
 
 .dialog {
@@ -65,11 +72,6 @@ p, .body-paragraph {
   padding-bottom: 15px;
 }
 
-.lead {
-  color: $black;
-  font-size: 18px;
-  line-height: 28px;
-}
 
 .ellipsis {
   overflow: hidden;
@@ -87,7 +89,7 @@ a {
   text-decoration: underline;
   cursor: pointer;
   &, &:focus, &:hover, &:visited {
-    color: $black;
+    color: $font-color;  
   }
 
   &:focus {
@@ -101,6 +103,12 @@ a {
       color: $blue;
     }
   }
+
+  &.white-link {
+    &, &:focus, &:hover, &:visited {
+      color: $white;
+    }
+  }
 }
 
 img {
@@ -110,13 +118,6 @@ img {
   border: 0 none;
 }
 
-.relative {
-  position: relative;
-}
-
-.highligth {
-  color: red;
-}
 
 .hide {
   display: none;
