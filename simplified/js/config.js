@@ -235,6 +235,10 @@ var CONFIG = {
       'no': 'System feil har oppstått. Prøv igjen senere.',
       'en': 'System error, please try later.'
     },   
+    'main.login.invalid': {
+      'no': 'Ugyldig brukernavn eller passord.',
+      'en': 'Invalid username or password.'
+    },   
 
     /*** ***/
     'main.profile.title': {

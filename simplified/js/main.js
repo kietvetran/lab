@@ -160,31 +160,27 @@ function submitLoginForm( source ) {
   var verify = function( response ) {
     console.log( response );
     source.main.removeClass('-loading');
+    var person = '';
+    try {
+      person = JSON.stringify(response);
+    } catch( error ) {}
 
+    if ( person && response.UserID && !(isNaN(response.UserID)) && response.UserID > 0 ) {
+      sessionStorage.setItem( ATTR.cookie + 'person', person);
+      verifyAuthentication();
+      changeTab( 'home' );
+    } else {
+      source.main.removeClass('-loading');
+      source.insertSummaryError( ATTR.translation['main.login.invalid'][ATTR.language] );
+    }
   }, failed = function() {
     source.main.removeClass('-loading');
     source.insertSummaryError( ATTR.translation['main.login.system-error'][ATTR.language] );
-    /*
-    var person = {
-      "UserID": 5,
-      "FirstName": "Test",
-      "LastName": "User",
-      "CompanyName": "TestCompany",
-      "Email": "info@simplifai.ai",
-      "Address": "Testveien 123",
-      "PostCode": "0123",
-      "PostArea": "Oslo",
-      "Phone": "90812348"
-    };
-
-    sessionStorage.setItem( ATTR.cookie + 'person', JSON.stringify(person));
-    verifyAuthentication();
-    changeTab( 'home' );
-    */
   };
 
+  var url = ATTR.api.login;// + '?username='+source.data.username+'&password='+source.data.password;
   ATTR.ajax = $.ajax({
-    'type':'POST','url': ATTR.api.login, 'data': source.data, 'success':verify, 'error': failed
+    'type':'POST','url': url, 'data': source.data, 'success':verify, 'error': failed
   });
 
   /*
