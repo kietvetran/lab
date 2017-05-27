@@ -102,6 +102,17 @@ a, button, h1, h2, h3, h4, h5, select, input[type="button"],input[type="reset"],
     border-radius: 0;
   }
 
+  .image-wrapper {
+    padding-left: 340px;
+    overflow: hidden;
+    img {
+      width: 320px;
+      float: left;
+      margin-left: -340px;
+      max-width: none;
+    }
+  }
+
   .poster-cnt {
     max-width: $readable-width;
     margin-left: auto;
@@ -160,6 +171,14 @@ a, button, h1, h2, h3, h4, h5, select, input[type="button"],input[type="reset"],
         margin-bottom: 30px;
       }
     }
+
+    .image-wrapper {
+      padding-left: 215px;
+      img {
+        width: 200px;
+        margin-left: -215px;
+      }
+    }
   }
 
   @media (max-width: $breakpoint-sm) {
@@ -177,6 +196,15 @@ a, button, h1, h2, h3, h4, h5, select, input[type="button"],input[type="reset"],
         margin-bottom: 15px;
       }
     }
+
+    .image-wrapper {
+      padding-left: 0;
+      img {
+        width: 100%;
+        margin: 0 0 10px 0;
+      }
+    }
+
   }
 }
 

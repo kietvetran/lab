@@ -69,9 +69,8 @@ abbr[title] {
 }
 
 p, .body-paragraph {
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
-
 
 .ellipsis {
   overflow: hidden;
@@ -188,6 +187,10 @@ fieldset {
   body, .body-text, textarea, input, .action-btn, .primary-btn, label, legend, select, option{
     font-size: 14px;
     line-height: 18px;
+  }
+
+  p, .body-paragraph {
+    padding-bottom: 15px;
   }
 
   .dialog {

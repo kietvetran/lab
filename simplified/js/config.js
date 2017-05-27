@@ -54,12 +54,16 @@ var CONFIG = {
       'en': 'Product'
     },
     'main.menu.blog': {
-      'no': 'Blogg',
+      'no': 'Blog',
       'en': 'Blog'
     },
     'main.menu.contact-us': {
-      'no': 'Kontakt oss',
-      'en': 'Contact us'
+      'no': 'Kontakt',
+      'en': 'Contact'
+    },
+	'main.menu.be-pilot': {
+      'no': 'Bli pilotkunde',
+      'en': 'Be a pilot customer'
     },
     'main.menu.about-us': {
       'no': 'Om oss',
@@ -80,7 +84,7 @@ var CONFIG = {
 
     /*** contact ***/
     'main.contact.title': {
-      'no': 'Kontakt oss',
+      'no': 'Bli pilotkunde',
       'en': 'Contact us'
     },
     'main.contact.name': {
@@ -88,8 +92,8 @@ var CONFIG = {
       'en': 'Name'
     },
     'main.contact.company': {
-      'no': 'Firma',
-      'en': 'Company'
+      'no': 'Bedriftsnavn',
+      'en': 'Company name'
     },
     'main.contact.email': {
       'no': 'E-post',
@@ -128,8 +132,8 @@ var CONFIG = {
       'en': 'Other'
     },
     'main.contact.description': {
-      'no': 'Beskrivelse',
-      'en': 'Description'
+      'no': 'Fortell oss litt om dine forventninger',
+      'en': 'Tell us a bit about your expectations'
     },
     'main.contact.success': {
       'no': 'Din forspørsel er sendt.',
