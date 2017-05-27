@@ -18,7 +18,7 @@ var CONFIG = {
 	'api': {
     'login' : 'https://simplifai-backend.eu-de.mybluemix.net/login',
     'order' : 'https://simplifai-backend.eu-de.mybluemix.net/subscribe', 
-    'contact': 'https://simplifai-backend.eu-de.mybluemix.net/contact'
+    'contact': 'https://simplifai-backend.eu-de.mybluemix.net/signup'
 	},
 
   'translation' : {
@@ -41,7 +41,6 @@ var CONFIG = {
       'no': 'Følg oss på sosialmedia',
       'en': 'Follow us'
     },
-
 
     /*** menu ***/
     'main.menu.home': {
@@ -83,6 +82,11 @@ var CONFIG = {
     },
 
     /*** contact ***/
+    'main.contact.200': {
+      'no': 'Meldingen er sendt og vi vil ta kontakt så rask som mulig.',
+      'en': 'abc'
+    },
+
     'main.contact.title': {
       'no': 'Bli pilotkunde',
       'en': 'Contact us'
