@@ -93,7 +93,7 @@
     /*************************************************************************
     === PUBLIC FUNCTIOn ===
     **************************************************************************/
-    insertSummaryError( text ) {
+    insertSummaryError: function( text ) {
       var first = opt.main.children().eq(0);
       if ( first.hasClass('summary') ) {
         first.remove();
@@ -611,20 +611,6 @@
       return ! out;
     },
 
-    /*
-    _verifyDependingOnTarget : function( selector ) {
-      var node = selector ? opt.all.filter( selector ).eq(0) : null;
-      if ( ! node || ! node.size() ) return false;
-
-      var out = false;
-      if ( helper.isCheckable(node) )
-        out = node.prop('checked');
-      else
-        out = node.prop('value').replace( /\s+/g, '') !== '';
-      return ! out;
-    },
-    */
-
     _beforeValidate : function( current, ignorRequired, ignorAriaAlert, mode ) {
       if ( typeof(opt.beforeValidation) === 'function' ) { 
         return opt.beforeValidation( current );
@@ -1083,7 +1069,6 @@
       : [];
     },
 
-    //************************************
     _verifyRequired: function( input, param ) {
       var node = $( input ), dom = node.get(0), length = 0, type = 'field';
       // could be an array for select-multiple or a string, both are fine this way
@@ -1351,64 +1336,6 @@
       }
       return invalid ? helper.getErrorMessage('invalid_account_number',param,node) : '';
     },
-    
-    /*
-    _verifyPersonnumber : function( input, param, focus, keyup ) {
-      var node = $(input), value = node.prop('value') || '';  
-      if ( ! value ) { return; }
-
-      var text   = value.replace(/\s+/g,''), mode = 'force_to_prettify';
-      var number = helper._getNumber( node ), vr = 'validation_rule';
-      var force  = keyup ? node.hasClass( mode ) : false;
-
-      if ( typeof(focus) === 'boolean' || force ) {
-        var pos = helper._getCursorPosition( node );
-        if ( keyup && focus && pos !== value.length ) { 
-          return node.addClass( mode );
-        }
-
-        node.removeClass( mode ); 
-        var out = [text.substring(0,6),text.substring(6)];
-        node.prop('value', out.join(' ').replace(/\s+/g,' ').replace(/\s+$/g,''));
-        if ( typeof(focus) === 'boolean' || ! force ) { return; }
-      }
-
-      var invalid = ! text.match( opt[vr].personnumber );
-      if ( invalid || isNaN(number) ) { 
-        return helper.getErrorMessage('invalid_person_number',param,node);  
-      }
-      return text.length < 11 ? 
-        helper.getErrorMessage('invalid_person_number_length',param,node) : '';
-    },
-
-    _verifyAccountnumber : function( input, param, focus, keyup ) {
-      var node = $(input), value = node.prop('value') || '';  
-      if ( ! value ) { return; }
-
-      var text   = value.replace(/\s+/g,''), mode = 'force_to_prettify';
-      var number = helper._getNumber( node ), vr = 'validation_rule';
-      var force  = keyup ? node.hasClass( mode ) : false;
-
-      if ( typeof(focus) === 'boolean' || force ) {
-        var pos = helper._getCursorPosition( node );
-        if ( keyup && focus && pos !== value.length ) { 
-          return node.addClass( mode );
-        }
-        node.removeClass( mode ); 
-        var out = [text.substring(0,4),text.substring(4,6),text.substring(6)];
-        node.prop('value', out.join(' ').replace(/\s+/g,' ').replace(/\s+$/g,''));
-        if ( typeof(focus) === 'boolean' || ! force ) { return; }
-      }
-
-      var invalid = ! text.match( opt[vr].accountnumber );
-      if ( invalid || isNaN(number) ) { 
-        return helper.getErrorMessage('invalid_account_number',param,node);  
-      }
-
-      return text.length < 11 ? 
-        helper.getErrorMessage('invalid_account_number_length',param,node) : '';
-    },
-    */
 
     _verifyAmount : function( input, param, focus ) {
       var node = $(input), text = (node.prop('value') || '').replace(/\s+/g,'');
@@ -1695,7 +1622,6 @@
       return size;
     },
 
-
     _verifyTab : function( node, startup, nodeRule ) {
       var rule  = nodeRule || (node ? helper._getRule(node) || {} : {});
       var tt    = 'tabpanel_target', panel = rule[tt] ? $(rule[tt]) : null;
@@ -1708,51 +1634,6 @@
         panel.attr('aria-hidden', 'true').removeClass('-active');
       }
     },    
-    /*
-    _verifyTab : function( node, startup, nodeRule ) {
-
-      var rule  = nodeRule || (node ? helper._getRule(node) || {} : {});
-      var tt    = 'tabpanel_target', panel = rule[tt] ? $(rule[tt]) : null;
-      if ( ! panel || ! panel.size() ) { return; }
-
-      if ( ! node.prop('checked') ) {
-        return panel.attr('aria-hidden', 'true').removeClass('active');
-      }
-
-      var duration = helper.getDuration( panel );
-      if ( ! duration ) {
-        return panel.attr('aria-hidden', 'false').addClass('active');
-      }
-
-      var style  = 'position:absolute;visibility:hidden;top:0;max-height:none;display:block;overflow:hidden;';
-      var height = panel.attr('style',style).prop('clientHeight');
-      var top    = panel.attr('style', 'height:1px;position:relative;').offset().top+100;
-      var width  = panel.prop('clientWidth');
-
-      var render = function() {
-        panel.attr('style','overflow:hidden;max-height:'+height+'px').
-          attr('aria-hidden', 'false').addClass('active');
-        setTimeout( function() { panel.removeAttr('style'); }, duration );
-      };
-
-      if ( startup || isNaN(width) || ! width ) { return render(); }
-      var scrolled = helper._getScrollPosition(), size = helper._getWindowSize();
-      var view = [scrolled[1], scrolled[1]+size[1]];
-
-      if ( view[0]<top && view[1]>top ) { 
-        return setTimeout( render, 20 );
-      }
-
-      var nTop = node.offset().top, distance = top-nTop;
-      if ( (nTop+distance) >= (nTop+size[1]) ) { 
-        return setTimeout( render, 20 );
-      }
-
-      top = scrolled[1] + (top-view[1]);
-      $('html, body').animate({'scrollTop':top+'px'}, duration||300,render);
-    },    
-    */
-
     _none : function() {}
   };
 

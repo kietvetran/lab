@@ -107,11 +107,14 @@
 
   .message {
     padding: 15px;
-    max-width: 75%;
     clear: both;
     margin: 15px 0;
     position: relative;
     border-radius: 4px;
+
+    &.-left, &.-right {
+      max-width: 75%;      
+    }
 
     &:before {
       content: '';
@@ -140,6 +143,27 @@
       &:before {
         right: 100%;
         border-right-color: $red; 
+      }
+    }
+
+    &.-option {
+      width: 100%;
+      background: #f0f0f0 none repeat 0 0;
+
+      .message-option-btn {
+        text-align: center;
+      }
+
+      .message-option-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        > li {
+          padding: 5px 0 0 0;
+          &:first-child {
+            padding-top: 0;
+          }
+        }
       }
     }
   }

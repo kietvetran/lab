@@ -556,6 +556,8 @@ div.input-field {
     background-color: #4b3598;
     color: #FFFFFF;
     outline: none; }
+  .action-btn.-block, .primary-btn.-block, .secondary-btn.-block {
+    display: block; }
   .action-btn.-arrow-right:before, .action-btn.-arrow-right:after, .action-btn.-arrow-left:before, .action-btn.-arrow-left:after, .primary-btn.-arrow-right:before, .primary-btn.-arrow-right:after, .primary-btn.-arrow-left:before, .primary-btn.-arrow-left:after, .secondary-btn.-arrow-right:before, .secondary-btn.-arrow-right:after, .secondary-btn.-arrow-left:before, .secondary-btn.-arrow-left:after {
     content: "";
     position: absolute;
@@ -2199,11 +2201,12 @@ ul.breadcrumb a {
       font-size: 14px; }
   #chat-widget .message {
     padding: 15px;
-    max-width: 75%;
     clear: both;
     margin: 15px 0;
     position: relative;
     border-radius: 4px; }
+    #chat-widget .message.-left, #chat-widget .message.-right {
+      max-width: 75%; }
     #chat-widget .message:before {
       content: '';
       position: absolute;
@@ -2226,6 +2229,19 @@ ul.breadcrumb a {
       #chat-widget .message.-left:before {
         right: 100%;
         border-right-color: #D80027; }
+    #chat-widget .message.-option {
+      width: 100%;
+      background: #f0f0f0 none repeat 0 0; }
+      #chat-widget .message.-option .message-option-btn {
+        text-align: center; }
+      #chat-widget .message.-option .message-option-list {
+        list-style: none;
+        padding: 0;
+        margin: 0; }
+        #chat-widget .message.-option .message-option-list > li {
+          padding: 5px 0 0 0; }
+          #chat-widget .message.-option .message-option-list > li:first-child {
+            padding-top: 0; }
 
 .contact-us-wrapper textarea {
   resize: none;

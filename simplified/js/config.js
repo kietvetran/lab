@@ -16,9 +16,11 @@ var CONFIG = {
   },
 
 	'api': {
-    'login' : 'https://simplifai-backend.eu-de.mybluemix.net/login',
-    'order' : 'https://simplifai-backend.eu-de.mybluemix.net/subscribe', 
-    'contact': 'https://simplifai-backend.eu-de.mybluemix.net/signup'
+    'login'  : 'https://simplifai-backend.eu-de.mybluemix.net/login',
+    'order'  : 'https://simplifai-backend.eu-de.mybluemix.net/subscribe', 
+    'contact': 'https://simplifai-backend.eu-de.mybluemix.net/signup',
+    //'chat'   : 'https://simplifai-borettslag.eu-de.mybluemix.net/chat'
+    'chat' : 'https://simplifai-sales.eu-de.mybluemix.net/chat'
 	},
 
   'translation' : {

@@ -251,6 +251,10 @@ div.input-field {
     outline: none;
   }
 
+  &.-block {
+    display: block;
+  }
+
   &.-arrow-right, &.-arrow-left {
     &:before, &:after {
       content: "";

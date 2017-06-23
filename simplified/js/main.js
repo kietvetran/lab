@@ -15,25 +15,30 @@ var ATTR = {
   'errorSTD'       : CONFIG['validationErrorSTD'],
   'popupChatWidget': CONFIG['popupChatWidget'], 
   'translation'    : CONFIG['translation']   || {},
-  'api'            : CONFIG['api']           || {}
+  'api'            : CONFIG['api']           || {},
+  'sessionId'      : null
 };
 
 /******************************************************************************
 === MAIN GLOBAL FUCNTION ===
 ******************************************************************************/
 $( document ).ready(function() {
+  setupSessionId();
   convertTranslation(); 
   setupFormValidaiton();
   setupCarousel();
   setupPopupChatWidget();
   initializeOpenDatabase();
 
+  //console.log('==> ' + ATTR.sessionId);
+
   ATTR.tab   = $('.tab-btn');
   ATTR.panel = $('.tab-panel');
   ATTR.body = $('body');  
 
   $( document ).on('click', clickHandler);
-  $( window ).on('hashchange', hashChangeHandler);
+  $( window ).on('hashchange', hashChangeHandler)
+    .on('beforeunload', closeWindow);
 
   verifyAuthentication();
   hashChangeHandler();
@@ -54,6 +59,28 @@ function convertTranslation() {
       node.html( label );      
     }
   });
+}
+
+function closeWindow() {
+  //var memory = getLocalStorage();
+  //memory[ATTR.cookie+'-sessionId'] = '';
+}
+
+function setupSessionId() {
+  var memory = getLocalStorage();
+  ATTR.sessionId = memory[ATTR.cookie+'-sessionId'];
+  if ( ATTR.sessionId ) { return; }
+
+  ATTR.sessionId = (new Date()).getTime() + 'K'+ Math.floor((Math.random() * 1000) + 1);
+  memory[ATTR.cookie+'-sessionId'] = ATTR.sessionId;
+
+  /*
+  ATTR.sessionId = readCookie(ATTR.cookie+'-sessionId');
+  if ( ATTR.sessionId ) { return; }
+
+  ATTR.sessionId = (new Date()).getTime() + 'K'+ Math.floor((Math.random() * 1000) + 1);
+  createCookie( ATTR.cookie+'-sessionId', ATTR.sessionId, 1 );
+  */
 }
 
 function setupPopupChatWidget( stop ) {
@@ -85,7 +112,6 @@ function setupCarousel() {
 }
 
 function setupFormValidaiton() {
-
   $('#contact-us-form').FormValidation({
     'language'           : ATTR['language'],
     'summaryError'       : false,
@@ -118,22 +144,73 @@ function setupFormValidaiton() {
     'submitCallback'     : submitSignupForm    
   });  
 
-  $('#chat-widget-form').FormValidation({
+  var chatform = $('#chat-widget-form').FormValidation({
     'language'           : ATTR['language'],
     'summaryError'       : false,
     'validationErrorSTD' : ATTR['errorSTD'],
     'validationErrorMSG' : ATTR['errorMSG'],
     'submitCallback'     : submitChatWidget    
-  });  
+  });
+
+  $('#chat-widget-textarea').on('keyup', function(e) {
+    if ( e.keyCode === 13 && ! e.shiftKey ) {
+      chatform.submit();
+    }
+  });
 }
 
-function submitChatWidget( source ) {
-  var area = $('#chat-widget-textarea'), text = area.val(); 
+function submitChatWidget( source, querstion ) {
+  var area = $('#chat-widget-textarea'), chat = $('#chat-text-board'); 
+  var text = querstion || area.val();
+
+  var last = chat.children().last();
+  if ( last.hasClass('message') && last.hasClass('-option') ) {
+    last.remove();
+  }
+
   if ( text.replace( /\s+/,'') ) {
-    var board = $('#chat-text-board').append('<div class="message -right">'+text+'</div>');
+    var board = chat.append('<div class="message -right">'+text+'</div>');
     board.scrollTop( board.get(0).clientHeight );
-    source.main.get(0).reset();
+    if ( source ) {
+      source.main.get(0).reset();
+    }
     setupPopupChatWidget( true );
+
+    var verify = function( response ) {
+      if ( ! response ) { return; }
+
+      if ( response.text ) {
+        board = chat.append('<div class="message -left">'+response.text+'</div>');
+        board.scrollTop( board.get(0).clientHeight );        
+      }
+
+      if ( response.buttons && response.buttons instanceof Array ) {
+        var option = [], buttons = response.buttons, length = buttons.length;
+        for ( var i=0; i<length; i++ ) {
+          option.push(
+            '<li>'+
+              '<a href="#" role="button" class="message-option-btn secondary-btn -block">'+buttons[i].payload+'</a>'+
+            '</li>'
+          );
+        }
+        board = chat.append(
+          '<div class="message -option">'+
+            '<ul class="message-option-list">' + option.join('') +'</ul>'+
+          '</div>'
+        );
+        board.scrollTop( board.get(0).clientHeight ); 
+      }
+    }, failed = function() {
+
+    };
+
+    var url = ATTR.api.chat, data = {
+      'sender' : {'id': ATTR.sessionId},
+      'message' : {'text': text}
+    };
+    ATTR.ajax = $.ajax({
+      'type':'POST','url': url, 'data': data, 'success':verify, 'error': failed
+    });
   }
   return false;
 }
@@ -269,8 +346,9 @@ function clickHandler( e ) {
 
   var order = [
     //{'type':'id',    'what':'btnLogo',           'handler':clickOnBtnLogo       },
-    {'type':'class','what':'chat-widget-btn',    'handler':clickOnChatWidgetBtn },      
-    {'type':'class', 'what':'tab-btn',           'handler':clickOnTabBtn        }
+    {'type':'class','what':'chat-widget-btn',    'handler':clickOnChatWidgetBtn    },      
+    {'type':'class','what':'message-option-btn', 'handler':clickOnMessageOptionBtn },      
+    {'type':'class', 'what':'tab-btn',           'handler':clickOnTabBtn           }
   ]; 
   
   var i = 0, loop = order.length, current = null; 
@@ -297,6 +375,15 @@ function clickHandler( e ) {
     }
   }
   setupPopupChatWidget();
+}
+
+function clickOnMessageOptionBtn( data ) {
+  //var current = data.current, message = current.closest('.message').;
+  //message.removeClass('-option').html( current.html() );
+
+  //var current = data.current; 
+  //current.closest('.message').remove();
+  submitChatWidget( null, data.current.html() );
 }
 
 function clickOnTabBtn( data ) {
@@ -434,6 +521,7 @@ function setStorageData( key, text ) {
 }
 
 function verifyAuthentication() {
+  /*
   var storage = sessionStorage.getItem( ATTR.cookie + 'person') || '';
   var mode    = 'authenticated';
 
@@ -446,6 +534,7 @@ function verifyAuthentication() {
   } else {
     ATTR.body.removeClass( mode );
   }
+  */
 }
 
 /******************************************************************************
@@ -473,10 +562,10 @@ function getURLoption( href ) {
     || url.replace(/\?+/g, '?').match( /^([\w\.\-\s\_\#\%\/\:]+)\?(.*)/ );
 
   if ( matched ) {
-    let splited = (decodeURIComponent(matched[2]) || '')
+    var splited = (decodeURIComponent(matched[2]) || '')
       .replace( /\#\?/g, '&' ).split( '&' );
-    for ( let i = 0; i < splited.length; i++ ) {
-      let m = splited[i].match( /(\w+)\=(.*)/ );
+    for ( var i = 0; i < splited.length; i++ ) {
+      var m = splited[i].match( /(\w+)\=(.*)/ );
       if ( m ) { opt[m[1]] = m[2].replace( /\#$/, '' ); }
     }
   }
@@ -509,7 +598,6 @@ function getScrollPosition() {
   ] : [0, 0];
 }
 
-
 function getBodyScrollTop() {
   return document.body.scrollTop || document.documentElement.scrollTop || 0;
 }
@@ -517,4 +605,34 @@ function getBodyScrollTop() {
 function scrollBodyTop( where ) {
   document.body.scrollTop = document.documentElement.scrollTop = 
     where && (! isNaN(where) ) && where > 0 ? where : 0;
+}
+
+function createCookie( name, value, days ) {
+  if ( ! name ) return;
+  var cookie = [ name+'='+(value||'') ];
+  var d = new Date(), expires = days || 100;
+  d.setTime( d.getTime() + (expires*24*60*60*1000) );
+  cookie.push( 'expires='+d.toGMTString() );
+  cookie.push( 'path=/' );
+  document.cookie = cookie.join('; ');
+}
+
+function readCookie( name ) {
+  var nameEQ = name + '=', ca = document.cookie.split(';');
+  for ( var i=0; i<ca.length; i++ ) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return '';
+}
+
+function eraseCookie( name ) { 
+  return createCookie( name, '', -1 ); 
+}
+
+function getLocalStorage( wantSession ) {
+  var storage = wantSession ? (sessionStorage || localStorage) : 
+    (localStorage || sessionStorage);     
+  return storage || {'NOTSUPPERTLOCALSTORAGW': true};
 }
