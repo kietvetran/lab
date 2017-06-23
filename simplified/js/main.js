@@ -462,6 +462,7 @@ function clickOnChatWidgetBtn( data, force ) {
     widget.removeClass( mode );
   } else {
     widget.addClass( mode );
+    $('#chat-widget-textarea').focus();
   }
 }
 
