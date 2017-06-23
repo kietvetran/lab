@@ -21,7 +21,7 @@
 
     .chat-widget-btn {
       display: block;
-      background: $red none repeat 0 0;
+      background: $brand-color-primary none repeat 0 0;
       height: 30px;
       width: 100%;
       &:after, &:before {
@@ -41,7 +41,7 @@
     display: inline-block;
     width: 80px;
     height: 80px;
-    background: transparent url('../image/icon/chat.svg') no-repeat 0 0;
+    background: transparent url('../image/icon/chat-p.svg') no-repeat 0 0;
     position: relative;
     z-index: 2;
 
@@ -136,13 +136,13 @@
     }
 
     &.-left {
-      background: $red none repeat 0 0;
+      background: $brand-color-primary none repeat 0 0;
       color: $white;
       float: left;
       margin-left: 12px;
       &:before {
         right: 100%;
-        border-right-color: $red; 
+        border-right-color: $brand-color-primary; 
       }
     }
 

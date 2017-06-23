@@ -2129,7 +2129,7 @@ ul.breadcrumb a {
     display: none; }
   #chat-widget.-expanded .chat-widget-btn {
     display: block;
-    background: #D80027 none repeat 0 0;
+    background: #5c40bc none repeat 0 0;
     height: 30px;
     width: 100%; }
     #chat-widget.-expanded .chat-widget-btn:after, #chat-widget.-expanded .chat-widget-btn:before {
@@ -2147,7 +2147,7 @@ ul.breadcrumb a {
     display: inline-block;
     width: 80px;
     height: 80px;
-    background: transparent url("../image/icon/chat.svg") no-repeat 0 0;
+    background: transparent url("../image/icon/chat-p.svg") no-repeat 0 0;
     position: relative;
     z-index: 2; }
     #chat-widget .chat-widget-btn:after, #chat-widget .chat-widget-btn:before {
@@ -2222,13 +2222,13 @@ ul.breadcrumb a {
         left: 100%;
         border-left-color: #D8D8D8; }
     #chat-widget .message.-left {
-      background: #D80027 none repeat 0 0;
+      background: #5c40bc none repeat 0 0;
       color: #FFFFFF;
       float: left;
       margin-left: 12px; }
       #chat-widget .message.-left:before {
         right: 100%;
-        border-right-color: #D80027; }
+        border-right-color: #5c40bc; }
     #chat-widget .message.-option {
       width: 100%;
       background: #f0f0f0 none repeat 0 0; }
