@@ -30,15 +30,13 @@ $( document ).ready(function() {
   setupPopupChatWidget();
   //initializeOpenDatabase();
 
-  //console.log('==> ' + ATTR.sessionId);
-
   ATTR.tab   = $('.tab-btn');
   ATTR.panel = $('.tab-panel');
   ATTR.body = $('body');  
 
   $( document ).on('click', clickHandler);
   $( window ).on('hashchange', hashChangeHandler)
-    .on('beforeunload', closeWindow);
+    .on('unload', closeWindow);
 
   verifyAuthentication();
   hashChangeHandler();
@@ -64,23 +62,28 @@ function convertTranslation() {
 function closeWindow() {
   //var memory = getLocalStorage();
   //memory[ATTR.cookie+'-sessionId'] = '';
+
+  //eraseCookie( (ATTR.cookie+'-sessionId') );
 }
 
 function setupSessionId() {
+  /*
   var memory = getLocalStorage();
   ATTR.sessionId = memory[ATTR.cookie+'-sessionId'];
   if ( ATTR.sessionId ) { return; }
 
   ATTR.sessionId = (new Date()).getTime() + 'K'+ Math.floor((Math.random() * 1000) + 1);
   memory[ATTR.cookie+'-sessionId'] = ATTR.sessionId;
+  */
 
-  /*
-  ATTR.sessionId = readCookie(ATTR.cookie+'-sessionId');
+  ATTR.sessionId = readCookie((ATTR.cookie+'-sessionId'));
   if ( ATTR.sessionId ) { return; }
 
+  var date = new Date(), minutLeft = (24*60) - ((date.getHours()*60)+date.getMinutes());
+  var left = minutLeft * 60 * 1000;
+
   ATTR.sessionId = (new Date()).getTime() + 'K'+ Math.floor((Math.random() * 1000) + 1);
-  createCookie( ATTR.cookie+'-sessionId', ATTR.sessionId, 1 );
-  */
+  createCookie( (ATTR.cookie+'-sessionId'), ATTR.sessionId, parseFloat(1/left) );
 }
 
 function setupPopupChatWidget( stop ) {
@@ -632,7 +635,10 @@ function eraseCookie( name ) {
 }
 
 function getLocalStorage( wantSession ) {
-  var storage = wantSession ? (sessionStorage || localStorage) : 
+  var storage = null;
+  try {  
+   storage = wantSession ? (sessionStorage || localStorage) : 
     (localStorage || sessionStorage);     
+  } catch( error ) {}
   return storage || {'NOTSUPPERTLOCALSTORAGW': true};
 }
