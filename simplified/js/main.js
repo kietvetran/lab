@@ -28,7 +28,7 @@ $( document ).ready(function() {
   setupFormValidaiton();
   setupCarousel();
   setupPopupChatWidget();
-  initializeOpenDatabase();
+  //initializeOpenDatabase();
 
   //console.log('==> ' + ATTR.sessionId);
 
