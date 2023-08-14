@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="-44.71 -144.252 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <path id="kiet" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); transform-box: fill-box; transform-origin: 50% 50%;" d="M 57.94 283.466 C 5.94 283.466 -26.559 227.175 -0.559 182.142 C 25.44 137.11 90.439 137.11 116.439 182.142 C 127.612 201.495 128.491 225.121 118.787 245.25" transform="matrix(0.840588, 0.541675, -0.541675, 0.840588, 0.000008, 0.000002)"/>
+
+     <path id="myTextPat2" d="M75,20 a1,1 0 0,0 100,0"/>
+     <path id="myTextPath" d="M26,280 a2,1 0 0,0 62,-40"/>
+
+  </defs>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 13.9px;" x="283.835" y="-48.131">STUDIO</text>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 248.807 -62.443 L 352.742 -62.443"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 249.549 -42.869 L 353.484 -42.869"/>
+  <g transform="matrix(1, 0, 0, 1, -235.847153, -230.761734)">
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 13.8px;" x="432.446" y="185.247">N83</text>
+    <circle fill="none" cx="445.655" cy="180.36" r="17.682" stroke-width="2" stroke="#000"/>
+  </g>
+  <path fill="none" d="M 246.188 221.762 L 352.19 221.762 L 352.19 310.464 L 246.188 310.464 L 246.188 221.762 Z" style=""/>
+  <path fill="none" d="M 276.213 217.019 L 289.466 217.019 L 289.466 231.059 L 276.213 231.059 L 276.213 217.019 Z" style=""/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M -0.208 -71.748 L -0.208 -11.357"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M -11.458 -71.867 L 11.471 -71.867"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 46.308 -71.824 L 46.308 -9.979"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 36.09 -71.945 L 56.732 -71.945"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M -11.079 -11.35 L 11.268 -11.35"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M -0.133 -70.402 L 47.453 -9.337"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 11.279 -71.948 L 47.004 -27.327"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="83.591" cy="-57.971" rx="22.543" ry="15.419"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="84.597" cy="-24.324" rx="24.978" ry="17.991"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 117.594 -58.608 L 117.594 -71.159"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 118.541 -71.484 L 160.83 -71.484"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 160.618 -71.407 L 146.162 -47.626"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 145.639 -71.326 L 131.779 -49.189"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 146.985 -47.189 L 148.089 -6.913"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); transform-box: fill-box; transform-origin: 50% 50%;" d="M 74.669 -6.767 L 75.518 -72.694" transform="matrix(-1, 0, 0, -1, 0.000003, -0.000001)"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 92.919 -71.489 L 92.701 -5.396"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); transform-origin: 136.821px -25.14px;" d="M 130.976 -48.346 C 148.442 -54.063 164.617 -39.427 160.093 -22.001 C 155.568 -4.576 133.736 2.571 120.795 -9.137 C 118.822 -10.921 117.207 -13.053 116.019 -15.428"/>
+  <g transform="matrix(1, 0, 0, 1, -178.568161, -218.886734)">
+    <g style="" transform="matrix(1.039501, 0, 0, 1.030854, -3.359311, 16.040911)">
+      <path fill="none" stroke="#000" stroke-width="3" d="M 175.634 228.479 L 175.634 291.938" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 164.384 228.36 L 188 228.36"/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 222.15 228.403 L 222.15 293.9" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 164.453 292.529 L 186.8 292.529"/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 176.481 229.428 L 222.61 294.633" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 187.554 227.218 L 221.386 274.664" style=""/>
+    </g>
+    <path fill="none" stroke="#000" stroke-width="3" d="M 215.504 251.367 L 237.7 251.367" style=""/>
+    <g transform="matrix(1, 0, 0, 1.04906, 3.743163, 11.241831)" style="">
+      <ellipse fill="none" stroke="#000" stroke-width="3" cx="258.623" cy="243.216" rx="21.782" ry="15.137"/>
+      <ellipse fill="none" stroke="#000" stroke-width="3" cx="259.596" cy="276.249" rx="24.135" ry="17.662"/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 267.637 229.945 L 267.427 292.831"/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 251.637 229.945 L 251.427 292.831"/>
+    </g>
+    <g style="" transform="matrix(1, 0, 0, 1.04906, 2.322528, 12.898856)">
+      <path fill="none" stroke="#000" stroke-width="3" d="M 292.232 241.619 L 292.666 229.068" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 291.238 228.743 L 336.645 228.743" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 335.44 228.82 L 321.068 252.601" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 320.548 228.901 L 306.769 251.038" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 321.884 251.33 L 322.827 290.718" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" style="transform-origin: 312.73px 272.475px;" d="M 305.745 251.535 C 322.074 245.292 338.403 257.786 335.137 274.02 C 331.873 290.255 311.462 298.058 298.399 288.065 C 296.408 286.542 294.736 284.681 293.458 282.571"/>
+      <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 160.07 294.854 L 358.391 294.854"/>
+    </g>
+    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 162.736 245.221 L 359.713 245.221"/>
+  </g>
+  <g transform="matrix(0.552211, 0, 0, 0.585024, 181.383179, -101.421211)" style="">
+    <g>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 175.634 228.479 L 175.634 291.938" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 164.384 228.36 L 188 228.36"/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 222.15 228.403 L 222.15 293.9" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 164.453 292.529 L 186.8 292.529"/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 176.481 229.428 L 222.61 294.633" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 187.554 227.218 L 221.386 274.664" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 210.542 228.17 L 233.819 228.17" style=""/>
+    </g>
+    <g>
+      <ellipse fill="none" stroke="#000" stroke-width="3" cx="258.623" cy="243.216" rx="21.782" ry="15.137"/>
+      <ellipse fill="none" stroke="#000" stroke-width="3" cx="259.596" cy="276.249" rx="24.135" ry="17.662"/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 267.637 229.945 L 267.427 292.831"/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 251.637 229.945 L 251.427 292.831"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 292.232 241.619 L 292.666 229.068" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 291.238 228.743 L 336.645 228.743" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 335.44 228.82 L 321.068 252.601" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 320.548 228.901 L 306.769 251.038" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" d="M 321.884 251.33 L 322.827 290.718" style=""/>
+      <path fill="none" stroke="#000" stroke-width="3" style="transform-origin: 312.73px 272.475px;" d="M 305.745 251.535 C 322.074 245.292 338.403 257.786 335.137 274.02 C 331.873 290.255 311.462 298.058 298.399 288.065 C 296.408 286.542 294.736 284.681 293.458 282.571"/>
+    </g>
+  </g>
+
+  <text fill="#000" letter-spacing="4" style="font-family: sans-serif; font-size: 12px;">
+      <textPath xlink:href="#myTextPath">STUDIO</textPath>
+  </text>
+
+  <ellipse fill="none" stroke="#000" stroke-width="3" cx="233.409" cy="217.159" rx="73.856" ry="73.856"/>
+
+  <path fill="none" stroke="#000" stroke-width="3"  style="transform-box: fill-box; transform-origin: 50% 50%;" d="M 57.94 283.466 C 5.94 283.466 -26.559 227.175 -0.559 182.142 C 25.44 137.11 90.439 137.11 116.439 182.142 C 127.612 201.495 128.491 225.121 118.787 245.25" transform="matrix(0.840588, 0.541675, -0.541675, 0.840588, 0.000008, 0.000002)"/>
+</svg>
