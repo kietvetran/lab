@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 160 65" xmlns="http://www.w3.org/2000/svg">
+  <path fill="none" stroke="#000" stroke-width="2" d="M 42.598 6.749 L 60.729 6.749"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 51.684 7.47 L 51.684 58.46"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 4.83 6.628 L 22.961 6.628"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 13.399 6.722 L 13.399 57.712"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 5.363 56.882 L 23.494 56.882"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 22.2 6.391 L 51.5 44.4"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 13.371 7.37 L 51.6 57.8"/>
+  <ellipse fill="none" stroke="#000" stroke-width="2" cx="86.298" cy="17.732" rx="23.172" ry="12.96"/>
+  <ellipse fill="none" stroke="#000" stroke-width="2" cx="87.082" cy="45.467" rx="23.61" ry="14.402"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 78.544 5.4 L 78.544 59.5"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 94.888 5.4 L 94.888 59.5"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 133.267 22.409 C 148.121 22.409 157.405 37.936 149.978 50.357 C 142.551 62.779 123.983 62.779 116.556 50.357 C 116.444 50.17 116.337 49.982 116.232 49.792"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 134.1 22 L 143.478 6.139"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 144.339 25.603 L 155.527 6.942"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 156.35 6.694 L 117 6.694"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 116.5 5.7 L 116.5 19.471"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 144.442 25.623 L 144.442 56.592"/>
+</svg>
