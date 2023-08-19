@@ -1,0 +1,12 @@
+body, h1, h2, h3, h4, p, div, span, strong, em, b, li, td, a, button, legend, textarea, label, input, select, option  {
+	font-family: var(--font-family);
+	color: var(--font-color);
+}
+
+body, p, div, span, strong, em, b, li, td, a, button, legend, textarea, label, input, select, option  {
+	font-size: var(--font-size-regular);
+}
+
+body, p, div, span, em, li, td, a, button, legend, textarea, label, input, select, option  {
+	font-weight: normal;
+}

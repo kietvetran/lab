@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>N83 studio</title>
+        <title>N83 studio - guideline</title>
 
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -16,17 +16,23 @@
         <link rel="stylesheet" href="css/typography.css">
         <link rel="stylesheet" href="css/unit.css">
         <link rel="stylesheet" href="css/formElement.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/tool.css">
+
+        <script type="text/javascript" src="js/functions.js"></script>
+        <script type="text/javascript" src="js/tool.js"></script>
+
     </head>
-    <body>
-        <main class="layout-outer relative">
-            <div class="coming-soon-holder">
-                <div class="coming-soon-content">
-                    <h1>N83 Studio LLC</h1>
-                    <p class="lead">N83 Studio LLC is a newly created company with plans to engage in e-commerce and publishing.<p>
-                    <p class="info">More infomation coming soon.<p>
-                </div>
-            </div>
+    <body onload="javascript:startup()">
+        <main class="layout-outer relative tool-wrapper">
+            <ul id="tool-holder" class="tool-holder">
+                <li>
+                    <textarea id="input-textarea" class="textarea"></textarea>
+                </li>
+                <li>
+                    <button class="button -small -primary verify-btn">Verify</button> 
+                </li>
+            </ul> 
+            <div id="tool-result" class="tool-result"></div>
         </main>
     </body>
 </html>

@@ -1,0 +1,93 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 auto;
+    position: relative;
+}
+
+html, body {
+    overflow-x: hidden;
+    background: var(--bg-color) none no-repeat center center;
+}
+
+body {
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.layout-outer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+}
+
+span.ellipsis, a.ellipsis {
+    display: inline-block;
+}
+
+img, video {
+  display: inline-block;
+  overflow: hidden;
+  border: 0 none;
+  max-width: 100%;
+}
+
+section, main, header, footer, article, nav, picture, figure, canvas, svg {
+    display: block;
+}
+
+.fill {
+    height: 100%;
+    width: 100%;
+}
+
+.paragraph              { padding: 0 0 var(--space-medium) 0; }
+.paragraph.-only-top    { padding: var(--space-medium) 0 0 0; }
+.paragraph.-include-top { padding-top: var(--space-medium);   }
+
+
+button, a {
+    position: relative;
+    top: 0;    
+}
+
+button:focus, a:focus {
+    outline: var(--border-color) dotted 1px;
+    outline-offset: 2px;    
+}
+
+button:active, a:active {
+    top: 2px;
+}
+
+a.link {
+    color: var(--font-color);
+    text-decoration: underline;
+}
+
+iframe {
+    width: 100%;
+    height: 100px;
+    min-height: 300px;
+    display: block;
+    border: 0 none;
+}
+
+

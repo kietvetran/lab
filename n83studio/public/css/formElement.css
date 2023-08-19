@@ -1,0 +1,66 @@
+/******************************************************************************
+  button
+******************************************************************************/
+.button {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    padding: var(--space-extra-small-min) var(--space-medium);  
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+    color: var(--border-color);
+    border-radius: var(--border-round);
+    text-decoration: none;
+    font-weight: 500;
+    min-width: 64px;
+    white-space: nowrap;
+    background: #eee none no-repeat left center / auto 100%;
+}
+
+.button.-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.button.-small {
+    padding: 4px var(--space-small);
+    font-size: var(--font-size-small);
+}
+
+/******************************************************************************
+  textfield & textarea 
+******************************************************************************/
+.textarea, .textfield {
+    border-radius: var(--border-round);
+    background: var(--color-white) none repeat 0 0;
+    display: block;
+    borde: 2px solid var(--border-color);
+    width: 100%;
+    padding: var(--space-small);
+}
+
+.textarea:hover, .textarea:focus, .textarea:active, 
+.textfield:hover, .textfield:focus, .textfield:active {
+    border-color: var(--color-focus);
+    box-shadow: 0 0 0 2px var(--color-focus);
+    outline: none;
+}
+
+.textarea.-invalid, .textfield.-invalid {
+    border-color: var(--color-error);
+}
+
+
+/******************************************************************************
+  textarea 
+******************************************************************************/
+.textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.textarea-remain-character {
+    font-size: 85%;
+    font-style: italic;
+    text-align: right;
+}
