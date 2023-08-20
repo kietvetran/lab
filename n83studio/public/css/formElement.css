@@ -30,6 +30,50 @@
 /******************************************************************************
   textfield & textarea 
 ******************************************************************************/
+.icon-btn {
+    display: inline-block;
+    width: var(--icon-btn-size);
+    height: var(--icon-btn-size);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-round);
+    background: transparent none no-repeat center center / auto 90%;
+}
+
+.icon-btn.-small {
+    width: var(--icon-btn-size-small);
+    height: var(--icon-btn-size-small);
+}
+
+.icon-btn.-no-border {
+    border: 0 none;
+}
+
+.icon-btn.-twitter {
+    background-image: url('../image/icon/twitter/twitter.svg');
+}
+.icon-btn.-twitter.-icon-white {
+    background-image: url('../image/icon/twitter/twitter-white.svg');
+}
+
+.icon-btn.-facebook {
+    background-image: url('../image/icon/facebook/facebook.svg');
+    background-size: auto 75%;
+}
+.icon-btn.-facebook.-icon-white {
+    background-image: url('../image/icon/facebook/facebook-white.svg');
+}
+
+.icon-btn.-instagram {
+    background-image: url('../image/icon/instagram/instagram.svg');
+}
+.icon-btn.-instagram.-icon-white {
+    background-image: url('../image/icon/instagram/instagram-white.svg');
+}
+
+
+/******************************************************************************
+  textfield & textarea 
+******************************************************************************/
 .textarea, .textfield {
     border-radius: var(--border-round);
     background: var(--color-white) none repeat 0 0;

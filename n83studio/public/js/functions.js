@@ -119,6 +119,50 @@ function getClickHandler (e, handlerList ) {
     return handler;
 };
 
+
+/** ****************************************************************************
+ ***************************************************************************** */
+function getURLquery ( href ) {
+    var opt = {};
+    var list = [];
+    var key = '';
+
+    var url = href || window.location.href;
+    var matched = url.replace(/\?+/g, '?').match(/^([\w.\-\s_#%/:]+)\?(.*)/);
+    var sharp = url.match(/#(\w+)(\?|$)/);
+
+    if ( sharp ) {
+        opt[`#${sharp[1]}`] = 1;
+    }
+
+    if (matched) {
+        var splited = (decodeURIComponent(matched[2]) || '').replace(/#\?/g, '&').split('&');
+        for (var i = 0; i < splited.length; i++) {
+            var m = splited[i].match(/(\w+)=(.*)/);
+            if ( ! m || ! m[1] || ! m[2] ) { continue; }
+
+            opt[m[1]] = m[2].replace(/#$/, '');
+
+            var n = opt[m[1]].match( /^\[(.*)\]$/ );
+            if ( ! n || ! n[1] ) { continue; }
+
+            opt[m[1]] = n[1].split(',').reduce( (p,d) => {
+                if ( d ) {
+                    try {
+                        p.push(JSON.parse(d));
+                    } catch ( error ) {
+                        p.push(d);
+                    }
+                }
+                return p;
+            }, []);
+        }
+    }
+
+
+    return opt;
+};
+
 /** ****************************************************************************
  ***************************************************************************** */
 function createRegexp (text, g, i, b, f, ignorReplacing ) {

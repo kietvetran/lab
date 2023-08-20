@@ -1,0 +1,26 @@
+<svg viewBox="0 0 215 215" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <path id="myTextPath" d="M73,206 a2,1 0 0,0 62,-40"/>
+  </defs>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 71.774 81.88 L 89.905 81.88"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 80.86 82.601 L 80.86 134"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 34.006 81.759 L 52.137 81.759"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 42.575 81.853 L 42.575 132.843"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 34.539 132.013 L 52.67 132.013"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 50.6 81 L 80.676 119.531"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 42.547 82.501 L 80.776 132.931"/>
+  <ellipse fill="none" stroke="#d9b660" stroke-width="4" cx="115.474" cy="92.863" rx="23.172" ry="12.96"/>
+  <ellipse fill="none" stroke="#d9b660" stroke-width="4" cx="116.258" cy="120.598" rx="23.61" ry="14.402"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 107.72 80.531 L 107.72 134.631"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 124.064 80.531 L 124.064 134.631"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 162.443 97.54 C 177.297 97.54 186.581 113.067 179.154 125.488 C 171.727 137.91 153.159 137.91 145.732 125.488 C 145.62 125.301 145.513 125.113 145.408 124.923"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 164.1 97.131 L 172.654 81.27"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 173.515 100.734 L 184 82.073"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 185.6 81.825 L 143.7 81.825"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 145.676 80.831 L 145.676 94.602"/>
+  <path fill="none" stroke="#d9b660 " stroke-width="4" d="M 173.618 100.754 L 173.618 131.723"/>
+  <path fill="none" stroke="#000" stroke-width="2" style="transform-box: fill-box; transform-origin: 50% 50%;" d="M 106.513 1.803 C 187.22 1.803 237.663 89.171 197.309 159.066 C 156.956 228.96 56.072 228.96 15.718 159.066 C -1.985 128.404 -3.017 90.877 12.977 59.289" transform="matrix(-0.852547, -0.522651, 0.522651, -0.852547, -0.000018, 0.000004)"/>
+  <text fill="#000" letter-spacing="4" style="font-family: sans-serif; font-size: 12px; white-space: pre;">
+    <textPath xlink:href="#myTextPath">STUDIO</textPath>
+  </text>
+</svg>

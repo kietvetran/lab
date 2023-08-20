@@ -58,6 +58,16 @@ section, main, header, footer, article, nav, picture, figure, canvas, svg {
     width: 100%;
 }
 
+
+p, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+
+p, h1, h2 {
+    padding-bottom: var(--space-medium);
+}
+
 .paragraph              { padding: 0 0 var(--space-medium) 0; }
 .paragraph.-only-top    { padding: var(--space-medium) 0 0 0; }
 .paragraph.-include-top { padding-top: var(--space-medium);   }

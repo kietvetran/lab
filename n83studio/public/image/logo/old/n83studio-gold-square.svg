@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 187.212 93.423" xmlns="http://www.w3.org/2000/svg">
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 54.969 20.586 L 73.1 20.586"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 64.055 21.307 L 64.055 72.706"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 17.201 20.465 L 35.332 20.465"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 25.77 20.559 L 25.77 71.549"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 17.734 70.719 L 35.865 70.719"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 33.795 19.706 L 63.871 58.237"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 25.742 21.207 L 63.971 71.637"/>
+  <ellipse fill="none" stroke="#d9b660" stroke-width="4" cx="98.669" cy="31.569" rx="23.172" ry="12.96"/>
+  <ellipse fill="none" stroke="#d9b660" stroke-width="4" cx="99.453" cy="59.304" rx="23.61" ry="14.402"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 90.915 19.237 L 90.915 73.337"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 107.259 19.237 L 107.259 73.337"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 145.638 36.246 C 160.492 36.246 169.776 51.773 162.349 64.194 C 154.922 76.616 136.354 76.616 128.927 64.194 C 128.815 64.007 128.708 63.819 128.603 63.629"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 147.295 35.837 L 155.849 19.976"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 156.71 39.44 L 167.195 20.779"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 168.795 20.531 L 126.895 20.531"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 128.871 19.537 L 128.871 33.308"/>
+  <path fill="none" stroke="#d9b660" stroke-width="4" d="M 156.813 39.46 L 156.813 70.429"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 5.24 32.856 L 4.866 6.234 L 41.696 5.599"/>
+  <path fill="none" stroke="#000" stroke-width="2" d="M 145 87 L 180 87 L 180 53"/>
+  <text fill="#000" letter-spacing="2" style="font-family: sans-serif; font-size: 9px;" x="96" y="90">STUDIO</text>
+</svg>
