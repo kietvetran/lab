@@ -25,6 +25,9 @@
 	--space-large-min: 28px;
 	--space-large: 30px;
 	--space-large-max: 32px;
+	--space-extra-large-min: 34px;
+	--space-extra-large: 36px;
+	--space-extra-large-max: 38px;
 
 	--icon-btn-size-small: 30px;
 	--icon-btn-size: 40px;
@@ -32,11 +35,23 @@
 	--border-round: 4px;
 	--border-color: #333333;
 
+	--card-round: 6px;
+	--card-color: #eee;
+
+
+	--radius-1: 70%;
+	--radius-2: 30%;
+	--radius-3: 30%;
+	--radius-4: 70%;
+	--radius-5: 60%;
+	--radius-6: 40%;
+	--radius-7: 60%;
+	--radius-8: 40%;
+
 	--color-primary:   #343a40;
 	--color-secondary: #e9bd6c;
 	--color-focus:     #8F00FF;
 	--color-white:     #FFFFFF;
-
 	--color-blue-light:#0099cc;
 	--color-blue:      #0d6efd;
     --color-indigo:    #6610f2;
@@ -49,8 +64,8 @@
     --color-green:     #198754;
     --color-teal:      #20c997;
     --color-cyan:      #0dcaf0;
-    --color-gray:      #6c757d;
-    --color-gray-dark: #343a40;
+    --color-grey:      #6c757d;
+    --color-grey-dark: #343a40;
     --color-success:   #198754;
     --color-info:      #0dcaf0;
     --color-warning:   #ffc107;
@@ -60,6 +75,7 @@
     --color-dark:      #343a40;
    	--color-darkest:   #1E1E25;
     --color-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+
 }
 
 @media screen and (max-width: 768px) {

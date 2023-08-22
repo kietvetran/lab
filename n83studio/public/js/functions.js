@@ -132,7 +132,7 @@ function getURLquery ( href ) {
     var sharp = url.match(/#(\w+)(\?|$)/);
 
     if ( sharp ) {
-        opt[`#${sharp[1]}`] = 1;
+        opt.sharp = `#${sharp[1]}`;
     }
 
     if (matched) {
@@ -158,7 +158,6 @@ function getURLquery ( href ) {
             }, []);
         }
     }
-
 
     return opt;
 };

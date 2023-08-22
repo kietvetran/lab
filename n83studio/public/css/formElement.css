@@ -70,6 +70,24 @@
     background-image: url('../image/icon/instagram/instagram-white.svg');
 }
 
+.icon-btn.-email {
+    background-image: url('../image/icon/email/email.svg');
+}
+.icon-btn.-email.-icon-white {
+    background-image: url('../image/icon/email/email-white.svg');
+}
+
+.icon-btn.-pinterest {
+    background-image: url('../image/icon/pinterest/pinterest.svg');
+}
+.icon-btn.-pinterest.-icon-white {
+    background-image: url('../image/icon/pinterest/pinterest-white.svg');
+}
+
+.icon-btn.-cross {
+    background-image: url('../image/icon/cross/cross.svg');
+    background-size: auto 40%;
+}
 
 /******************************************************************************
   textfield & textarea 
