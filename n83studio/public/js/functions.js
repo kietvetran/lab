@@ -48,7 +48,7 @@ function getClosestParent ( target, what) {
 function addEvent (callback, target, type) {
     if (target) {
         if (typeof target.addEventListener !== 'undefined') {
-            target.addEventListener(type, callback, false);
+            target.addEventListener(type, callback);
         } else if (typeof target.attachEvent !== 'undefined') {
             target.attachEvent(`on${type}`, callback);
         }
@@ -65,6 +65,57 @@ function removeEvent (myFunction, target, type) {
     }
 };
 
+/** ****************************************************************************
+  getWindowSize
+***************************************************************************** */
+function getWindowSize() {
+    var size = [0, 0];
+    if (!window.innerWidth) {
+        // IE
+        if (!(document.documentElement.clientWidth === 0)) {
+            size[0] = document.documentElement.clientWidth;
+            size[1] = document.documentElement.clientHeight;
+        } else {
+            size[0] = document.body.clientWidth;
+            size[1] = document.body.clientHeight;
+        }
+    } else {
+        size[0] = window.innerWidth;
+        size[1] = window.innerHeight;
+    }
+    return size;
+};
+
+/** ****************************************************************************
+ ***************************************************************************** */
+function clearSelection() {
+    if (window.getSelection) {
+        window.getSelection().removeAllRanges();
+    } else if (document.selection) {
+        document.selection.empty();
+    }
+};
+
+/** ****************************************************************************
+ ***************************************************************************** */
+function getDocumentScrollPosition() {
+    if (typeof window.pageYOffset !== 'undefined') {
+        return [window.pageXOffset, window.pageYOffset];
+    }
+
+    if (typeof document.documentElement.scrollTop !== 'undefined' && document.documentElement.scrollTop > 0) {
+        return [document.documentElement.scrollLeft, document.documentElement.scrollTop];
+    }
+
+    return typeof document.body.scrollTop !== 'undefined' ?
+        [document.body.scrollLeft, document.body.scrollTop] : [0, 0];
+};
+
+function scrollBodyTop(where) {
+    var top = where && !isNaN(where) && where > 0 ? where : 0;
+    document.body.scrollTop = top;
+    document.documentElement.scrollTop = top;
+};
 
 /** ****************************************************************************
  ***************************************************************************** */
@@ -122,8 +173,8 @@ function getClickHandler (e, handlerList ) {
 
 /** ****************************************************************************
  ***************************************************************************** */
-function getURLquery ( href ) {
-    var opt = {};
+function getURLquery ( href, query ) {
+    var opt = {...(query || {})};
     var list = [];
     var key = '';
 

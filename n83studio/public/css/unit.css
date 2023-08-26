@@ -3,6 +3,8 @@
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+.blob-1 { border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%; }
+.blob-2 { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
 
 .top-appending {
     position: relative;
@@ -12,6 +14,111 @@
   	animation-timing-function: linear;
 	animation-fill-mode: forwards;
 }
+
+
+/******************************************************************************
+ == Carousel ==
+******************************************************************************/
+.carousel-wrapper {
+	position: relative;
+	border: 2px solid transparent;
+}
+
+.carousel-wrapper .carousel-content {
+	margin: 0 var(--carousel-space-negative);
+}
+
+.carousel-wrapper .carousel-content ul.gallery {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(100, 100vw);
+	overflow: scroll;
+	scroll-snap-type: both mandatory;
+	scroll-behavior: smooth;
+	border-radius: var(--border-round);
+}
+
+.carousel-wrapper .carousel-content ul.gallery.active {
+	scroll-snap-type: unset;
+}
+
+.carousel-wrapper .carousel-content ul.gallery > li {
+	scroll-snap-align: center;
+	display: inline-block;
+}
+
+.carousel-wrapper .carousel-content ul.gallery > li > div,
+.carousel-wrapper .carousel-content ul.gallery > li > a {
+	height: 100%;
+}
+
+/* Hide scrollbar in WebKit and Blink powered Browsers. */
+.carousel-wrapper .carousel-content ul.gallery::-webkit-scrollbar {
+	display: none;
+}
+
+.carousel-wrapper .bullet-holder {
+	text-align: center;
+	padding: var(--space-medium) 0;
+}
+
+.carousel-wrapper .carousel-bullet-btn {
+	font-size: 1px;
+	color: transparent;
+	overflow: hidden;	
+	border: 0 none;
+	background: transparent none no-repeat center center;
+	position: relative;
+	border-radius: 100%;
+}
+
+.carousel-wrapper .carousel-bullet-btn:before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: var(--carousel-bullet-size);
+	height: var(--carousel-bullet-size);
+	margin: var(--carousel-bullet-position) 0 0  var(--carousel-bullet-position);
+	border-radius: 100%;
+	border: 2px solid var(--border-color);
+	background-color: var(--border-color);
+}
+
+
+.carousel-wrapper.-display-index-0 .carousel-bullet-btn.-index-0:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-1 .carousel-bullet-btn.-index-1:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-2 .carousel-bullet-btn.-index-2:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-3 .carousel-bullet-btn.-index-3:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-4 .carousel-bullet-btn.-index-4:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-5 .carousel-bullet-btn.-index-5:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-6 .carousel-bullet-btn.-index-6:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-7 .carousel-bullet-btn.-index-7:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-8 .carousel-bullet-btn.-index-8:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-9 .carousel-bullet-btn.-index-9:before   { background-color: transparent; }
+.carousel-wrapper.-display-index-10 .carousel-bullet-btn.-index-10:before { background-color: transparent; }
+.carousel-wrapper.-display-index-11 .carousel-bullet-btn.-index-11:before { background-color: transparent; }
+.carousel-wrapper.-display-index-12 .carousel-bullet-btn.-index-12:before { background-color: transparent; }
+.carousel-wrapper.-display-index-13 .carousel-bullet-btn.-index-13:before { background-color: transparent; }
+.carousel-wrapper.-display-index-14 .carousel-bullet-btn.-index-14:before { background-color: transparent; }
+.carousel-wrapper.-display-index-15 .carousel-bullet-btn.-index-15:before { background-color: transparent; }
+.carousel-wrapper.-display-index-16 .carousel-bullet-btn.-index-16:before { background-color: transparent; }
+.carousel-wrapper.-display-index-17 .carousel-bullet-btn.-index-17:before { background-color: transparent; }
+.carousel-wrapper.-display-index-18 .carousel-bullet-btn.-index-18:before { background-color: transparent; }
+.carousel-wrapper.-display-index-19 .carousel-bullet-btn.-index-19:before { background-color: transparent; }
+.carousel-wrapper.-display-index-20 .carousel-bullet-btn.-index-20:before { background-color: transparent; }
+.carousel-wrapper.-display-index-22 .carousel-bullet-btn.-index-22:before { background-color: transparent; }
+.carousel-wrapper.-display-index-22 .carousel-bullet-btn.-index-22:before { background-color: transparent; }
+.carousel-wrapper.-display-index-23 .carousel-bullet-btn.-index-23:before { background-color: transparent; }
+.carousel-wrapper.-display-index-24 .carousel-bullet-btn.-index-24:before { background-color: transparent; }
+.carousel-wrapper.-display-index-25 .carousel-bullet-btn.-index-25:before { background-color: transparent; }
+.carousel-wrapper.-display-index-26 .carousel-bullet-btn.-index-26:before { background-color: transparent; }
+.carousel-wrapper.-display-index-27 .carousel-bullet-btn.-index-27:before { background-color: transparent; }
+.carousel-wrapper.-display-index-28 .carousel-bullet-btn.-index-28:before { background-color: transparent; }
+.carousel-wrapper.-display-index-29 .carousel-bullet-btn.-index-29:before { background-color: transparent; }
+
 
 /******************************************************************************
  == Modal ==
@@ -104,3 +211,18 @@
 		padding-right: 0;
 	}
 }
+
+@media screen and (max-width: 600px) {
+	.carousel-wrapper .carousel-content ul.gallery {
+		display: block;
+	}
+
+	.carousel-wrapper .carousel-content ul.gallery > li {
+		margin-bottom: var(--space-large);
+	}
+
+	.carousel-wrapper .bullet-holder {
+		display: none;
+	}
+}
+

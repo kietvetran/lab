@@ -38,7 +38,9 @@ header h1 {
     margin-top: -90px;
     background: var(--color-dark) none no-repeat center center;
     border: 26px solid var(--bg-color);
-    border-radius: var(--radius-1) var(--radius-2) var(--radius-3) var(--radius-4) / var(--radius-5) var(--radius-6) var(--radius-7) var(--radius-8);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+    border-radius: 100%;
 }
 
 .header-title-wrapper:after { 
@@ -92,8 +94,13 @@ footer {
     background-color: var(--color-dark);
 }
 
+footer .layout-outer {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 footer .icon-btn {
-    margin: 0 var(--space-small);
+    margin: var(--space-extra-small-min) var(--space-small);
 }
 
 /******************************************************************************
@@ -177,7 +184,7 @@ footer .icon-btn {
 }
 
 .book-thumb-wrapper .book-link-wrapper .image-holder {
-    height: 280px;
+    height: 320px;
     text-align: center;
     padding: var(--space-small);
     margin: 0 0 var(--space-small) 0;
@@ -236,12 +243,24 @@ footer .icon-btn {
     padding: var(--space-extra-large-max);    
 }
 
+.book-info-wrapper .book-wrapper .info-holder .info-content {
+    /*
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 103%;
+    justify-content: flex-end;
+    */
+}
+
+
 .book-info-wrapper  .book-wrapper .info-item {
     padding: 0 0 var(--space-small-max) 0;
     opacity: .8;
 }
 
 .book-info-wrapper .book-wrapper .info-item.price {
+    padding: var(--space-medium) 0;
     font-size: var(--font-size-large);
 }
 
@@ -251,10 +270,8 @@ footer .icon-btn {
 }
 
 .book-info-wrapper .book-wrapper .info-item.link {
-    opacity: .9;
+    opacity: 1;
 }
-
-
 
 /******************************************************************************
  == Tablet ==
@@ -315,7 +332,6 @@ footer .icon-btn {
         height: auto;
     }
 
-
     .book-info-wrapper .book-wrapper {
         display: block;
     }
@@ -326,6 +342,10 @@ footer .icon-btn {
 
     .book-info-wrapper .book-wrapper .info-holder {
         padding: var(--space-medium);    
+    }
+
+    .book-info-wrapper .book-wrapper .info-item.link {
+        text-align: center;
     }
 }
 

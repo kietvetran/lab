@@ -38,15 +38,10 @@
 	--card-round: 6px;
 	--card-color: #eee;
 
-
-	--radius-1: 70%;
-	--radius-2: 30%;
-	--radius-3: 30%;
-	--radius-4: 70%;
-	--radius-5: 60%;
-	--radius-6: 40%;
-	--radius-7: 60%;
-	--radius-8: 40%;
+	--carousel-space: 12px;
+	--carousel-space-negative: -12px;
+	--carousel-bullet-size: 12px;
+	--carousel-bullet-position: -6px;
 
 	--color-primary:   #343a40;
 	--color-secondary: #e9bd6c;
@@ -75,7 +70,6 @@
     --color-dark:      #343a40;
    	--color-darkest:   #1E1E25;
     --color-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-
 }
 
 @media screen and (max-width: 768px) {
